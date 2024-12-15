@@ -1,0 +1,285 @@
+.payment_container {
+  display: flex;
+  margin-bottom: 50px;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+
+  flex: 0 0 49%;
+  margin: 0; /* حذف margin برای مرکزیت بهتر */
+  border: 1px solid var(--color-grey-100);
+  background-image: linear-gradient(
+    to right,
+    var(--color-grey-100),
+    var(--color-grey-100)
+  );
+  padding: 1.5rem; /* اضافه کردن padding برای فاصله داخلی */
+  border-radius: 10px; /* گوشه‌های گرد */
+  margin: auto; /* مرکزیت در صفحه */
+  min-height: 340px;
+  margin-top: 20px;
+  padding: 20px;
+  padding-left: 50px;
+}
+.items h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: var(--color-grey-700) !important;
+}
+.allcarlist {
+  margin-left: 7px;
+  font-size: 12px;
+  margin-top: 0px !important;
+  color: var(--color-grey-600) !important;
+}
+.productNmae {
+  text-transform: capitalize;
+}
+.success_button {
+  background-color: var(--color-grey-500) !important;
+  color: var(--color-bg--2);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  visibility: visible; /* اطمینان از اینکه دکمه قابل مشاهده است */
+  opacity: 1; /* تنظیم به مقدار 1 برای نمایش کامل */
+  margin-top: 20px;
+}
+
+.allcar h2 {
+  border-bottom: 1px solid var(--color-grey-400) !important;
+  color: var(--color-grey-700);
+  font-size: 16px;
+  margin-bottom: 10px !important;
+}
+.onecar {
+  margin-top: 15px !important;
+}
+
+.onecar p {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.onecar h2 {
+  border-bottom: 1px solid var(--color-btn-darkblue);
+  color: var(--color-btn-darkblue);
+  font-size: 16px;
+  margin-bottom: 10px !important;
+}
+
+.onecar_quantity {
+  margin-bottom: 25px !important;
+}
+
+.btntotalprice {
+  font-size: 15px; /* تغییر اندازه فونت */
+  font-family: "Times New Roman", Times, serif;
+  padding: 5px; /* افزایش padding */
+  margin-bottom: 50px;
+  border-top: 1px solid var(--color-grey-400) !important;
+  border-bottom: 1px solid var(--color-grey-400) !important;
+  width: 90%; /* تغییر به 100% */
+  text-align: center;
+  margin-top: 25px !important;
+  color: var(--color-grey-700);
+  display: inline;
+}
+
+.btntotalprice_onecar {
+  font-size: 15px !important; /* تغییر اندازه فونت */
+  font-family: "Times New Roman", Times, serif;
+  padding: 5px; /* افزایش padding */
+  margin-bottom: 50px;
+  border-top: 1px solid var(--color-btn-text);
+  border-bottom: 1px solid var(--color-btn-text);
+  width: 90%; /* تغییر به 100% */
+  text-align: center;
+  color: var(--color-btn-text);
+  display: inline;
+}
+
+.formPayment {
+  /* border: 1px solid var(--color-grey-100); */
+  background-image: linear-gradient(
+    to right,
+    var(--color-grey-100),
+    var(--color-grey-100)
+  );
+}
+.form_group {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* gap: 10px; */
+  /* margin-bottom: 10px; */
+}
+.payment_form label {
+  flex: 0 0 40%;
+  margin-bottom: 0px;
+  font-weight: 200;
+  color: var(--color-grey-600) !important; /* تغییر رنگ متن */
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+.payment_form input {
+  flex: 1 !important;
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-grey-300) !important; /* رنگ مرز */
+  border-radius: 7px; /* گوشه‌های گرد */
+  background-image: linear-gradient(
+    to left,
+    var(--color-grey-200),
+    var(--color-grey-100)
+  );
+  transition: all 0.5s ease;
+  font-size: 13px !important;
+  color: var(--color-grey-600) !important;
+}
+
+.pay_button {
+  width: 20%; /* عرض دکمه */
+  padding: 5px;
+  background-color: var(--color-green-main);
+  color: var(--color-btn-darkest) !important;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin-left: 312px;
+}
+
+.payment_form {
+  display: flex;
+  flex-direction: column; /* چیدمان عمودی فرم و دکمه */
+  width: 90%; /* عرض کامل فرم */
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.formPayment {
+  max-height: 340px;
+  flex: 0 0 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-around; */
+  justify-items: center;
+  width: 700px;
+  margin: 0; /* حذف margin برای مرکزیت بهتر */
+  padding: 1.5rem; /* اضافه کردن padding برای فاصله داخلی */
+  border-radius: 10px; /* گوشه‌های گرد */
+  margin-top: 20px;
+  padding: 30px;
+}
+.btntotalpriceform {
+  font-size: 16px; /* تغییر اندازه فونت */
+  font-family: "Times New Roman", Times, serif;
+  padding: 5px; /* افزایش padding */
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-grey-400) !important;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-top: 0px !important;
+  color: var(--color-grey-600);
+  display: inline;
+}
+
+.number {
+  font-family: "Lato", sans-serif;
+  font-size: 1.3rem;
+  color: var(--color-silver-900) !important;
+  font-weight: bold !important;
+  line-height: 1rem;
+}
+.totalprice {
+  font-size: 1.3rem;
+  /* margin: 19px 0px; */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  /* padding: 3px; */
+  color: var(--color-grey-600);
+  text-align: center;
+  max-width: max-content;
+  font-weight: 600;
+}
+
+.number1 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-silver-900) !important;
+  font-weight: bold !important;
+  line-height: 1rem;
+}
+
+.number3 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  color: var(--color-silver-900) !important;
+  font-weight: bold !important;
+  line-height: 1rem;
+}
+.totalprice1 {
+  font-size: 15px;
+  margin: 10px 0px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    var(--color-grey-200),
+    var(--color-grey-200)
+  );
+  color: var(--color-grey-800);
+  /* border: 1px solid var(--color-grey-300) !important; */
+  text-align: center;
+  font-weight: 100;
+}
+.totalprice2 {
+  font-size: 16px;
+  margin: 10px 0px;
+  margin-bottom: 20px;
+  padding: 5px;
+  color: var(--color-grey-600);
+  text-align: center;
+  font-weight: 600;
+}
+
+.instruction {
+  /* margin-left: 90px; */
+  width: 100%;
+  padding: 20px;
+  border-top: 1px solid var(--color-grey-300);
+  font-size: 14px;
+}
+
+.instruction h3 {
+  margin-left: 70px;
+  color: var(--color-grey-800);
+  margin-bottom: 10px;
+}
+
+.instruction p {
+  margin-left: 80px;
+  color: var(--color-grey-600) !important;
+  line-height: 30px;
+  font-size: 1.3rem;
+}

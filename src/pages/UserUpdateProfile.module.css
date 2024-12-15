@@ -1,0 +1,121 @@
+/* UserProfile.module.css */
+
+.profileContainer {
+  flex: 0 0 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 10px;
+  margin-right: 20px;
+  margin: 0;
+
+  background-image: linear-gradient(
+    to left,
+    var(--color-grey-100),
+    var(--color-grey-100)
+  );
+  /* border: 1px solid var(--color-grey-300); */
+  border-radius: 10px;
+  min-height: 420px;
+  margin-top: 0px;
+}
+
+.profileContainer h3 {
+  font-size: 17px; /* تغییر اندازه فونت */
+  font-family: "Times New Roman", Times, serif !important;
+  padding: 0px; /* افزایش padding */
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-grey-400);
+  width: 85%; /* تغییر به 100% */
+  text-align: center;
+  margin-top: 0px !important;
+  color: var(--color-grey-700);
+  display: inline;
+  margin-top: 20px !important;
+  padding: 5px;
+  font-weight: 500;
+}
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  margin-top: 0px;
+  align-items: flex-end; /* المان‌های داخل فرم به سمت راست حرکت کنند */
+}
+
+.emailField,
+.usernameField,
+.passwordField {
+  display: flex;
+  justify-content: flex-start; /* نمایش محتوا به صورت چپ‌چین */
+  align-items: center; /* مرکز کردن محتوای عمودی */
+  width: 100%; /* عرض کامل برای بخش‌های فیلد */
+  gap: 10px;
+}
+label {
+  flex: 0 0 30% !important;
+  margin-bottom: 0px !important;
+  font-weight: 200 !important;
+  color: var(--color-grey-600) !important; /* تغییر رنگ متن */
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: 14px !important;
+  text-align: left; /* چپ‌چین کردن متن */
+}
+input {
+  flex: 1 !important;
+  width: 200px;
+  padding: 5px !important;
+  margin-bottom: 1rem !important;
+  border: 1px solid var(--color-grey-300) !important; /* رنگ مرز */
+  border-radius: 7px !important; /* گوشه‌های گرد */
+  background-image: linear-gradient(
+    to left,
+    var(--color-grey-100),
+    var(--color-grey-300)
+  );
+  transition: all 0.5s ease !important;
+  font-size: 13px !important;
+  color: var(--color-grey-700) !important; /* تغییر رنگ متن */
+}
+
+.button1 {
+  align-self: flex-end; /* حرکت دکمه به سمت راست */
+  width: auto; /* عرض خودکار برای دکمه */
+  padding: 7px 15px;
+  background-image: linear-gradient(
+    to left,
+    var(--color-green-main),
+    var(--color-green-hover)
+  );
+  color: var(--color-bg--2);
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin-top: 10px;
+}
+
+.button1:hover {
+  background-image: linear-gradient(
+    to left,
+    var(--color-green-hover),
+    var(--color-btn-text)
+  );
+  color: var(--color-bg--2) !important;
+}
+
+.errorMessage {
+  color: var(--color-btn-rose_hover);
+  font-size: 14px;
+}
+
+.successMessage {
+  color: var(--color-green-main);
+  font-size: 14px;
+}

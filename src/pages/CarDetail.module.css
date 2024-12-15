@@ -1,0 +1,489 @@
+.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.description1 {
+  color: var(--color-grey-500) !important;
+  font-size: 13px !important;
+  margin-left: 15px;
+}
+.description1 h3 {
+  color: var(--color-grey-800) !important;
+  margin-bottom: 10px !important;
+  text-align: left !important;
+}
+.description1 p {
+  text-align: left !important;
+}
+
+.cardetail {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.reviews {
+  display: flex;
+  justify-items: center;
+
+  border-top: 0.5px solid var(--color-grey-400) !important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.detail {
+  flex: 1 !important;
+  flex: 0 0 65%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid var(--color-grey-100);
+  height: 60vh;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to left,
+    var(--color-grey-50),
+    var(--color-grey-100)
+  );
+}
+
+.cartItem {
+  border: 1px solid var(--color-grey-100);
+  background-image: linear-gradient(
+    to right,
+    var(--color-grey-50),
+    var(--color-grey-100)
+  );
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  border-radius: 10px;
+}
+.detail img {
+  height: auto;
+  max-height: 50vh;
+  width: 300px;
+}
+/* تنظیمات بخش ۱ */
+.part_1 {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  color: var(--color-grey-600);
+  font-size: 12px;
+  flex: 0 0 20%;
+  align-items: center !important;
+  text-align: center;
+  justify-content: center !important;
+  justify-items: center !important;
+}
+
+/* عنوان ماشین */
+.part_1 h1 {
+  color: var(--color-grey-700);
+  border-bottom: 1px solid var(--color-grey-400);
+  margin-bottom: 20px;
+  margin-top: -100px;
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+}
+/* عنوان ماشین */
+.part_1 h3 {
+  color: var(--color-grey-700);
+  margin-bottom: 14px;
+  /* margin-top: -100px; */
+  font-size: 14px;
+  /* margin-left: 15px; */
+}
+.part_1 h4 {
+  margin-bottom: 14px;
+  /* margin-top: -100px; */
+  font-size: 13px;
+  /* margin-left: 15px; */
+}
+
+/* تنظیمات تصویر ماشین */
+.detail img {
+  flex: 0 0 20% !important;
+  width: 45rem;
+  border-radius: 10px;
+  box-shadow: -1px 1px 3px var(--color-grey-300),
+    1px -1px 3px var(--color-grey-300);
+  margin: 20px;
+}
+
+.reviews h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  /* color: var(--color-btn-darkblue); */
+  margin-left: 22px;
+}
+
+.reviews ul {
+  list-style-type: none;
+  padding: 0;
+  /* margin-left: 22px;
+  margin-right: 22px; */
+  width: 100%;
+}
+.UserReviews {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 50px;
+  color: var(--color-grey-600);
+  font-family: "Times New Roman", Times, serif;
+  border-bottom: 1px solid var(--color-grey-300) !important;
+  /* width: 100%; */
+  margin-left: 20px;
+  padding-bottom: 6px !important;
+}
+.noreview {
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-grey-600);
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.reviews li {
+  /* margin: 10px 0; */
+  padding: 10px;
+  border-bottom: 1px solid var(--color-grey-300) !important;
+  list-style: none;
+  border-radius: 5px;
+}
+
+.reviewTextarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--color-grey-700) !important;
+
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.addReviewButton {
+  background-color: var(--color-grey-0) !important;
+  color: var(--color-btn-hover) !important;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addReviewButton:hover {
+  background-color: var(--color-btn-hover);
+}
+
+.description {
+  font-size: 16px;
+  color: var(--color-grey-400) !important;
+  text-align: center;
+}
+
+.reviewItem {
+  margin-top: 10px !important;
+  /* box-shadow: -1px -1px 10px rgba(0, 124, 146, 0.3); */
+  /* border: 1px solid var(--color-bg--2) !important; */
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  padding-top: 20px !important;
+  padding-left: 20px !important;
+  color: var(--color-grey-500);
+}
+.starContainer {
+  display: flex;
+}
+
+.star {
+  font-size: 20px; /* اندازه ستاره */
+  margin-right: 5px; /* فاصله بین ستاره‌ها */
+}
+
+.empty {
+  color: var(--color-grey-900) !important; /* رنگ ستاره‌های خالی */
+}
+/* styles.module.css */
+
+.starContainer {
+  display: flex; /* چیدمان افقی ستاره‌ها */
+
+  margin-top: 0px;
+  margin-left: 110px;
+}
+
+.star {
+  width: 13px; /* عرض ستاره */
+  height: 13px; /* ارتفاع ستاره */
+  margin: -10px 3px; /* فاصله بین ستاره‌ها */
+  background-color: var(--color-grey-600);
+  cursor: pointer; /* تغییر نشانگر ماوس */
+  transition: background-color 0.4s; /* انیمیشن تغییر رنگ */
+}
+
+.filled {
+  background-color: var(--color-btn-rose_hover); /* رنگ ستاره پر شده */
+}
+
+.empty {
+  background-color: var(--color-grey-300); /* رنگ ستاره خالی */
+}
+/* styles.module.css */
+
+.reviewStars {
+  margin-bottom: 5px; /* فاصله بین ستاره‌ها و متن نظر */
+  margin-left: 40px;
+}
+
+.reviewText {
+  font-size: 13px; /* اندازه متن نظر */
+  margin-bottom: 10px; /* فاصله بین متن نظر و نام کاربر */
+  /* margin-top: -10px; */
+  margin-left: 150px;
+  margin-bottom: 15px;
+}
+
+.username {
+  font-size: 14px; /* اندازه متن نام کاربر */
+  color: var(--color-grey-800); /* رنگ متن نام کاربر */
+  /* box-shadow: -0.5px 0.5px 5px rgba(0, 124, 146, 0.6); */
+  /* text-decoration: underline; */
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom: 10px !important;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 200;
+  margin-left: 20px;
+}
+
+.totalreview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+/* فایل CarDetail.module.css */
+
+/* فایل CarDetail.module.css */
+.ratingContainer_1 {
+  display: flex;
+  align-items: center; /* وسط‌چین کردن عمودی متن و ستاره */
+  border-top: 1px solid var(--color-grey-300) !important;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  /* font-style: italic; */
+  font-weight: 500;
+}
+
+.singleStar {
+  width: 18px;
+  height: 18px;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ); /* شکل ستاره */
+  background-color: var(--color-btn-rose_hover); /* رنگ ستاره پر */
+  margin-left: 5px; /* فاصله کوچک بین متن و ستاره */
+}
+
+.description {
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 12px;
+}
+
+.description h2 {
+  color: var(--color-grey-600);
+  border-bottom: 1px solid var(--color-grey-400) !important;
+  padding: 5px;
+}
+
+.description p {
+  color: var(--color-grey-600);
+  font-size: 12px !important;
+  text-align: initial;
+  margin-top: 20px !important;
+}
+
+.description1 {
+  font-size: 15px;
+  color: var(--color-grey-600);
+  margin-bottom: 15px;
+  margin-left: 20px !important;
+  font-weight: 100 !important;
+}
+.description h3 {
+  font-weight: 100 !important;
+  color: var(--color-grey-800) !important;
+}
+
+.number {
+  font-family: "Lato", sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-grey-200) !important;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.number1 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.3rem;
+  color: var(--color-grey-800) !important;
+  font-weight: 600;
+}
+
+.span1 {
+  color: var(--color-grey-500);
+}
+
+.span2 {
+  color: var(--color-grey-900) !important;
+}
+
+.span3 {
+  color: var(--color-grey-700);
+  padding-left: 40px;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.span4 {
+  color: var(--color-grey-800);
+  font-weight: bold;
+  padding-right: 40px;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.iconLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  gap: 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.icon {
+  background-color: var(--color-red-bright);
+  color: var(--color-bg--2);
+  transition: color 0.3s ease;
+}
+.part2cart {
+  padding: 10px;
+  border-top: 1px solid var(--color-grey-300);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.cartText {
+  /* margin-top: 8px; */
+  font-size: 17px;
+  font-weight: bold;
+  color: var(--color-grey-800);
+  transition: color 0.3s ease;
+}
+
+/* افزودن حاشیه و سایه برای زیبایی بیشتر */
+.cartIcon {
+  border-radius: 20%;
+  padding: 8px;
+}
+
+/* ورودی برای تعداد */
+.input_1 {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+.quantityInput {
+  margin-top: 50px !important;
+  margin-right: 5px !important;
+  color: var(--color-grey-900) !important;
+}
+
+.quantity {
+  margin-top: 52px !important;
+  font-size: 1.4rem;
+  color: var(--color-grey-700);
+  margin-left: 5px;
+}
+.unit {
+  margin-top: 40px;
+  color: var(--color-grey-600);
+  font-size: 1.4rem;
+}
+
+.totalprice {
+  font-size: 15px !important;
+  margin-top: 20px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-grey-200),
+    var(--color-grey-300)
+  );
+  border-radius: 5px;
+}
+
+.btn_group {
+  display: flex !important;
+  justify-content: space-around !important;
+  gap: 20px;
+  margin-top: 50px;
+}
+.addToCartButton {
+  background-color: var(--color-grey-100);
+  border: 1px solid var(--color-btn-hover);
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: var(--color-btn-hover);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.addToCartButton:hover {
+  background-color: var(--color-btn-hover);
+  border: none !important;
+  color: var(--color-bg--2);
+}
+
+.removeButton {
+  background-color: var(--color-grey-100);
+  border: 1px solid var(--color-red-bright);
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: var(--color-red-bright);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.removeButton:hover {
+  background-color: var(--color-red-bright);
+  border: none !important;
+  color: var(--color-bg--2);
+}

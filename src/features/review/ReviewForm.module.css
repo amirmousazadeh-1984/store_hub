@@ -1,0 +1,161 @@
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 7px;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.title {
+  font-size: 13px;
+  margin-top: 20px;
+  color: var(--color-grey-400) !important;
+  margin-left: 60px;
+  font-weight: 100 !important;
+}
+.title h3 {
+  margin-bottom: 10px;
+  color: var(--color-grey-500) !important;
+}
+
+.textarea {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 96%;
+  height: 100px;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  padding: 10px;
+  color: var(--color-grey-500);
+  background-image: linear-gradient(
+    /* to right, */ var(--color-grey-100),
+    var(--color-grey-200)
+  );
+
+  /* border: 1px solid var(--color-grey-200); */
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  margin-top: 0px !important;
+  margin-left: 30px;
+}
+
+.ratestarcontainer {
+  display: flex;
+  align-items: center;
+  color: var(--color-grey-400);
+}
+
+.submitButton {
+  padding: 4px 2px !important;
+  background-color: var(--color-grey-0);
+  color: var(--color-btn-hover);
+  border: 1px solid var(--color-btn-hover);
+  /* border: none; */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: "Times New Roman", Times, serif;
+  transition: all 0.5s ease;
+  width: 120px;
+  margin-right: 20px;
+}
+
+.submitButton:hover {
+  background-color: var(--color-btn-hover);
+  /* transform: scale(1.003); */
+  color: var(--color-bg--2);
+  border: none;
+}
+
+.successMessage {
+  margin-top: 10px;
+  color: var(--color-green-main);
+  font-weight: bold;
+}
+
+.starContainer {
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  margin-left: 10px;
+  /* margin-top: 10px; */
+}
+.ratingContainer label {
+  font-size: 14px;
+}
+
+.star {
+  cursor: pointer;
+  transition: transform 0.2s; /* انیمیشن برای تغییر شکل */
+  padding: 0.2rem; /* فاصله داخلی برای ستاره‌ها */
+  border-radius: 50%; /* گرد کردن گوشه‌های ستاره */
+  display: inline-block; /* برای نمایش ستاره‌ها در کنار هم */
+}
+
+.star.filled {
+  color: var(--color-btn-rose); /* رنگ ستاره‌های پر */
+}
+
+.star.empty {
+  color: var(--color-grey-900); /* رنگ ستاره‌های خالی */
+}
+
+.star:hover {
+  transform: scale(1.2); /* بزرگ شدن ستاره هنگام هاور */
+}
+
+/* در حالت هاور، رنگ ستاره‌های پر و خالی تغییر می‌کنند */
+.star:hover {
+  color: var(--color-btn-rose); /* رنگ ستاره‌های پر هنگام هاور */
+}
+
+.star:hover ~ .star {
+  color: var(--color-btn-rose); /* ستاره‌های بعدی در هاور */
+}
+
+.star:hover ~ .star.filled {
+  color: var(--color-btn-rose); /* ستاره‌های پر در هاور */
+}
+/* styles.module.css */
+
+.starContainer {
+  display: flex; /* چیدمان افقی ستاره‌ها */
+}
+
+.star {
+  cursor: pointer; /* تغییر نشانگر ماوس */
+}
+.ratestarcontainer label {
+  color: var(--color-grey-700) !important;
+}
+.star div {
+  font-size: 17px; /* اندازه ستاره */
+  display: inline-block; /* نمایش به صورت بلوکی */
+  width: 1em; /* عرض ستاره */
+  height: 1em; /* ارتفاع ستاره */
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ); /* شکل ستاره */
+}

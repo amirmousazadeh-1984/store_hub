@@ -1,0 +1,196 @@
+.createcar {
+  width: 100%;
+  max-width: 1000px;
+  height: 350px !important;
+  max-height: 350px !important;
+  display: flex;
+  justify-content: space-between;
+}
+.group label {
+  color: var(--color-grey-600) !important;
+}
+
+.createcar .formSection {
+  flex: 0 0 40%;
+  margin: 10px;
+  margin-top: 35px;
+}
+
+.createcar .group {
+  display: flex;
+  /* flex-direction: column; */
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.createcar .group input,
+.createcar .group textarea,
+.createcar .group select {
+  width: 100%;
+  font-size: 1.2rem !important;
+  background-color: var(--color-grey-100) !important;
+  border: 1px solid var(--color-grey-300) !important;
+  color: var(--color-grey-700) !important;
+  font-size: 15px !important;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.createcar .submitBtn {
+  margin-top: 2rem;
+  background-color: var(--color-grey-50);
+  color: var(--color-btn-main);
+  border: 1px solid var(--color-btn-main);
+  padding: 1rem 0.5rem;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.createcar .submitBtn:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--color-bg--2);
+  border: none;
+}
+
+.createcar .error-message {
+  color: var(--color-btn-rose);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.createcar .fileInputButton {
+  background-color: var(--color-green-main);
+  color: var(--color-bg--2);
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.createcar .fileInputButton:hover {
+  background-color: var(--color-green-hover);
+}
+
+.createcar .fileInput {
+  display: none;
+}
+
+.createcar .previewSection {
+  flex: 0 0 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
+  border: 1px dashed var(--color-grey-400);
+  border-radius: 10px;
+  background-color: var(--color-grey-100);
+  position: relative;
+  padding: 1rem;
+  overflow: hidden; /* مهم برای جلوگیری از خروج تصویر */
+}
+
+.createcar .previewSection .uploadText {
+  position: absolute;
+  color: var(--color-grey-400);
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 600;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.createcar .imagePreview img {
+  width: 100%; /* عرض تصویر به اندازه کادر */
+  height: 100%; /* ارتفاع تصویر به اندازه کادر */
+  object-fit: cover; /* تصویر را به صورت کامل در کادر جا می‌دهد بدون اینکه از آن خارج شود */
+  border-radius: 10px;
+}
+
+.createcar .closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: var(--color-grey-400);
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.createcar .closeBtn:hover {
+  background-color: darkred;
+}
+.modal {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.createcar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.formSection {
+  width: 60%;
+}
+
+.previewSection {
+  width: 40%;
+}
+
+/* CreateCar.module.css */
+
+/* بقیه استایل‌ها */
+
+/* CreateCar.module.css */
+
+/* بقیه استایل‌ها */
+
+.closeBtn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.closeBtn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.fileInputButton {
+  font-size: 1.4rem;
+  padding: 10px;
+  border: none;
+  background-color: var(--color-grey-900);
+  color: var(--color-btn-darkblue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.fileInputButton:hover {
+  background-color: var(--color-btn-darkblue);
+  color: var(--color-bg--2);
+}
+
+.fileInput {
+  display: none;
+}

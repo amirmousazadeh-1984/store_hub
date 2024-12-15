@@ -1,0 +1,125 @@
+.login_container {
+  background-image: linear-gradient(
+    to right,
+    var(--color-grey-0),
+    var(--color-grey-0)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  min-height: 83.3vh;
+}
+
+.login_form {
+  background-color: var(--color-grey-50);
+  padding: 2rem !important;
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px var(--color-grey-300),
+    0px 0px 5px var(--color-grey-300); /* اضافه کردن سایه برای تفکیک بهتر */
+  width: 480px; /* عرض فرم */
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  margin-top: 70px;
+}
+
+.login_form input {
+  background-image: linear-gradient(
+    to left,
+    var(--color-grey-100),
+    var(--color-grey-100)
+  );
+  padding: 5px;
+  padding-left: 10px !important;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-grey-300) !important; /* رنگ مرز */
+  border-radius: 7px; /* گوشه‌های گرد */
+
+  font-size: 15px !important;
+  font-family: "Times New Roman", Times, serif;
+  color: var(--color-grey-700) !important;
+
+  /* transition: all 0.5s ease; */
+}
+
+.login_form button {
+  width: 100%; /* عرض کامل */
+  padding: 5px;
+  background-image: linear-gradient(
+    var(--color-btn-hover),
+    var(--color-btn-darkblue)
+  );
+  color: var(--color-bg--2);
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  border: none;
+  border-radius: 7px; /* گوشه‌های گرد */
+  cursor: pointer; /* نشانگر دست */
+  transition: all 0.5s ease;
+  margin-top: 1.5rem;
+}
+
+.login_form button:hover {
+  transform: scale(1.005);
+}
+
+.error_message {
+  color: var(--color-btn-rose_hover); /* رنگ خطا */
+  margin-top: 1rem;
+}
+
+.sbutton {
+  width: 100%; /* عرض کامل */
+  padding: 4px !important;
+  background-image: linear-gradient(
+    var(--color-btn-hover),
+    var(--color-btn-darkblue)
+  );
+  color: var(--color-bg--2);
+  font-size: 16px !important;
+  font-family: "Times New Roman", Times, serif;
+
+  border-radius: 7px; /* گوشه‌های گرد */
+  cursor: pointer; /* نشانگر دست */
+  transition: all 0.5s ease;
+}
+
+.sbutton:hover {
+  color: var(--color-bg--2) !important;
+}
+
+.total {
+  justify-items: center;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+  padding: 0px !important;
+  color: var(--color-grey-600);
+}
+
+.total p {
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.toast {
+  background-color: var(--color-green--hover); /* رنگ سبز */
+  color: var(--color-btn-darkblue);
+  padding: 15px;
+  position: fixed;
+  top: 40px; /* موقعیت در بالای صفحه */
+  z-index: 1000; /* بالاتر از سایر عناصر */
+  border-radius: 5px;
+  transition: opacity 0.5s ease;
+  font-size: 18px;
+  justify-content: center;
+  box-shadow: 1px 2px 10px rgba(0, 124, 146, 1); /* سایه */
+}

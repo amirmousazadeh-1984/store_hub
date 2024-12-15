@@ -1,0 +1,85 @@
+/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+@import "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css";
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
+
+/* These CSS variables are global, so they are available in all CSS modules */
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-bg--1: #e6f7fa;
+  --color-bg--2: #ffffff;
+
+  --color-bg-main: #00274d;
+
+  --color-btn-main: #007c92; /*rgba(0, 188, 212)*/
+  --color-btn-hover: #007c92; /* rgba(0, 151, 167)*/
+  --color-btn-darkblue: #007c92; /* rgba(0,124,146)*/
+  --color-btn-text: #164e63; /* rgba(22,	78,	99)*/
+  --color-btn-darkest: #083344; /* rgba(	8	,51,	68)*/
+
+  --color-btn-rose: #f87171;
+  --color-btn-rose_hover: #f43f5e; /* rgba(	244	,63,	94)*/
+
+  --color-green-main: #2dd4bf; /*rgba(45,	212,	191)*/
+  --color-green-hover: #0d9488; /*rgba(	20,	184,	166)*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+label {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-bg--1);
+  transition: all 0.2s;
+}
+
+input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.cta:link,
+.cta:visited {
+  display: inline-block;
+  background-color: var(--color-btn-main);
+  color: #020617;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.9rem;
+  font-weight: 600;
+
+  padding: 1.5rem 4rem;
+  border-radius: 9px;
+  transition: all 0.3s;
+}
+
+.cta:hover {
+  background-color: var(--color-btn-hover);
+}

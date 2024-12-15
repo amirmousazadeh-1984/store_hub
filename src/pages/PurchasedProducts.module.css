@@ -1,0 +1,261 @@
+/* PurchasedProducts.module.css */
+.header {
+  font-size: 19px;
+  color: var(--color-grey-600);
+  text-decoration: underline;
+  border-radius: 5px;
+  width: 20%;
+  text-align: center;
+}
+.orders {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 4 items per row */
+  gap: 20px; /* فاصله بین آیتم‌ها */
+  margin-bottom: 40px; /* فضای بین بخش‌ها */
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px;
+}
+
+.property {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-grey-100) !important;
+  /* border: 1px solid var(--color-grey-200); */
+  padding: 10px;
+  padding-bottom: 0px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.image img {
+  box-shadow: -1px 1px 3px var(--color-grey-300),
+    1px -1px 3px var(--color-grey-300);
+  width: 100%;
+  height: 200px; /* تنظیم ارتفاع تصاویر */
+  object-fit: cover; /* تناسب تصویر بدون بریدگی */
+  border-radius: 5px;
+}
+
+.part_2 {
+  margin-top: 10px;
+}
+
+.sentButton {
+  font-size: 14px;
+  color: var(--color-grey-100);
+  margin-bottom: 10px;
+  border: none;
+  cursor: not-allowed;
+}
+
+.pendingButton {
+  background-color: var(--color-grey-100);
+  color: var(--color-btn-hover);
+  border: 1px solid var(--color-btn-hover);
+
+  font-size: 13px;
+  /* margin-bottom: 10px; */
+  padding: 7px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pendingButton:hover {
+  color: var(--color-bg--2);
+  border: none;
+
+  background-color: var(--color-btn-hover);
+}
+.buttonWrapper {
+  border-top: 1px solid var(--color-grey-300);
+  display: flex;
+  justify-content: center; /* قرار دادن دکمه در مرکز به صورت افقی */
+  align-items: center; /* قرار دادن دکمه در مرکز به صورت عمودی */
+  height: 100%; /* اطمینان از اینکه ارتفاع container به اندازه کافی است */
+  margin-top: 10px;
+  padding-top: 10px; /* فاصله از محتوای بالا */
+}
+/* Separator for sections */
+.section {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-grey-300);
+}
+
+.sending {
+  font-size: 20px;
+  color: var(--color-btn-hover);
+  border-bottom: 1px solid var(--color-btn-hover);
+  width: max-content;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+.pending {
+  font-size: 20px;
+  color: var(--color-btn-rose);
+  border-bottom: 1px solid var(--color-btn-rose);
+  width: max-content;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+.section h3 {
+  border-bottom: 1px solid var(--color-grey-300);
+
+  font-size: 1.4rem;
+  text-align: left;
+  /* margin-left: 10px; */
+  margin-bottom: 25px;
+  padding: 5px;
+  color: var(--color-grey-700) !important;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.section:last-child {
+  border-bottom: none; /* حذف خط پایین برای بخش آخر */
+}
+
+.part_1 {
+  flex: 0 0 60%; /* تنظیم فضای اول */
+  display: flex;
+  flex-direction: column;
+}
+.part_2 {
+  display: flex;
+
+  flex-direction: column;
+  font-size: 1.3rem; /* کاهش اندازه فونت */
+  text-align: left;
+  margin-right: 15px;
+  margin-left: 10px; /* حذف حاشیه چپ */
+  margin-bottom: 15px !important;
+  margin-top: 15px;
+  color: var(--color-grey-600) !important;
+  line-height: 23px !important;
+}
+
+.totalprice {
+  font-size: 15px;
+  margin: 8px 0px;
+  padding: 3px;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    var(--color-grey-200),
+    var(--color-grey-300)
+  );
+  color: var(--color-grey-900) !important;
+
+  font-weight: bold !important;
+  text-align: center;
+  border: 1px solid var(--color-grey-300) !important;
+}
+.number {
+  font-family: "Lato", sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-grey-900) !important;
+  font-weight: bold;
+  line-height: 1.2;
+  font-weight: bold !important;
+}
+.payid {
+  display: grid;
+  margin-bottom: 5px;
+}
+.paymentId {
+  color: var(--color-btn-hover);
+  font-size: 1.3rem;
+  /* text-decoration: underline; */
+  font-weight: bold;
+}
+.paymentId1 {
+  color: var(--color-btn-hover);
+  font-size: 1.2rem;
+  /* text-decoration: underline; */
+  font-weight: 400;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.allproduct {
+  font-size: 15px;
+  color: var(--color-grey-600);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.part2 {
+  color: var(--color-grey-900) !important;
+  font-weight: bold;
+}
+.part1 {
+  color: var(--color-grey-500) !important;
+}
+
+.sentLabel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--color-green-main); /* Yellow for pending products */
+  color: var(--color-grey-100);
+  padding: 5px;
+  padding-left: 5px;
+  padding-right: 0px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.sentLabel svg {
+  margin-right: 5px;
+  font-size: 18px; /* Adjust size of the icon */
+}
+
+.pendingLabel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--color-btn-rose); /* Yellow for pending products */
+  color: var(--color-grey-100);
+  padding: 5px;
+  padding-left: 5px;
+  padding-right: 0px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.pendingLabel svg {
+  margin-right: 5px;
+  font-size: 18px; /* Adjust size of the icon */
+}
+
+.emptyCartMessagecontainer {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.emptyCartMessage {
+  background-image: linear-gradient(
+    var(--color-btn-main),
+    var(--color-btn-darkblue)
+  );
+  color: var(--color-bg--2);
+  padding: 15px 38px;
+  border: none;
+  margin-top: 40px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  border-radius: 10px;
+  margin-bottom: 230px;
+  cursor: pointer;
+}

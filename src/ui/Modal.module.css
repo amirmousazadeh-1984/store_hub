@@ -1,0 +1,134 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    to right,
+    var(--color-grey-0),
+    var(--color-grey-0)
+  );
+
+  opacity: 1; /* کمی شفافیت برای پس‌زمینه */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* برای اطمینان از اینکه مدال بالای سایر محتواها قرار می‌گیرد */
+}
+
+.modalContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* برای قرار دادن محتوا در بالای مدال */
+  text-align: center;
+
+  /* color: var(--color-bg-darkblue); */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* عرض مدال */
+  max-width: 1300px; /* حداکثر عرض */
+  box-shadow: -2px 2px 5px var(--color-grey-300),
+    2px -2px 5px var(--color-grey-300);
+  transition: all 0.3s ease;
+  background-color: var(--color-grey-50);
+  position: relative;
+}
+
+.modalContent h2 {
+  width: 100%;
+  border-bottom: 1px solid var(--color-grey-400);
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  color: var(--color-grey-600);
+}
+
+.modalContent h3,
+.modalContent h4 {
+  font-size: 1.3rem;
+  color: var(--color-grey-500);
+  /* padding: 3px; */
+}
+
+.closeButton {
+  color: var(--color-btn-rose_hover); /* رنگ متن */
+  cursor: pointer; /* نشانگر نشان دهنده کلیک */
+
+  background-color: var(--color-grey-50);
+  border: 1px solid var(--color-btn-rose_hover);
+  border-radius: 30%;
+  font-size: 15px;
+
+  padding: 3px;
+  padding-bottom: 0px;
+  transition: all 0.6s ease;
+}
+.closeButton:hover {
+  color: var(--color-bg--2);
+  border: none;
+  background-color: var(--color-btn-rose_hover);
+}
+.modalOverlay img {
+  height: 35rem;
+  flex: 0 0 23%;
+  border-radius: 10px;
+  box-shadow: -1px 1px 2px var(--color-grey-400),
+    1px -1px 2px var(--color-grey-400);
+  margin: 10px;
+}
+
+.modalContent p {
+  font-size: 13px;
+}
+
+.part_1 {
+  display: flex;
+  text-align: left;
+  line-height: 27px;
+  flex-direction: column;
+  flex: 0 0 15%; /* فضای جانبی */
+  margin: 20px 30px; /* حاشیه افقی */
+}
+.part_1h2 {
+  text-align: center;
+  font-size: 16px !important;
+  color: var(--color-grey-800) !important;
+  font-weight: bold !important;
+}
+
+.part_3 {
+  flex: 1; /* برای اشغال فضای باقی‌مانده */
+  font-size: 16px !important;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  margin-top: 30px;
+}
+
+.desc {
+  font-size: 16px !important;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-grey-400);
+  color: var(--color-grey-700) !important;
+  padding-bottom: 10px;
+  font-size: 16px !important;
+  color: var(--color-grey-800) !important;
+  font-weight: bold !important;
+}
+
+.modalOverlay {
+  display: flex;
+  flex-direction: column;
+}
+
+.part_3 p {
+  color: var(--color-grey-600);
+}
+.span1 {
+  color: var(--color-grey-500);
+}
+
+.span2 {
+  color: var(--color-grey-900);
+}
