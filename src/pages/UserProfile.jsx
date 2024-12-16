@@ -1,6 +1,6 @@
 import UserProfilePicture from "./UserProfilePicture";
-import UserUpdateProfile from "./userUpdateProfile";
 import styles from "./UserProfile.module.css";
+import UserUpdateProfile from "./UserUpdateProfile";
 
 function UserProfile() {
   return (
