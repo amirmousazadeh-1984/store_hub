@@ -78,9 +78,11 @@ function PurchasedProducts() {
         <div className={styles.section}>
           <h1 className={styles.pending}>Pending Products</h1>
           {pendingItems.length === 0 ? (
-            <p className={styles.allproduct}>
-              All products have been sent.(No item for Sending...)
-            </p>
+            <div className={styles.allproduct}>
+              <button className={styles.allproductb}>
+                All products have been sent.(No item for Sending...)
+              </button>
+            </div>
           ) : (
             <div className={styles.wrapper}>
               {pendingItems.map(({ car, quantity, paymentId }) => (
@@ -190,7 +192,11 @@ function PurchasedProducts() {
             Products that have been sent to the customer's address
           </h1>
           {sentItems.length === 0 ? (
-            <p>No products have been sent yet.</p>
+            <div className={styles.allproduct}>
+              <button className={styles.allproductb}>
+                No products have been sent yet.
+              </button>
+            </div>
           ) : (
             <div className={styles.wrapper}>
               {sentItems.map(({ car, quantity, paymentId }) => (

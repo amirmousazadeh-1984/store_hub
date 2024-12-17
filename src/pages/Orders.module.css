@@ -68,7 +68,7 @@
   padding: 10px;
 }
 .removebutton {
-  background-color: var(--color-grey-100);
+  background-color: var(--color-grey-0);
   color: var(--color-btn-rose);
   border: 1px solid var(--color-btn-rose);
   padding: 6px 10px;
@@ -92,7 +92,7 @@
 }
 .backbutton {
   font-size: 1.3rem;
-  background-color: var(--color-grey-100);
+  background-color: var(--color-grey-0);
   color: var(--color-btn-hover);
   border: 1px solid var(--color-btn-hover);
   padding: 6px 10px;
@@ -100,6 +100,7 @@
   cursor: pointer;
   font-family: "Times New Roman", Times, serif;
 }
+
 .backbutton:hover {
   background-color: var(--color-btn-main) !important;
   color: var(--color-bg--2);

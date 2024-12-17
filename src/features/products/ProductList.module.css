@@ -43,15 +43,6 @@
   /* margin-top: 2rem; */
   padding: 0;
 }
-@media (max-width: 425px) {
-  .productlist ul {
-    display: flex;
-    flex-direction: column !important;
-    justify-content: center !important;
-    justify-items: center !important;
-    align-items: center !important;
-  }
-}
 
 .productCard {
   display: flex;
