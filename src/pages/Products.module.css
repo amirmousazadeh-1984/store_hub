@@ -1,29 +1,3 @@
-.createButton {
-  background-color: var(--color-btn-main);
-  font-size: 3rem;
-  margin: 30px;
-  width: 80%;
-  cursor: pointer;
-  border-radius: 6px;
-  padding: 10px;
-  font-weight: 400;
-  font-family: "Times New Roman", Times, serif;
-  border: 1px solid var(--color-btn-hover);
-}
-
-.closeButton {
-  background-color: var(--color-btn-main);
-  font-size: 3rem;
-  margin: 30px;
-  width: 80%;
-  cursor: pointer;
-  border-radius: 6px;
-  padding: 10px;
-  font-weight: 400;
-  font-family: "Times New Roman", Times, serif;
-  border: 1px solid var(--color-btn-hover);
-}
-
 .products {
   margin-top: 7rem;
 }
