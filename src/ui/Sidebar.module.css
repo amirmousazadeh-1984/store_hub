@@ -18,7 +18,7 @@
   align-items: center !important;
   justify-content: center !important;
   justify-items: center !important;
-  width: 50% !important; /* نوار جستجو ۷۰ درصد عرض صفحه را می‌گیرد */
+  width: 75% !important; /* نوار جستجو ۷۰ درصد عرض صفحه را می‌گیرد */
   margin-right: 7px; /* فاصله بین جستجو و فیلتر */
   position: relative;
 }
@@ -107,11 +107,11 @@
 }
 
 .filterGroup {
-  width: 40%; /* نصف عرض صفحه */
+  width: 47%; /* نصف عرض صفحه */
   position: fixed;
   height: 75vh;
   top: 63px;
-  left: 52%; /* قرار دادن شروع منو در وسط صفحه */
+  left: 51.8%; /* قرار دادن شروع منو در وسط صفحه */
   transform: translateX(-50%); /* تراز وسطی منو با استفاده از جابجایی */
   background-color: var(--color-grey-50);
   display: flex;
@@ -122,7 +122,7 @@
   /* border: 1px solid var(--color-grey-200); */
   box-shadow: -1px 1px 5px var(--color-grey-300),
     1px -1px 5px var(--color-grey-300);
-  border-radius: 5px;
+  border-radius: 30px;
 }
 
 .filterToggleButton_1 {
@@ -184,7 +184,7 @@
   color: var(--color-red-bright);
 }
 .filterToggleButton {
-  padding: 7px 25px;
+  padding: 7px 35px;
   border: none;
   border-radius: 5px;
   background-color: var(--color-btn-main);
@@ -200,10 +200,11 @@
   color: var(--color-bg--2);
 }
 .priceInput {
-  width: 130px;
+  width: 150px;
 }
 .priceInput label {
   font-size: 1.2rem !important;
+  text-align: left !important;
 }
 
 .priceInput input {
@@ -257,6 +258,8 @@
   display: flex;
   gap: 10px; /* فاصله بین دکمه‌ها */
   margin-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .clearAllButton,

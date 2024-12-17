@@ -39,6 +39,17 @@
   color: var(--color-red-bright) !important;
 }
 
+@media (max-width: 480px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+  }
+  .sidebar {
+    margin-top: 100px;
+    flex: 0 0 100%;
+  }
+}
+
 .darkModeToggle {
   font-size: 3.5rem;
   background: none;
@@ -284,127 +295,4 @@
   color: var(--color-btn-text);
   font-size: 14px !important;
   padding: 10px;
-}
-
-@media (max-width: 1024px) {
-  .nav {
-    margin-left: 20px;
-    margin-right: 20px;
-    justify-content: space-between;
-  }
-
-  .total {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .darkModeToggle {
-    font-size: 3rem;
-  }
-
-  .rightside {
-    gap: 15px;
-    padding: 8px 10px;
-  }
-
-  .menuList {
-    right: 20px;
-    top: 70px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav {
-    /* flex-direction: column; */
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
-  .sidebar {
-    flex: 0 0 50%;
-  }
-
-  .totalrightside,
-  .car_center {
-    flex: 0 0 10%;
-    margin-top: 10px;
-  }
-
-  .rightside {
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px;
-  }
-
-  .darkModeToggle {
-    font-size: 2.5rem;
-  }
-
-  .menuList {
-    right: 5px;
-    top: 75px;
-    width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav {
-    margin-left: 10px;
-    margin-right: 10px;
-    justify-content: space-between;
-  }
-
-  .rightside {
-    flex-direction: column;
-    gap: 8px;
-    padding: 6px;
-  }
-
-  .hamburgerMenu {
-    width: 12px;
-    height: 8px;
-  }
-
-  .darkModeToggle {
-    font-size: 2rem;
-  }
-
-  .menuList {
-    right: 10px;
-    top: 50px;
-    width: 180px;
-  }
-
-  .profileImage {
-    width: 25px;
-    height: 25px;
-  }
-}
-@media (max-width: 320px) {
-  .nav {
-    flex-direction: column;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
-  .rightside {
-    gap: 5px;
-    padding: 5px;
-    flex-direction: column;
-  }
-
-  .darkModeToggle {
-    font-size: 1.8rem;
-  }
-
-  .menuList {
-    right: 5px;
-    top: 45px;
-    width: 160px;
-  }
-
-  .profileImage {
-    width: 20px;
-    height: 20px;
-  }
 }
