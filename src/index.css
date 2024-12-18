@@ -1,8 +1,8 @@
-/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+/* Importing external styles */
 @import "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css";
 @import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
 
-/* These CSS variables are global, so they are available in all CSS modules */
+/* Global CSS Variables */
 :root {
   --color-grey-0: #fff;
   --color-grey-50: #f9fafb;
@@ -30,16 +30,16 @@
   --color-red-100: #fee2e2;
   --color-red-700: #b91c1c;
   --color-red-800: #991b1b;
-  --color-btn-main: #00bcd4; /*rgba(0, 188, 212)*/
-  --color-btn-hover: #00bcd4; /* rgba(0, 151, 167)*/
-  --color-btn-darkblue: #007c92; /* rgba(0,124,146)*/
+  --color-btn-main: #00bcd4;
+  --color-btn-hover: #00bcd4;
+  --color-btn-darkblue: #007c92;
 
   --backdrop-color: rgba(255, 255, 255, 0.1);
-  --color-btn-text: #164e63; /* rgba(22,	78,	99)*/
-  --color-btn-darkest: #083344; /* rgba(	8	,51,	68)*/
+  --color-btn-text: #164e63;
+  --color-btn-darkest: #083344;
 
   --color-btn-rose: #ff3333;
-  --color-btn-rose_hover: #ff3333; /* rgba(	244	,63,	94)*/
+  --color-btn-rose_hover: #ff3333;
   --color-btn-light_rose: #fecaca;
   --color-btn-light_rose1: #fee2e2;
   --color-btn-rose_hover1: #7f1d1d;
@@ -55,26 +55,14 @@
   --color-yellow-7001: #f43f5e;
   --color-yellow-7002: #c2410c;
 
-  /* --color-red-bright: #ff4c4c; */
   --color-red-bright: #ff3333;
 }
 
+/* Dark Mode Variables */
 .dark-mode {
   --color-yellow-7002: #fb923c;
   --color-yellow-7001: #fef9c3;
-  /* --color-grey-0: #18212f;
-  --color-grey-50: #111827;
-  --color-grey-100: #1f2937;
-  --color-grey-200: #374151;
-  --color-grey-300: #4b5563;
-  --color-grey-400: #6b7280;
-  --color-grey-500: #9ca3af;
-  --color-grey-600: #d1d5db;
-  --color-grey-700: #e5e7eb;
-  --color-grey-800: #f3f4f6;
-  --color-grey-900: #f9fafb; */
   --color-grey-0: #2f3541;
-
   --color-grey-50: #333844;
   --color-grey-100: #4a505b;
   --color-grey-200: #666a75;
@@ -85,18 +73,6 @@
   --color-grey-700: #f1f2f4;
   --color-grey-800: #fafbfc;
   --color-grey-900: #fcfcfd;
-
-  /* --color-grey-0: #4b515d;
-  --color-grey-50: #434954;
-  --color-grey-100: #5c616b;
-  --color-grey-200: #777b84;
-  --color-grey-300: #92959d;
-  --color-grey-400: #afb2b8;
-  --color-grey-500: #d3d5d8;
-  --color-grey-600: #eceef0;
-  --color-grey-700: #f5f6f7;
-  --color-grey-800: #fcfcfd;
-  --color-grey-900: #fefefe; */
 
   --color-blue-100: #075985;
   --color-blue-700: #e0f2fe;
@@ -123,15 +99,15 @@
   --image-opacity: 90%;
 }
 
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 body {
@@ -172,7 +148,6 @@ input:focus {
   text-decoration: none;
   font-size: 1.9rem;
   font-weight: 600;
-
   padding: 1.5rem 4rem;
   border-radius: 9px;
   transition: all 0.3s;

@@ -28,7 +28,6 @@
   width: 85%;
   font-size: 1.5rem !important;
   margin-bottom: 3.2rem;
-  font-style: inherit;
   font-weight: 500;
   color: var(--color-grey-600);
   text-align: justify;
@@ -48,6 +47,7 @@
   background-color: var(--color-grey-600);
   transform: translateX(0.3px) scale(1);
 }
+
 /* استایل‌های چت باکس */
 .chatBoxWrapper {
   position: fixed;
@@ -57,28 +57,28 @@
 }
 
 .chatBoxButton {
-  background-color: var(--color-grey-600); /* رنگ پس‌زمینه دکمه */
-  padding: 5px; /* پدینگ برای افزایش سایز دکمه */
-  border-radius: 50%; /* گوشه‌های گرد دکمه */
-  box-shadow: -1px 1px 10px var(--color-grey-200); /* سایه اطراف دکمه */
-  cursor: pointer; /* نشانگر موس هنگام hover */
-  transition: all 0.3s ease; /* انیمیشن برای تغییرات */
-  display: flex; /* استفاده از flexbox برای چینش آیکون */
-  justify-content: center; /* مرکز چینش افقی آیکون */
-  align-items: center; /* مرکز چینش عمودی آیکون */
-  width: 50px; /* عرض دکمه */
-  height: 50px; /* ارتفاع دکمه */
+  background-color: var(--color-grey-600);
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: -1px 1px 10px var(--color-grey-200);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   border: none;
 }
 
 .chatBoxButton:hover {
-  background-color: var(--color-grey-800); /* تغییر رنگ دکمه هنگام hover */
-  color: var(--color-grey-500); /* تغییر رنگ متن و آیکون به سفید */
+  background-color: var(--color-grey-800);
+  color: var(--color-grey-500);
 }
 
 .chatBoxButton svg {
-  font-size: 2.5rem; /* اندازه آیکون */
-  color: var(--color-grey-50); /* رنگ آیکون */
+  font-size: 2.5rem;
+  color: var(--color-grey-50);
 }
 
 /* پنجره چت */
@@ -96,7 +96,7 @@
   padding: 20px;
   border-radius: 8px;
   width: 300px;
-  display: block; /* فقط زمانی که وضعیت showChatBox true است، نمایش داده می‌شود */
+  display: block;
 }
 
 /* لیست پیام‌ها */
@@ -123,7 +123,6 @@
 
 /* ورودی پیام */
 .chatBoxInput {
-  /* width: 100%; */
   color: var(--color-grey-900) !important;
   border-radius: 4px;
   background-image: linear-gradient(
@@ -139,12 +138,10 @@
 .chatBoxSubmitButton {
   background-color: var(--color-grey-100) !important;
   color: var(--color-grey-500) !important;
-  /* border: 1px solid var(--color-btn-text) !important; */
   padding: 8px;
   border-radius: 4px;
   width: 100%;
   cursor: pointer;
-  /* margin-top: 10px; */
 }
 
 .chatBoxSubmitButton:hover {
@@ -158,56 +155,35 @@
   display: flex;
   align-items: center !important;
   border-radius: 7px;
-  /* border: 1px solid var(--color-grey-400); */
   max-height: 40px;
   margin-top: 10px;
   justify-content: space-around;
   gap: 2px;
 }
+
 .chatBoxStarRating span {
   cursor: pointer;
   font-size: 17px;
-  font-family: "Dancing Script";
+  font-family: "Dancing Script", cursive;
   color: var(--color-yellow-7001);
-  font-family: "Dancing Script", cursive;
-}
-.star {
-  font-family: "Dancing Script", cursive;
-  padding: 0px 12px;
-  border-radius: 5px;
-  margin-top: 12px;
 }
 
-.chatBoxStarRating span:hover {
-  color: var(
-    --color-yellow-7001
-  ) !important; /* رنگ طلایی برای ستاره هنگام hover */
-}
-
+.chatBoxStarRating span:hover,
 .chatBoxStarRating span.selected {
-  color: var(
-    --color-yellow-7001
-  ) !important; /* رنگ طلایی برای ستاره انتخاب شده */
-}
-
-.chatBoxSubmitButton:hover {
-  background-color: var(--color-btn-hover);
-  color: var(--color-btn-hover);
+  color: var(--color-yellow-7001) !important;
 }
 
 .chatInputWrapper {
   display: flex;
   align-items: center !important;
   justify-content: center !important;
-  justify-items: center !important;
   gap: 8px;
-  /* width: 100%; */
 }
 
 /* استایل آیکون ارسال */
 .sendIcon {
-  color: var(--color-grey-100); /* رنگ آبی شبیه به تلگرام */
-  font-size: 2.5rem; /* اندازه بزرگ‌تر */
+  color: var(--color-grey-100);
+  font-size: 2.5rem;
   transition: transform 0.3s ease;
   border-radius: 4px;
   background-image: linear-gradient(
@@ -219,8 +195,8 @@
 }
 
 .sendIcon:hover {
-  transform: scale(1.041); /* بزرگ‌تر شدن هنگام هاور */
-  color: var(--color-grey-0) !important; /* رنگ آبی شبیه به تلگرام */
+  transform: scale(1.041);
+  color: var(--color-grey-0) !important;
   background-image: linear-gradient(
     var(--color-grey-600),
     var(--color-grey-800)
@@ -230,27 +206,27 @@
 .chatBoxSendButton {
   display: flex;
   border: none;
-  border-radius: 5px; /* تنظیم گوشه‌ها */
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .chatBoxSubmitButtonRating {
   border: none;
   margin-top: 10px;
-  border-radius: 7px; /* گوشه‌های گرد */
+  border-radius: 7px;
   padding: 5px 17px;
   font-size: 12px;
   font-family: "Times New Roman", Times, serif;
   cursor: pointer;
-  transition: background-color 0.7s ease, transform 0.7s ease; /* افکت هاور */
-
+  transition: background-color 0.7s ease, transform 0.7s ease;
   background-image: linear-gradient(
     to left,
     var(--color-yellow-7001),
     var(--color-grey-700)
   );
   font-weight: 600;
-  color: var(--color-grey-50) !important; /* رنگ آبی شبیه به تلگرام */
+  color: var(--color-grey-50) !important;
 }
 
 .chatBoxSubmitButtonRating:hover {
@@ -259,5 +235,94 @@
     var(--color-yellow-7001),
     var(--color-grey-900)
   );
-  color: var(--color-grey-50) !important; /* رنگ آبی شبیه به تلگرام */
+  color: var(--color-grey-50) !important;
+}
+
+/* Responsive Design */
+
+/* For screens up to 1440px */
+@media (max-width: 1440px) {
+  .homepage h1 {
+    font-size: 2.2rem;
+  }
+  .homepage h2 {
+    font-size: 1.4rem;
+  }
+  .chatBox {
+    width: 280px;
+  }
+}
+
+/* For screens up to 1024px */
+@media (max-width: 1024px) {
+  .homepage h1 {
+    font-size: 2rem;
+  }
+  .homepage h2 {
+    font-size: 1.3rem;
+  }
+  .chatBox {
+    width: 260px;
+  }
+}
+
+/* For screens up to 768px */
+@media (max-width: 768px) {
+  .homepage h1 {
+    font-size: 1.8rem;
+  }
+  .homepage h2 {
+    font-size: 1.2rem;
+  }
+  .chatBox {
+    width: 240px;
+  }
+  .chatBoxButton {
+    width: 45px;
+    height: 45px;
+  }
+  .chatBoxButton svg {
+    font-size: 2.2rem;
+  }
+}
+
+/* For screens up to 425px */
+@media (max-width: 425px) {
+  .homepage h1 {
+    font-size: 1.6rem;
+  }
+  .homepage h2 {
+    font-size: 1.1rem;
+  }
+  .chatBox {
+    width: 220px;
+  }
+  .bhome {
+    font-size: 16px;
+    padding: 6px 30px;
+  }
+}
+
+/* For screens up to 320px */
+@media (max-width: 320px) {
+  .homepage h1 {
+    font-size: 1.4rem;
+  }
+  .homepage h2 {
+    font-size: 1rem;
+  }
+  .chatBox {
+    width: 200px;
+  }
+  .bhome {
+    font-size: 14px;
+    padding: 5px 25px;
+  }
+  .chatBoxButton {
+    width: 40px;
+    height: 40px;
+  }
+  .chatBoxButton svg {
+    font-size: 2rem;
+  }
 }
