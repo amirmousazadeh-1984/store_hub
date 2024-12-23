@@ -8,13 +8,12 @@ import {
 } from "../../redux/filterSlice";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useProducts } from "./useProducts";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./ProductList.module.css";
 import Modal from "../../ui/Modal";
 import LoadingIndicator from "../../ui/LoadingIndicator";
 import IconsProduct from "../../ui/IconsProduct";
 import Sidebar from "../../ui/Sidebar";
-import Pagination from "../../ui/Pagination";
 import AverageRating from "../../ui/AverageRating";
 import { getReviews } from "../../services/apiReview";
 import { getImageUrl } from "../../services/apiProducts";
@@ -27,7 +26,7 @@ import CreateMobile from "./CreateMobile";
 import CreateCloth from "./CreateCloth";
 import CreateKitchenware from "./CreateKitchenware";
 import { FormattedNumber, IntlProvider } from "react-intl";
-import { FaBox, FaClipboardList, FaShoppingCart, FaTags } from "react-icons/fa";
+import { FaBox, FaClipboardList, FaShoppingCart, FaTags, FaPlus } from "react-icons/fa";
 import { setSelectedType as setSelectedTypeAction } from "../../redux/filterSlice";
 
 function ProductList() {
@@ -38,8 +37,9 @@ function ProductList() {
   const [selectedType, setSelectedType] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false); // مدیریت مدال ایجاد محصول
   const [searchParams] = useSearchParams();
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const itemsPerLoad = 20;
 
   const dispatch = useDispatch();
   const {
@@ -94,7 +94,7 @@ function ProductList() {
   };
 
   const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
+    if (e.target.classList.contains(styles.modalOverlay)) {
       closeModal();
     }
   };
@@ -130,16 +130,37 @@ function ProductList() {
     return 0;
   });
 
-  // مدیریت صفحه‌بندی
+  const handleShowMore = () => {
+    const currentLength = displayedProducts.length;
+    const nextProducts = sortedProducts.slice(
+      currentLength,
+      currentLength + itemsPerLoad
+    );
+    setDisplayedProducts((prev) => [...prev, ...nextProducts]);
+  };
+
+  // Reset displayed products when filters change
   useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, selectedMake, selectedColor, minPrice, maxPrice]);
+    setDisplayedProducts(sortedProducts.slice(0, itemsPerLoad));
+    setHasMore(sortedProducts.length > itemsPerLoad);
+  }, [
+    searchQuery,
+    selectedMake,
+    selectedColor,
+    minPrice,
+    maxPrice,
+    selectedType,
+    sortOption,
+  ]);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
-
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  // Fetch reviews for displayed products
+  useEffect(() => {
+    displayedProducts.forEach((product) => {
+      if (!reviewsData[product.id]) {
+        fetchReviewsForProduct(product.id);
+      }
+    });
+  }, [displayedProducts]);
 
   // دریافت نظرات محصولات
   const fetchReviewsForProduct = async (productId) => {
@@ -154,17 +175,9 @@ function ProductList() {
     }
   };
 
-  useEffect(() => {
-    paginatedProducts.forEach((product) => {
-      if (!reviewsData[product.id]) {
-        fetchReviewsForProduct(product.id);
-      }
-    });
-  }, [paginatedProducts, reviewsData]);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  // const handlePageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
 
   if (isLoading) {
     return <LoadingIndicator />;
@@ -179,21 +192,21 @@ function ProductList() {
   const getCreateProductModal = () => {
     switch (selectedType) {
       case "cars":
-        return <CreateCar />;
+        return <CreateCar onClose={closeModal} />;
       case "electronics":
-        return <CreateElectronics />;
+        return <CreateElectronics onClose={closeModal} />;
       case "computers":
-        return <CreateComputer />;
+        return <CreateComputer onClose={closeModal} />;
       case "mobiles":
-        return <CreateMobile />;
+        return <CreateMobile onClose={closeModal} />;
       case "home":
-        return <CreateHome />;
+        return <CreateHome onClose={closeModal} />;
       case "clothing":
-        return <CreateCloth />;
+        return <CreateCloth onClose={closeModal} />;
       case "kitchenware":
-        return <CreateKitchenware />;
+        return <CreateKitchenware onClose={closeModal} />;
       case "books":
-        return <CreateBook />;
+        return <CreateBook onClose={closeModal} />;
     }
   };
   return (
@@ -201,7 +214,7 @@ function ProductList() {
       <>
         {!isModalOpen && (
           <button onClick={openModal} className={styles.createButton}>
-            Create New Product
+            <FaPlus /> Create New Product
           </button>
         )}
 
@@ -215,44 +228,52 @@ function ProductList() {
           >
             <div className={styles.totalProduct}>
               <ul>
-                {paginatedProducts.map((product) => (
+                {displayedProducts.map((product) => (
                   <li key={product.id} className={styles.productCard}>
-                    <h2>
-                      <span className={styles.span1}>P.Nmae: </span>
-                      <span className={styles.span2}>{product.name} </span>
-                      <div className={styles.pendingLabel}>
-                        <FaShoppingCart />
-                      </div>
-                    </h2>
+                    <div className={styles.imageWrapper}>
+                      <button
+                        onClick={() => setSelectedProduct(product)}
+                        className={styles.showDetailsButton}
+                      >
+                        Show Details
+                      </button>
+                      <img
+                        src={getImageUrl(product.image)}
+                        alt={product.name}
+                        className={styles.productImage}
+                        onClick={() => navigate(`/products/${product.id}`)}
+                      />
+                      <h2>
+                        <span className={styles.productname}>
+                          {product.name}{" "}
+                        </span>
+                        <div className={styles.AverageRating}>
+                          <AverageRating
+                            reviews={reviewsData[product.id] || ""}
+                          />
+                        </div>
+                      </h2>
+                    </div>
 
-                    <img
-                      src={getImageUrl(product.image)}
-                      alt={product.name}
-                      className={styles.productImage}
-                    />
                     {product.type === "books" ? (
                       <>
                         <h3>
-                          <span className={styles.span1}>Publisher Name: </span>
-                          <span className={styles.span2}>
-                            {product.publisher}
+                          <span className={styles.span1}>
+                            {product.publisher}{" "}
                           </span>
                         </h3>
                         <h3>
-                          <span className={styles.span1}>Author: </span>
-                          <span className={styles.span2}>{product.author}</span>
+                          <span className={styles.span1}>{product.author}</span>
                         </h3>
                       </>
                     ) : (
                       <>
                         <h3>
-                          <span className={styles.span1}>Company Nmae: </span>
-                          <span className={styles.span2}>{product.make}</span>
+                          <span className={styles.span1}>{product.make} </span>
                         </h3>
                         {product.model && (
                           <h3>
-                            <span className={styles.span1}>Model: </span>
-                            <span className={styles.span2}>
+                            <span className={styles.span1}>
                               {product.model}
                             </span>
                           </h3>
@@ -262,7 +283,6 @@ function ProductList() {
 
                     <IntlProvider locale="en">
                       <span className={styles.unitprice}>
-                        <span className={styles.span1}>Unit Price: </span>
                         <span className={styles.number}>
                           <FormattedNumber
                             value={product.price}
@@ -270,36 +290,21 @@ function ProductList() {
                             currency="USD"
                           />
                         </span>
+                        <span className={styles.span2}>P.Unit </span>
                       </span>
                     </IntlProvider>
-
-                    <div className={styles.AverageRating}>
-                      <AverageRating reviews={reviewsData[product.id] || []} />
-                    </div>
-
-                    <div className={styles.showCarButton}>
-                      <button
-                        onClick={() => setSelectedProduct(product)}
-                        className={styles.showcar}
-                      >
-                        Show Product Detail
-                      </button>
-                      <button
-                        onClick={() => navigate(`/products/${product.id}`)}
-                        className={styles.ordercar}
-                      >
-                        Order Product
-                      </button>
-                    </div>
                   </li>
                 ))}
               </ul>
-
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
+              {displayedProducts.length < sortedProducts.length && (
+                <button
+                  onClick={handleShowMore}
+                  className={styles.showMoreButton}
+                >
+                  Show More
+                </button>
+              )}
+              {isLoading && <LoadingIndicator />}
             </div>
           </div>
 
@@ -311,7 +316,9 @@ function ProductList() {
           )}
           {isModalOpen && (
             <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-              <div className={styles.modal}>{getCreateProductModal()}</div>
+              <div className={styles.modalContent}>
+                {getCreateProductModal()}
+              </div>
             </div>
           )}
         </div>

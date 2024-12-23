@@ -1,151 +1,105 @@
+/* Form Container */
 .reviewForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 7px;
-  padding: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  background-color: var(--color-grey-0);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  margin: 0 auto;
 }
+
+/* Title Section */
 .title {
-  font-size: 13px;
-  margin-top: 20px;
-  color: var(--color-grey-400) !important;
-  margin-left: 60px;
-  font-weight: 100 !important;
-}
-.title h3 {
-  margin-bottom: 10px;
-  color: var(--color-grey-500) !important;
-}
-
-.textarea {
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 96%;
-  height: 100px;
+  width: 100%;
   margin-bottom: 1.5rem;
-  margin-top: 1rem;
-  padding: 10px;
-  color: var(--color-grey-500);
-  background-image: linear-gradient(
-    /* to right, */ var(--color-grey-100),
-    var(--color-grey-200)
-  );
-
-  /* border: 1px solid var(--color-grey-200); */
-  border-radius: 5px;
-  transition: all 0.5s ease;
+  color: var(--color-grey-700);
+  padding: 0 1rem;
 }
 
+.title h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-grey-800);
+  text-align: center;
+}
+
+.title p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--color-grey-600);
+  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+  border-left: 4px solid var(--color-btn-main);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Textarea */
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1.2rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--color-grey-700);
+  resize: vertical;
+  transition: all 0.2s;
+  margin-bottom: 0.7rem;
+  font-family: inherit;
+  background-color: var(--color-grey-50);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-btn-main);
+  box-shadow: 0 0 0 3px rgba(var(--color-btn-main-rgb), 0.1);
+  background-color: var(--color-grey-0);
+}
+
+/* Rating Container */
 .ratingContainer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: 10px;
-  margin-top: 0px !important;
-  margin-left: 30px;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .ratestarcontainer {
   display: flex;
   align-items: center;
-  color: var(--color-grey-400);
+  gap: 1.5rem;
 }
 
-.submitButton {
-  padding: 4px 2px !important;
-  background-color: var(--color-grey-0);
-  color: var(--color-btn-hover);
-  border: 1px solid var(--color-btn-hover);
-  /* border: none; */
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 13px;
-  font-family: "Times New Roman", Times, serif;
-  transition: all 0.5s ease;
-  width: 120px;
-  margin-right: 20px;
+.ratestarcontainer label {
+  font-size: 1rem;
+  font-weight: 400;
+
+  color: var(--color-grey-700);
 }
 
-.submitButton:hover {
-  background-color: var(--color-btn-hover);
-  /* transform: scale(1.003); */
-  color: var(--color-bg--2);
-  border: none;
-}
-
-.successMessage {
-  margin-top: 10px;
-  color: var(--color-green-main);
-  font-weight: bold;
-}
-
+/* Star Rating */
 .starContainer {
   display: flex;
-  align-items: center !important;
-  justify-content: center !important;
-  justify-items: center !important;
-  margin-left: 10px;
-  /* margin-top: 10px; */
-}
-.ratingContainer label {
-  font-size: 14px;
+  gap: 0.1rem;
+  padding-top: 0.3rem;
 }
 
 .star {
   cursor: pointer;
-  transition: transform 0.2s; /* انیمیشن برای تغییر شکل */
-  padding: 0.2rem; /* فاصله داخلی برای ستاره‌ها */
-  border-radius: 50%; /* گرد کردن گوشه‌های ستاره */
-  display: inline-block; /* برای نمایش ستاره‌ها در کنار هم */
+  padding: 0.1rem;
 }
 
-.star.filled {
-  color: var(--color-btn-rose); /* رنگ ستاره‌های پر */
-}
-
-.star.empty {
-  color: var(--color-grey-900); /* رنگ ستاره‌های خالی */
-}
-
-.star:hover {
-  transform: scale(1.2); /* بزرگ شدن ستاره هنگام هاور */
-}
-
-/* در حالت هاور، رنگ ستاره‌های پر و خالی تغییر می‌کنند */
-.star:hover {
-  color: var(--color-btn-rose); /* رنگ ستاره‌های پر هنگام هاور */
-}
-
-.star:hover ~ .star {
-  color: var(--color-btn-rose); /* ستاره‌های بعدی در هاور */
-}
-
-.star:hover ~ .star.filled {
-  color: var(--color-btn-rose); /* ستاره‌های پر در هاور */
-}
-/* styles.module.css */
-
-.starContainer {
-  display: flex; /* چیدمان افقی ستاره‌ها */
-}
-
-.star {
-  cursor: pointer; /* تغییر نشانگر ماوس */
-}
-.ratestarcontainer label {
-  color: var(--color-grey-700) !important;
-}
-.star div {
-  font-size: 17px; /* اندازه ستاره */
-  display: inline-block; /* نمایش به صورت بلوکی */
-  width: 1em; /* عرض ستاره */
-  height: 1em; /* ارتفاع ستاره */
+.starIcon {
+  width: 16px;
+  height: 16px;
   clip-path: polygon(
     50% 0%,
     61% 35%,
@@ -157,5 +111,314 @@
     32% 57%,
     2% 35%,
     39% 35%
-  ); /* شکل ستاره */
+  );
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.star:hover .starIcon {
+  transform: scale(1.2);
+}
+
+/* Submit Button */
+.submitButton {
+  padding: 0.7rem 1rem;
+  background-color: #e0f2fe;
+  color: var(--color-btn-darkblue);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Success Message */
+.successMessage {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #dcfce7;
+  color: #166534;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+/* @media (max-width: 2560px) {
+  .title h3 {
+    font-size: 2.6rem;
+  }
+
+  .title p {
+    font-size: 1.4rem;
+  }
+
+  .submitButton {
+    min-width: 280px;
+    font-size: 1.3rem;
+  } 
+  .ratingContainer {
+    display: flex;
+justify-content: space-around;
+    gap: 40rem;
+    padding: 1rem;
+    margin: 0px;
+  }
+  .textarea {
+    min-height:180px;
+    padding: 1rem;
+  }
+  .ratestarcontainer label {
+    font-size: 1.3rem;
+  }
+  .starIcon {
+    width: 23px;
+    height: 23px;
+  }
+} */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title h3 {
+    font-size: 1.4rem;
+  }
+
+  .title p {
+    font-size: 0.95rem;
+    max-width: 800px;
+  }
+
+  .submitButton {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviewForm {
+    padding: 1.5rem;
+  }
+
+  .title {
+    margin-bottom: 2rem;
+  }
+
+  .title h3 {
+    font-size: 1.3rem;
+  }
+
+  .title p {
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    line-height: 1.6;
+  }
+
+  .textarea {
+    min-height: 120px;
+    padding: 1rem;
+  }
+
+  .ratingContainer {
+    /* flex-direction: column; */
+    gap: 1.5rem;
+  }
+
+  .submitButton {
+    /* width: 100%; */
+    padding: 0.4rem;
+  }
+  .ratestarcontainer label {
+    font-size: 0.9rem;
+  }
+  .starIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewForm {
+    padding: 1rem;
+  }
+
+  .title h3 {
+    font-size: 1.2rem;
+  }
+
+  .title p {
+    font-size: 0.85rem;
+    padding-left: 0.8rem;
+  }
+
+  .ratestarcontainer {
+    /* flex-direction: column; */
+    align-items: flex-start;
+
+    gap: 0.4rem;
+  }
+  .ratestarcontainer label {
+    font-size: 0.9rem;
+  }
+  .starIcon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .submitButton {
+    font-size: 0.8rem;
+    max-width: 200px;
+    padding: 0.5rem;
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+  .star:hover .starIcon {
+    transform: none;
+  }
+
+  .submitButton:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .reviewForm {
+    border: 2px solid var(--color-grey-300);
+  }
+
+  .title p {
+    border-left-width: 4px;
+  }
+
+  .submitButton {
+    outline: 2px solid transparent;
+  }
+
+  .submitButton:focus {
+    outline-color: var(--color-grey-900);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .successMessage {
+    animation: none;
+  }
+
+  .star .starIcon,
+  .submitButton {
+    transition: none;
+  }
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1884px) {
+  .title h3 {
+    font-size: 2rem;
+  }
+
+  .title p {
+    font-size: 1.2rem;
+    max-width: 1200px;
+  }
+
+  .submitButton {
+    min-width: 220px;
+    font-size: 1.1rem;
+    padding: 0.9rem 1.2rem;
+  } 
+
+  .ratingContainer {
+    gap: 25rem;
+    padding: 1.5rem;
+    max-width: 1600px;
+  }
+
+  .textarea {
+    min-height: 160px;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 1.2rem;
+  }
+
+  .starIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .title h3 {
+    font-size: 2.6rem;
+  }
+
+  .title p {
+    font-size: 1.4rem;
+    max-width: 1400px;
+  }
+
+  .submitButton {
+    min-width: 280px;
+    font-size: 1.3rem;
+    padding: 1.2rem 2rem;
+  } 
+
+  .ratingContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    max-width: 2000px;
+    gap: 2rem;
+    flex-wrap: nowrap;
+  }
+
+  .textarea {
+    min-height: 180px;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .ratestarcontainer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 0 0 auto;
+  }
+
+  .ratestarcontainer label {
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
+
+  .starIcon {
+    width: 23px;
+    height: 23px;
+  }
 }

@@ -1,5 +1,120 @@
+/* Logo Container */
 .logo {
-  width: 10rem;
-  border-radius: 100%;
-  margin: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  padding: 0.5rem;
+}
+
+/* Logo Icon/Symbol */
+.logoIcon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoIcon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-logo-red-light), var(--color-logo-red-darker));
+  border-radius: 12px;
+  transform: rotate(45deg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoIcon svg {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.2));
+}
+
+/* Logo Text */
+.logoText {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--color-logo-black), var(--color-logo-red-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.logoAccent {
+  position: relative;
+  margin-left: 0.2rem;
+  background: linear-gradient(to right, var(--color-logo-red), var(--color-logo-red-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.logoAccent::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-logo-red);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.logo:hover .logoIcon::before {
+  transform: rotate(225deg);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+  background: linear-gradient(135deg, var(--color-logo-red), var(--color-logo-red-dark));
+}
+
+.logo:hover .logoText,
+.logo:hover .logoAccent {
+  background: linear-gradient(to right, var(--color-logo-red-light), var(--color-logo-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .logoIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logoIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logoText {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logoIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
 }

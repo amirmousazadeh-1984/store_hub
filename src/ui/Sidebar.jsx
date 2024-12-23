@@ -19,15 +19,22 @@ function Sidebar({ selectedType }) {
   const dispatch = useDispatch();
   const { selectedColor, selectedMake, searchQuery, minPrice, maxPrice } =
     useSelector((state) => state.filters);
-  const [filtersVisible, setFiltersVisible] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [showMakeFilter, setShowMakeFilter] = useState(false);
   const [showColorFilter, setShowColorFilter] = useState(false);
   const [showPriceFilter, setShowPriceFilter] = useState(false);
 
   const cars = products.filter((product) => product.type === "cars");
 
+  const hasActiveFilters = !!(
+    selectedMake.length > 0 ||
+    selectedColor.length > 0 ||
+    minPrice ||
+    maxPrice
+  );
+
   const toggleMakeSelection = (make, e) => {
-    e.stopPropagation(); // جلوگیری از بسته شدن منو
+    e.stopPropagation();
     const updatedMakes = selectedMake.includes(make)
       ? selectedMake.filter((m) => m !== make)
       : [...selectedMake, make];
@@ -35,7 +42,7 @@ function Sidebar({ selectedType }) {
   };
 
   const toggleColorSelection = (color, e) => {
-    e.stopPropagation(); // جلوگیری از بسته شدن منو
+    e.stopPropagation();
     const updatedColors = selectedColor.includes(color)
       ? selectedColor.filter((c) => c !== color)
       : [...selectedColor, color];
@@ -47,20 +54,8 @@ function Sidebar({ selectedType }) {
     dispatch(setSelectedColor([]));
     dispatch(setMinPrice(""));
     dispatch(setMaxPrice(""));
-    dispatch(setSearchQuery(""));
+    setIsFilterOpen(false);
   };
-
-  const applyFilters = () => {
-    setFiltersVisible(false); // فیلترها اعمال شده و منو بسته می‌شود
-  };
-
-  const hasActiveFilters = !!(
-    selectedMake.length > 0 ||
-    selectedColor.length > 0 ||
-    minPrice ||
-    maxPrice ||
-    searchQuery
-  );
 
   return (
     <div className={styles.sidebar}>
@@ -73,40 +68,38 @@ function Sidebar({ selectedType }) {
             value={searchQuery}
             onChange={(e) => dispatch(setSearchQuery(e.target.value))}
           />
-          <FaSearch className={styles.searchIcon} />
+          <button className={styles.searchIcon}>
+            <FaSearch />
+          </button>
         </div>
+        
+        <div className={styles.filterContainer}>
+          <button
+            className={`${styles.filterToggleButton_1} ${
+              hasActiveFilters ? styles.activeFilter : ""
+            }`}
+            onClick={() => setIsFilterOpen((prev) => !prev)}
+          >
+            {isFilterOpen ? (
+              <MdClose className={styles.filterIcon} />
+            ) : (
+              <FiFilter className={styles.filterIcon} />
+            )}
+          </button>
 
-        <button
-          className={`${styles.filterToggleButton_1} ${
-            hasActiveFilters ? styles.filtered : ""
-          }`}
-          onClick={() => setFiltersVisible((prev) => !prev)}
-        >
-          {filtersVisible ? (
-            <MdClose className={styles.filterIcon} />
-          ) : (
-            <FiFilter className={styles.filterIcon} />
-          )}
-
-          {filtersVisible && (
+          {isFilterOpen && (
             <div className={styles.filterGroup}>
               <div className={styles.filter_3}>
                 {selectedType === "cars" && (
                   <>
-                    {/* فیلتر بر اساس شرکت سازنده */}
                     <div className={styles.filterItem}>
                       <button
                         className={`${styles.filterToggleButton} ${
                           selectedMake.length > 0 ? styles.filtered : ""
                         }`}
-                        onClick={(e) => {
-                          e.stopPropagation(); // جلوگیری از بسته شدن منو
-                          setShowMakeFilter((prev) => !prev);
-                        }}
+                        onClick={() => setShowMakeFilter((prev) => !prev)}
                       >
-                        {showMakeFilter
-                          ? "Filter by Company"
-                          : "Filter by Company"}
+                        Filter by Company
                       </button>
                       {showMakeFilter && (
                         <div className={styles.selectGroup}>
@@ -116,9 +109,7 @@ function Sidebar({ selectedType }) {
                             <div
                               key={make}
                               className={`${styles.factoryItem} ${
-                                selectedMake.includes(make)
-                                  ? styles.selected
-                                  : ""
+                                selectedMake.includes(make) ? styles.selected : ""
                               }`}
                               onClick={(e) => toggleMakeSelection(make, e)}
                             >
@@ -129,20 +120,14 @@ function Sidebar({ selectedType }) {
                       )}
                     </div>
 
-                    {/* فیلتر بر اساس رنگ */}
                     <div className={styles.filterItem}>
                       <button
                         className={`${styles.filterToggleButton} ${
                           selectedColor.length > 0 ? styles.filtered : ""
                         }`}
-                        onClick={(e) => {
-                          e.stopPropagation(); // جلوگیری از بسته شدن منو
-                          setShowColorFilter((prev) => !prev);
-                        }}
+                        onClick={() => setShowColorFilter((prev) => !prev)}
                       >
-                        {showColorFilter
-                          ? "Filter by Color"
-                          : "Filter by Color"}
+                        Filter by Color
                       </button>
                       {showColorFilter && (
                         <div className={styles.selectGroup}>
@@ -152,9 +137,7 @@ function Sidebar({ selectedType }) {
                             <div
                               key={color}
                               className={`${styles.factoryItem} ${
-                                selectedColor.includes(color)
-                                  ? styles.selected
-                                  : ""
+                                selectedColor.includes(color) ? styles.selected : ""
                               }`}
                               onClick={(e) => toggleColorSelection(color, e)}
                             >
@@ -167,27 +150,18 @@ function Sidebar({ selectedType }) {
                   </>
                 )}
 
-                {/* فیلتر بر اساس قیمت */}
                 <div className={styles.filterItem}>
                   <button
                     className={`${styles.filterToggleButton} ${
                       minPrice || maxPrice ? styles.filtered : ""
                     }`}
-                    onClick={(e) => {
-                      e.stopPropagation(); // جلوگیری از بسته شدن منو
-                      setShowPriceFilter((prev) => !prev);
-                    }}
+                    onClick={() => setShowPriceFilter((prev) => !prev)}
                   >
-                    {minPrice || maxPrice
-                      ? "Filter by Price"
-                      : "Filter by Price"}
+                    Filter by Price
                   </button>
 
                   {showPriceFilter && (
-                    <div
-                      className={styles.priceInput}
-                      onClick={(e) => e.stopPropagation()} // جلوگیری از بسته شدن منو
-                    >
+                    <div className={styles.priceInput}>
                       <div>
                         <label htmlFor="minPrice">Min Price:</label>
                         <input
@@ -195,10 +169,7 @@ function Sidebar({ selectedType }) {
                           id="minPrice"
                           placeholder="Min Price"
                           value={minPrice}
-                          onChange={(e) => {
-                            e.stopPropagation(); // جلوگیری از بسته شدن منو
-                            dispatch(setMinPrice(e.target.value));
-                          }}
+                          onChange={(e) => dispatch(setMinPrice(e.target.value))}
                         />
                       </div>
                       <div>
@@ -208,15 +179,11 @@ function Sidebar({ selectedType }) {
                           id="maxPrice"
                           placeholder="Max Price"
                           value={maxPrice}
-                          onChange={(e) => {
-                            e.stopPropagation(); // جلوگیری از بسته شدن منو
-                            dispatch(setMaxPrice(e.target.value));
-                          }}
+                          onChange={(e) => dispatch(setMaxPrice(e.target.value))}
                         />
                       </div>
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation(); // جلوگیری از بسته شدن منو
+                        onClick={() => {
                           dispatch(setMinPrice(""));
                           dispatch(setMaxPrice(""));
                         }}
@@ -229,25 +196,17 @@ function Sidebar({ selectedType }) {
                 </div>
               </div>
 
-              {/* دکمه‌ها */}
               {hasActiveFilters && (
                 <div className={styles.buttonsWrapper}>
                   <button
                     className={styles.clearAllButton}
-                    onClick={(e) => {
-                      e.stopPropagation(); // جلوگیری از بسته شدن منو
-                      clearAllFilters();
-                    }}
+                    onClick={clearAllFilters}
                   >
                     Clear All Filters
                   </button>
-
                   <button
                     className={styles.applyButton}
-                    onClick={(e) => {
-                      e.stopPropagation(); // جلوگیری از بسته شدن منو
-                      applyFilters();
-                    }}
+                    onClick={() => setIsFilterOpen(false)}
                   >
                     Apply Filters
                   </button>
@@ -255,7 +214,7 @@ function Sidebar({ selectedType }) {
               )}
             </div>
           )}
-        </button>
+        </div>
       </div>
     </div>
   );

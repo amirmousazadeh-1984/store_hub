@@ -1,0 +1,130 @@
+.checkoutContainer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.discuss {
+  padding: 1.5rem 2rem;
+  background-color: var(--color-grey-50);
+  border-radius: 10px;
+  border: 1px solid var(--color-grey-200);
+  margin-bottom: 1.5rem;
+}
+
+.discuss h2 {
+  color: var(--color-btn-main);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--color-grey-200);
+  letter-spacing: -0.5px;
+}
+
+.instructionsList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 0;
+}
+
+.instructionsList li {
+  position: relative;
+  padding-left: 2.5rem;
+  color: var(--color-grey-700);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.instructionsList li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-grey-600);
+  font-size: 1.1rem;
+  background: var(--color-grey-200);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.instructionsList li:hover::before {
+  background: var(--color-btn-main);
+  color: white;
+}
+
+/* Payment Buttons */
+.starButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 1rem 0;
+}
+
+.pay_1,
+.pay_2 {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btv,
+.btvtotal {
+  padding: 0.8rem 1.6rem;
+  background-color: var(--color-grey-100);
+  color: var(--color-grey-700);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  min-width: 160px;
+  text-align: center;
+}
+
+.btvpay_1,
+.btvpayselected {
+  padding: 0.8rem 1.6rem;
+  background-color: var(--color-btn-main);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 180px;
+  text-align: center;
+}
+
+.btvpay_1:hover,
+.btvpayselected:hover {
+  background-color: var(--color-btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .starButtons {
+    flex-direction: column;
+  }
+
+  .pay_1,
+  .pay_2 {
+    width: 100%;
+  }
+
+  .btv,
+  .btvtotal,
+  .btvpay_1,
+  .btvpayselected {
+    width: 100%;
+    min-width: unset;
+  }
+} 

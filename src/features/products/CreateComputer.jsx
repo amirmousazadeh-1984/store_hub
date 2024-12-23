@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { useCreateCar } from "./useCreateCar";
 import { useQueryClient } from "@tanstack/react-query";
 import styles from "./CreateComputer.module.css";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
-function CreateComputer() {
+function CreateComputer({ onClose }) {
   const { createCar, isCreating } = useCreateCar();
   const queryClient = useQueryClient();
   const {
@@ -19,21 +21,25 @@ function CreateComputer() {
 
   const image = watch("image");
 
-  const onSubmit = (data) => {
-    const image = typeof data.image === "string" ? data.image : data.image[0];
-
-    createCar({ ...data, image: image }).then(() => {
-      queryClient.invalidateQueries("cars");
-    });
+  const onSubmit = async (data) => {
+    try {
+      const image = typeof data.image === "string" ? data.image : data.image[0];
+      await createCar({ ...data, image: image });
+      await queryClient.invalidateQueries("cars");
+      toast.success("Product created successfully!");
+      if (onClose) onClose();
+    } catch (error) {
+      toast.error("Failed to create product");
+      console.error("Error creating product:", error);
+    }
   };
 
-  // تابع برای فعال کردن input فایل از طریق دکمه
   const handleFileInputClick = () => {
     document.getElementById("image").click();
   };
 
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.createcar}>
         <div className={styles.formSection}>
           <div className={styles.group}>
@@ -140,5 +146,9 @@ function CreateComputer() {
     </div>
   );
 }
+
+CreateComputer.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default CreateComputer;

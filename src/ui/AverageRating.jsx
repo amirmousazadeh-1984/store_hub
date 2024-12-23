@@ -32,19 +32,16 @@ function AverageRating({ reviews }) {
 
   return (
     <h5 className={styles.ratingContainer_1}>
-      <span className={styles.span1}>Average Rating: {"  "} </span>
 
-      <span className={styles.span23}>
         {Array.isArray(reviews) && reviews.length > 0 ? (
           <>
-            {" "}
-            {averageRating}
+            
             <div className={styles.singleStar}></div>
+            {averageRating}
           </>
         ) : (
-          "N/A"
+          ""
         )}
-      </span>
     </h5>
   );
 }

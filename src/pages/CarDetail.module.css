@@ -1,293 +1,1079 @@
+/* Main Container */
 .total {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-grey-50);
+  padding: 1rem;
 }
 
-.description1 {
-  color: var(--color-grey-500) !important;
-  font-size: 13px !important;
-  margin-left: 15px;
-}
-.description1 h3 {
-  color: var(--color-grey-800) !important;
-  margin-bottom: 10px !important;
-  text-align: left !important;
-}
-.description1 p {
-  text-align: left !important;
-}
-
+/* Car Detail Layout */
 .cardetail {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-.reviews {
-  display: flex;
-  justify-items: center;
-
-  border-top: 0.5px solid var(--color-grey-400) !important;
-  display: flex;
-  flex-direction: column;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
+
+/* Left Section */
 .detail {
-  flex: 1 !important;
-  flex: 0 0 65%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  background-color: var(--color-grey-0);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-grey-100);
-  height: 60vh;
-  border-radius: 10px;
-  background-image: linear-gradient(
-    to left,
-    var(--color-grey-50),
-    var(--color-grey-100)
-  );
 }
 
-.cartItem {
-  border: 1px solid var(--color-grey-100);
-  background-image: linear-gradient(
-    to right,
-    var(--color-grey-50),
-    var(--color-grey-100)
-  );
-  flex: 0 0 25%;
-  display: flex;
-  flex-direction: column;
-  height: 60vh;
-  border-radius: 10px;
-}
-.detail img {
-  height: auto;
-  max-height: 50vh;
-  width: 300px;
-}
-/* تنظیمات بخش ۱ */
+/* Part 1 - Header */
 .part_1 {
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  color: var(--color-grey-600);
-  font-size: 12px;
-  flex: 0 0 20%;
-  align-items: center !important;
-  text-align: center;
-  justify-content: center !important;
-  justify-items: center !important;
+  /* gap: 1rem; */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-grey-100);
+  margin-bottom: 1rem;
 }
 
-/* عنوان ماشین */
-.part_1 h1 {
-  color: var(--color-grey-700);
-  border-bottom: 1px solid var(--color-grey-400);
-  margin-bottom: 20px;
-  margin-top: -100px;
-  font-size: 16px;
-  padding: 5px;
+/* Title and Rating Row */
+.part_1h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  font-size: 1.25rem;
+  color: var(--color-grey-900);
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-grey-100);
 }
-/* عنوان ماشین */
-.part_1 h3 {
-  color: var(--color-grey-700);
-  margin-bottom: 14px;
-  /* margin-top: -100px; */
-  font-size: 14px;
-  /* margin-left: 15px; */
-}
+
+/* Product Details Section */
+.part_1 h3,
 .part_1 h4 {
-  margin-bottom: 14px;
-  /* margin-top: -100px; */
-  font-size: 13px;
-  /* margin-left: 15px; */
+  margin-top: 0.5rem;
 }
 
-/* تنظیمات تصویر ماشین */
+.span1 {
+  color: var(--color-grey-400);
+  font-size: 0.8125rem;
+  min-width: 100px;
+}
+
+.span2 {
+  color: var(--color-grey-700);
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+.unit {
+  background-color: var(--color-grey-50);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  border: 1px solid var(--color-grey-100);
+}
+
+.number {
+  color: var(--color-grey-800);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Product Image */
 .detail img {
-  flex: 0 0 20% !important;
-  width: 45rem;
-  border-radius: 10px;
-  box-shadow: -1px 1px 3px var(--color-grey-300),
-    1px -1px 3px var(--color-grey-300);
-  margin: 20px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 0.3rem 0;
+  box-shadow: var(--shadow-sm);
 }
 
-.reviews h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  /* color: var(--color-btn-darkblue); */
-  margin-left: 22px;
+/* Description Section */
+.description {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-grey-100);
+}
+
+.description h2 {
+  font-size: 1.125rem;
+  color: var(--color-grey-800);
+  margin-bottom: 0.5rem;
+}
+
+.description_p {
+  color: var(--color-grey-600);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  text-align: justify;
+}
+
+/* Right Section - Cart */
+.cartItem {
+  background-color: var(--color-grey-0);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
+  border: 1px solid var(--color-grey-100);
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-grey-100);
+  margin-bottom: 1rem;
+}
+
+.cartText {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-grey-700);
+}
+.cartIcon {
+  color: var(--color-btn-main);
+}
+
+/* Cart Details */
+.part2cart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input_1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity {
+  font-size: 0.875rem;
+  color: var(--color-grey-600);
+  min-width: 60px;
+}
+
+.quantityInput {
+  width: 100%;
+  height: 2rem;
+  padding: 0.3rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 7px;
+  font-size: 0.875rem;
+  background-color: var(--color-grey-0);
+  color: var(--color-grey-700);
+}
+
+.totalprice {
+  background-color: var(--color-grey-50);
+  padding: 0.3rem;
+  padding-bottom: 0.45rem;
+  padding-left: 0.7rem;
+  border-radius: 7px;
+  margin-top: 0.4rem;
+  border: 1px solid var(--color-grey-200);
+}
+
+.span3 {
+  color: var(--color-grey-700);
+  font-size: 0.875rem;
+}
+
+.span4 {
+  color: var(--color-btn-main);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+}
+
+/* Button Group */
+.btn_group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.addToCartButton,
+.removeButton {
+  width: 100%;
+  padding: 0.45rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.8s;
+}
+
+.addToCartButton {
+  background-color: #e0f2fe;
+  color: var(--color-btn-darkblue);
+}
+.removeButton {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.addToCartButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.removeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* Additional Description */
+.description1 {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  background-color: var(--color-grey-0);
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-grey-100);
+}
+
+.description1 h3 {
+  font-size: 1.125rem;
+  color: var(--color-grey-800);
+  margin-bottom: 0.75rem;
+}
+
+.description1 p {
+  color: var(--color-grey-600);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Reviews Section */
+.totalreview {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  background-color: var(--color-grey-0);
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-grey-100);
+}
+
+.UserReviews {
+  font-size: 1rem;
+  color: var(--color-grey-600);
+  margin-bottom: 0.75rem;
 }
 
 .reviews ul {
-  list-style-type: none;
-  padding: 0;
-  /* margin-left: 22px;
-  margin-right: 22px; */
-  width: 100%;
-}
-.UserReviews {
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 50px;
-  color: var(--color-grey-600);
-  font-family: "Times New Roman", Times, serif;
-  border-bottom: 1px solid var(--color-grey-300) !important;
-  /* width: 100%; */
-  margin-left: 20px;
-  padding-bottom: 6px !important;
-}
-.noreview {
-  text-align: center;
-  font-size: 14px;
-  color: var(--color-grey-600);
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-
-.reviews li {
-  /* margin: 10px 0; */
-  padding: 10px;
-  border-bottom: 1px solid var(--color-grey-300) !important;
   list-style: none;
-  border-radius: 5px;
-}
-
-.reviewTextarea {
-  width: 100%;
-  height: 100px;
-  border: 1px solid var(--color-grey-700) !important;
-
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.addReviewButton {
-  background-color: var(--color-grey-0) !important;
-  color: var(--color-btn-hover) !important;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.addReviewButton:hover {
-  background-color: var(--color-btn-hover);
-}
-
-.description {
-  font-size: 16px;
-  color: var(--color-grey-400) !important;
-  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .reviewItem {
-  margin-top: 10px !important;
-  /* box-shadow: -1px -1px 10px rgba(0, 124, 146, 0.3); */
-  /* border: 1px solid var(--color-bg--2) !important; */
-  margin-left: 20px !important;
-  margin-right: 20px !important;
-  padding-top: 20px !important;
-  padding-left: 20px !important;
-  color: var(--color-grey-500);
-}
-.starContainer {
-  display: flex;
+  padding: 1rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 7px;
+  margin-bottom: 1rem;
+  background-color: var(--color-grey-0);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
 }
 
-.star {
-  font-size: 20px; /* اندازه ستاره */
-  margin-right: 5px; /* فاصله بین ستاره‌ها */
-}
-
-.empty {
-  color: var(--color-grey-900) !important; /* رنگ ستاره‌های خالی */
-}
-/* styles.module.css */
-
-.starContainer {
-  display: flex; /* چیدمان افقی ستاره‌ها */
-
-  margin-top: 0px;
-  margin-left: 110px;
-}
-
-.star {
-  width: 13px; /* عرض ستاره */
-  height: 13px; /* ارتفاع ستاره */
-  margin: -10px 3px; /* فاصله بین ستاره‌ها */
-  background-color: var(--color-grey-600);
-  cursor: pointer; /* تغییر نشانگر ماوس */
-  transition: background-color 0.4s; /* انیمیشن تغییر رنگ */
-}
-
-.filled {
-  background-color: var(--color-btn-rose_hover); /* رنگ ستاره پر شده */
-}
-
-.empty {
-  background-color: var(--color-grey-300); /* رنگ ستاره خالی */
-}
-/* styles.module.css */
-
-.reviewStars {
-  margin-bottom: 5px; /* فاصله بین ستاره‌ها و متن نظر */
-  margin-left: 40px;
-}
-
-.reviewText {
-  font-size: 13px; /* اندازه متن نظر */
-  margin-bottom: 10px; /* فاصله بین متن نظر و نام کاربر */
-  /* margin-top: -10px; */
-  margin-left: 150px;
-  margin-bottom: 15px;
+.reviewItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .username {
-  font-size: 14px; /* اندازه متن نام کاربر */
-  color: var(--color-grey-800); /* رنگ متن نام کاربر */
-  /* box-shadow: -0.5px 0.5px 5px rgba(0, 124, 146, 0.6); */
-  /* text-decoration: underline; */
-  padding: 5px;
-  border-radius: 3px;
-  margin-bottom: 10px !important;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 200;
-  margin-left: 20px;
+  font-size: 0.9rem;
+  color: var(--color-grey-700);
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-.totalreview {
+.reviewText {
+  color: var(--color-grey-600);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+/* Star Rating */
+.starContainer {
   display: flex;
-  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+}
+
+.filled {
+  background-color: var(--color-red-bright);
+}
+
+.empty {
+  background-color: var(--color-grey-300);
+}
+
+.reviewStars .star {
+  width: 14px;
+  height: 14px;
+}
+
+.reviewStars .starContainer {
+  margin-top: 0.3rem;
+}
+
+.noreview {
+  text-align: center;
+  color: var(--color-grey-500);
+  font-size: 0.875rem;
+  padding: 1rem;
+  background-color: var(--color-grey-50);
+  border-radius: 7px;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .reviewStars .star {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewStars .star {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 2560px) {
+  .total {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .cardetail {
+    max-width: 2000px;
+    grid-template-columns: 1fr 500px;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .detail,
+  .cartItem,
+  .description1,
+  .totalreview {
+    padding: 1.75rem;
+    border-radius: 12px;
+    border-width: 1.5px;
+  }
+
+  .detail img {
+    height: 600px;
+    border-radius: 10px;
+    margin: 0.75rem 0;
+  }
+
+  .part_1h1 {
+    font-size: 1.75rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .span1 {
+    font-size: 1.125rem;
+    min-width: 150px;
+  }
+
+  .span2 {
+    font-size: 1.25rem;
+    margin-left: 0.75rem;
+  }
+
+  .unit {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin: 0.75rem 0;
+  }
+
+  .number {
+    font-size: 1.125rem;
+  }
+
+  .description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .description_p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .cartText {
+    font-size: 1.5rem;
+  }
+
+  .quantity {
+    font-size: 1.125rem;
+    min-width: 100px;
+  }
+
+  .quantityInput {
+    height: 2.75rem;
+    font-size: 1.125rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .totalprice {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-top: 0.75rem;
+  }
+
+  .span3 {
+    font-size: 1.125rem;
+  }
+
+  .span4 {
+    font-size: 1.25rem;
+    margin-left: 0.75rem;
+  }
+
+  .btn_group {
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    padding: 0.875rem;
+    font-size: 1.125rem;
+    border-radius: 8px;
+  }
+
+  .UserReviews {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .reviewItem {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-width: 1.5px;
+  }
+
+  .username {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .reviewText {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0.75rem 0;
+  }
+
+  .star {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 1884px) and (max-width: 2559px) {
+  .total {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .cardetail {
+    max-width: 1600px;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .detail,
+  .cartItem,
+  .description1,
+  .totalreview {
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-width: 1px;
+  }
+
+  .detail img {
+    height: 500px;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+  }
+
+  .part_1h1 {
+    font-size: 1.5rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .span1 {
+    font-size: 1rem;
+    min-width: 130px;
+  }
+
+  .span2 {
+    font-size: 1.125rem;
+    margin-left: 0.5rem;
+  }
+
+  .unit {
+    padding: 0.625rem 1rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+  }
+
+  .number {
+    font-size: 1rem;
+  }
+
+  .description h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .description_p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .cartText {
+    font-size: 1.25rem;
+  }
+
+  .quantity {
+    font-size: 1rem;
+    min-width: 90px;
+  }
+
+  .quantityInput {
+    height: 2.5rem;
+    font-size: 1rem;
+    padding: 0.625rem;
+    border-radius: 8px;
+  }
+
+  .totalprice {
+    padding: 0.625rem 1rem;
+    border-radius: 8px;
+    margin-top: 0.625rem;
+  }
+
+  .span3 {
+    font-size: 1rem;
+  }
+
+  .span4 {
+    font-size: 1.125rem;
+    margin-left: 0.5rem;
+  }
+
+  .btn_group {
+    gap: 0.625rem;
+    margin-top: 1.25rem;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .UserReviews {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .reviewItem {
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    border-width: 1px;
+  }
+
+  .username {
+    font-size: 1.125rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .reviewText {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.625rem 0;
+  }
+
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 1884px) {
+  .cardetail {
+    max-width: 1600px;
+    grid-template-columns: 1fr 350px;
+  }
+
+  .detail img {
+    height: 500px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardetail {
+    max-width: 1200px;
+    grid-template-columns: 1fr 300px;
+  }
+
+  .detail img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardetail {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+
+  .cartItem {
+    position: static;
+  }
+
+  .detail img {
+    height: 350px;
+  }
+
+  .btn_group {
+    flex-direction: row;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    width: 50%;
+  }
+
+  .description1,
+  .totalreview {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .total {
+    padding: 0.625rem;
+  }
+
+  .detail,
+  .cartItem,
+  .description1,
+  .totalreview {
+    padding: 0.875rem;
+  }
+
+  .part_1h1 {
+    font-size: 0.9375rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .detail img {
+    height: 300px;
+  }
+
+  .description h2 {
+    font-size: 0.9375rem;
+  }
+
+  .description_p,
+  .description1 p {
+    font-size: 0.75rem;
+  }
+
+  .cartText {
+    font-size: 0.9375rem;
+  }
+
+  .span1 {
+    font-size: 0.75rem;
+    min-width: 80px;
+  }
+
+  .span2 {
+    font-size: 0.8125rem;
+  }
+
+  .quantity {
+    font-size: 0.75rem;
+  }
+
+  .quantityInput {
+    height: 1.75rem;
+    font-size: 0.75rem;
+    padding: 0.25rem;
+  }
+
+  .span3,
+  .span4 {
+    font-size: 0.8125rem;
+  }
+
+  .btn_group {
+    gap: 0.4rem;
+    margin-top: 0.875rem;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+    border-radius: 5px;
+  }
+
+  .reviewItem {
+    padding: 0.75rem;
+  }
+
+  .username {
+    font-size: 0.8125rem;
+  }
+
+  .reviewText {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .total {
+    padding: 0.5rem;
+  }
+
+  .detail,
+  .cartItem,
+  .description1,
+  .totalreview {
+    padding: 0.75rem;
+    border-radius: 5px;
+  }
+
+  .part_1h1 {
+    font-size: 0.875rem;
+    padding-bottom: 0.625rem;
+  }
+
+  .detail img {
+    height: 275px;
+  }
+
+  .description h2 {
+    font-size: 0.875rem;
+  }
+
+  .cartText {
+    font-size: 0.875rem;
+  }
+
+  .span1 {
+    min-width: 70px;
+    font-size: 0.6875rem;
+  }
+
+  .span2 {
+    font-size: 0.75rem;
+  }
+
+  .btn_group {
+    gap: 0.375rem;
+    margin-top: 0.75rem;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    padding: 0.375rem;
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .total {
+    padding: 0.4375rem;
+  }
+
+  .detail,
+  .cartItem,
+  .description1,
+  .totalreview {
+    padding: 0.625rem;
+    border-radius: 4px;
+  }
+
+  .part_1h1 {
+    font-size: 0.8125rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .detail img {
+    height: 250px;
+  }
+
+  .description h2 {
+    font-size: 0.8125rem;
+  }
+
+  .cartText {
+    font-size: 0.8125rem;
+  }
+
+  .span1 {
+    min-width: 65px;
+    font-size: 0.625rem;
+  }
+
+  .span2 {
+    font-size: 0.6875rem;
+  }
+
+  .quantity {
+    font-size: 0.6875rem;
+  }
+
+  .quantityInput {
+    height: 1.5rem;
+    font-size: 0.6875rem;
+  }
+
+  .span3,
+  .span4 {
+    font-size: 0.75rem;
+  }
+
+  .btn_group {
+    gap: 0.3rem;
+    margin-top: 0.625rem;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    padding: 0.3rem;
+    font-size: 0.625rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .total {
+    padding: 0.375rem;
+  }
+
+  .detail,
+  .cartItem,
+  .description1,
+  .totalreview {
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .part_1h1 {
+    font-size: 0.75rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .detail img {
+    height: 200px;
+  }
+
+  .description h2 {
+    font-size: 0.75rem;
+  }
+
+  .cartText {
+    font-size: 0.75rem;
+  }
+
+  .span1 {
+    min-width: 60px;
+    font-size: 0.625rem;
+  }
+
+  .span2 {
+    font-size: 0.625rem;
+  }
+
+  .quantity {
+    font-size: 0.625rem;
+    min-width: 50px;
+  }
+
+  .quantityInput {
+    height: 1.375rem;
+    font-size: 0.625rem;
+    padding: 0.2rem;
+  }
+
+  .span3,
+  .span4 {
+    font-size: 0.6875rem;
+  }
+
+  .btn_group {
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .addToCartButton,
+  .removeButton {
+    padding: 0.25rem;
+    font-size: 0.625rem;
+  }
+
+  .description1 h3,
+  .UserReviews {
+    font-size: 0.75rem;
+  }
+
+  .reviewItem {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .username {
+    font-size: 0.6875rem;
+  }
+
+  .reviewText {
+    font-size: 0.625rem;
+    line-height: 1.3;
+  }
+}
+
+/* Form Container */
+.reviewForm {
+  background-color: var(--color-grey-0);
+  border-radius: 7px;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
   width: 100%;
-  justify-content: center;
-  justify-items: center;
-  margin-top: 30px;
+  margin: 0 auto;
 }
 
-/* فایل CarDetail.module.css */
+/* Title Section */
+.title {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--color-grey-700);
+  padding: 0 0.5rem;
+}
 
-/* فایل CarDetail.module.css */
-.ratingContainer_1 {
+.title h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-grey-800);
+  text-align: center;
+}
+
+.title p {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-grey-600);
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--color-btn-main);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Textarea */
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--color-grey-700);
+  resize: vertical;
+  transition: all 0.2s;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+  background-color: var(--color-grey-50);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-btn-main);
+  box-shadow: 0 0 0 2px rgba(var(--color-btn-main-rgb), 0.1);
+  background-color: var(--color-grey-0);
+}
+
+/* Rating Container */
+.ratingContainer {
   display: flex;
-  align-items: center; /* وسط‌چین کردن عمودی متن و ستاره */
-  border-top: 1px solid var(--color-grey-300) !important;
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 14px;
-  /* font-style: italic; */
-  font-weight: 500;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
 }
 
-.singleStar {
-  width: 18px;
-  height: 18px;
+.ratestarcontainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ratestarcontainer label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-grey-700);
+}
+
+/* Star Rating */
+.starContainer {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.star {
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
   clip-path: polygon(
     50% 0%,
     61% 35%,
@@ -299,191 +1085,372 @@
     32% 57%,
     2% 35%,
     39% 35%
-  ); /* شکل ستاره */
-  background-color: var(--color-btn-rose_hover); /* رنگ ستاره پر */
-  margin-left: 5px; /* فاصله کوچک بین متن و ستاره */
-}
-
-.description {
-  margin-right: 20px;
-  margin-left: 20px;
-  font-size: 12px;
-}
-
-.description h2 {
-  color: var(--color-grey-600);
-  border-bottom: 1px solid var(--color-grey-400) !important;
-  padding: 5px;
-}
-
-.description p {
-  color: var(--color-grey-600);
-  font-size: 12px !important;
-  text-align: initial;
-  margin-top: 20px !important;
-}
-
-.description1 {
-  font-size: 15px;
-  color: var(--color-grey-600);
-  margin-bottom: 15px;
-  margin-left: 20px !important;
-  font-weight: 100 !important;
-}
-.description h3 {
-  font-weight: 100 !important;
-  color: var(--color-grey-800) !important;
-}
-
-.number {
-  font-family: "Lato", sans-serif;
-  font-size: 1.4rem;
-  color: var(--color-grey-200) !important;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.number1 {
-  font-family: "Lato", sans-serif;
-  font-size: 1.3rem;
-  color: var(--color-grey-800) !important;
-  font-weight: 600;
-}
-
-.span1 {
-  color: var(--color-grey-500);
-}
-
-.span2 {
-  color: var(--color-grey-900) !important;
-}
-
-.span3 {
-  color: var(--color-grey-700);
-  padding-left: 40px;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-}
-
-.span4 {
-  color: var(--color-grey-800);
-  font-weight: bold;
-  padding-right: 40px;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-}
-.iconLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-  gap: 100px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.icon {
-  background-color: var(--color-red-bright);
-  color: var(--color-bg--2);
-  transition: color 0.3s ease;
-}
-.part2cart {
-  padding: 10px;
-  border-top: 1px solid var(--color-grey-300);
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-}
-.cartText {
-  /* margin-top: 8px; */
-  font-size: 17px;
-  font-weight: bold;
-  color: var(--color-grey-800);
-  transition: color 0.3s ease;
-}
-
-/* افزودن حاشیه و سایه برای زیبایی بیشتر */
-.cartIcon {
-  border-radius: 20%;
-  padding: 8px;
-}
-
-/* ورودی برای تعداد */
-.input_1 {
-  width: 100%;
-  display: flex;
-  gap: 5px;
-}
-.quantityInput {
-  margin-top: 50px !important;
-  margin-right: 5px !important;
-  color: var(--color-grey-900) !important;
-}
-
-.quantity {
-  margin-top: 52px !important;
-  font-size: 1.4rem;
-  color: var(--color-grey-700);
-  margin-left: 5px;
-}
-.unit {
-  margin-top: 40px;
-  color: var(--color-grey-600);
-  font-size: 1.4rem;
-}
-
-.totalprice {
-  font-size: 15px !important;
-  margin-top: 20px;
-  background-image: linear-gradient(
-    to right,
-    var(--color-grey-200),
-    var(--color-grey-300)
   );
-  border-radius: 5px;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-.btn_group {
-  display: flex !important;
-  justify-content: space-around !important;
-  gap: 20px;
-  margin-top: 50px;
+.star:hover .starIcon {
+  transform: scale(1.1);
 }
-.addToCartButton {
-  background-color: var(--color-grey-100);
-  border: 1px solid var(--color-btn-hover);
-  padding: 5px 20px;
-  border-radius: 5px;
-  color: var(--color-btn-hover);
-  font-size: 1.3rem;
+
+/* Submit Button */
+.submitButton {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-btn-main);
+  color: var(--color-grey-0);
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.875rem;
   cursor: pointer;
-  transition: all 0.6s ease;
+  transition: all 0.2s;
+  min-width: 120px;
 }
 
-.addToCartButton:hover {
+.submitButton:hover {
   background-color: var(--color-btn-hover);
-  border: none !important;
-  color: var(--color-bg--2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.removeButton {
-  background-color: var(--color-grey-100);
-  border: 1px solid var(--color-red-bright);
-  padding: 5px 20px;
-  border-radius: 5px;
-  color: var(--color-red-bright);
-  font-size: 1.3rem;
-  cursor: pointer;
-  transition: all 0.6s ease;
+/* Success Message */
+.successMessage {
+  margin-top: 0.75rem;
+  padding: 0.625rem;
+  background-color: #dcfce7;
+  color: #166534;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.removeButton:hover {
-  background-color: var(--color-red-bright);
-  border: none !important;
-  color: var(--color-bg--2);
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title h3 {
+    font-size: 0.9375rem;
+  }
+
+  .title p {
+    font-size: 0.8125rem;
+    max-width: 700px;
+  }
+
+  .submitButton {
+    min-width: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviewForm {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .title {
+    margin-bottom: 1rem;
+  }
+
+  .title h3 {
+    font-size: 1rem;
+  }
+
+  .title p {
+    font-size: 0.875rem;
+    padding-left: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .textarea {
+    min-height: 100px;
+    padding: 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  .ratingContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 0.875rem;
+  }
+
+  .starIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .submitButton {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .reviewForm {
+    padding: 0.875rem;
+  }
+
+  .title h3 {
+    font-size: 0.9375rem;
+  }
+
+  .title p {
+    font-size: 0.8125rem;
+    padding-left: 0.75rem;
+  }
+
+  .textarea {
+    min-height: 90px;
+    padding: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 0.8125rem;
+  }
+
+  .starIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .submitButton {
+    padding: 0.625rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .reviewForm {
+    padding: 0.75rem;
+  }
+
+  .title h3 {
+    font-size: 0.875rem;
+  }
+
+  .title p {
+    font-size: 0.75rem;
+    padding-left: 0.625rem;
+  }
+
+  .textarea {
+    min-height: 80px;
+    padding: 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 0.75rem;
+  }
+
+  .starIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .submitButton {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .reviewForm {
+    padding: 0.625rem;
+  }
+
+  .title h3 {
+    font-size: 0.8125rem;
+  }
+
+  .title p {
+    font-size: 0.6875rem;
+    padding-left: 0.5rem;
+  }
+
+  .textarea {
+    min-height: 70px;
+    padding: 0.5rem;
+    font-size: 0.6875rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 0.6875rem;
+  }
+
+  .starIcon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .submitButton {
+    padding: 0.4375rem;
+    font-size: 0.6875rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .reviewForm {
+    padding: 3.5rem;
+    border-radius: 16px;
+    max-width: 2400px;
+  }
+
+  .title {
+    margin-bottom: 3rem;
+    padding: 0 2.5rem;
+  }
+
+  .title h3 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .title p {
+    font-size: 1.8rem;
+    line-height: 2;
+    padding-left: 2rem;
+    border-left: 6px solid var(--color-btn-main);
+    max-width: 1800px;
+    margin-bottom: 2rem;
+  }
+
+  .textarea {
+    min-height: 300px;
+    padding: 2rem;
+    font-size: 1.8rem;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    border-width: 2px;
+  }
+
+  .ratingContainer {
+    max-width: 2000px;
+    padding: 0 2.5rem;
+    gap: 4rem;
+  }
+
+  .ratestarcontainer {
+    gap: 3rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 1.8rem;
+  }
+
+  .starContainer {
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .star {
+    padding: 0.3rem;
+  }
+
+  .starIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .submitButton {
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    min-width: 300px;
+    border-radius: 14px;
+    font-weight: 600;
+  }
+
+  .successMessage {
+    max-width: 1000px;
+    padding: 2rem;
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    border-radius: 14px;
+  }
+}
+
+@media (min-width: 1884px) and (max-width: 2559px) {
+  .reviewForm {
+    padding: 3rem;
+    border-radius: 14px;
+    max-width: 2000px;
+  }
+
+  .title {
+    margin-bottom: 2.5rem;
+    padding: 0 2rem;
+  }
+
+  .title h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .title p {
+    font-size: 1.5rem;
+    line-height: 1.9;
+    padding-left: 1.8rem;
+    border-left: 5px solid var(--color-btn-main);
+    max-width: 1600px;
+    margin-bottom: 1.8rem;
+  }
+
+  .textarea {
+    min-height: 250px;
+    padding: 1.8rem;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.8rem;
+  }
+
+  .ratingContainer {
+    max-width: 1800px;
+    padding: 0 2rem;
+    gap: 3rem;
+  }
+
+  .ratestarcontainer {
+    gap: 2.5rem;
+  }
+
+  .ratestarcontainer label {
+    font-size: 1.5rem;
+  }
+
+  .starContainer {
+    gap: 0.4rem;
+    padding-top: 0.4rem;
+  }
+
+  .star {
+    padding: 0.25rem;
+  }
+
+  .starIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .submitButton {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.5rem;
+    min-width: 250px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+
+  .successMessage {
+    max-width: 800px;
+    padding: 1.8rem;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 12px;
+  }
 }

@@ -113,6 +113,10 @@ function CarDetail() {
           <div className={styles.part_1}>
             <h1 className={styles.part_1h1}>
               {car?.name || "Car name unavailable"}
+
+              <div className={styles.ratingContainer_1}>
+                <AverageRating reviews={reviews} />
+              </div>
             </h1>
 
             {car.type === "books" ? (
@@ -140,26 +144,6 @@ function CarDetail() {
                 )}
               </>
             )}
-
-            <h4>
-              <IntlProvider locale="en">
-                <h4 className={styles.unit}>
-                  <span className={styles.span1}>Unit Price: </span>
-                  <span className={styles.span2}>
-                    <span className={styles.number1}>
-                      <FormattedNumber
-                        value={car?.price || "N/A"}
-                        style="currency"
-                        currency="USD"
-                      />
-                    </span>
-                  </span>
-                </h4>
-              </IntlProvider>
-            </h4>
-            <div className={styles.ratingContainer_1}>
-              <AverageRating reviews={reviews} />
-            </div>
           </div>
           <img src={getImageUrl(car?.image)} alt={car?.name} />
           <div className={styles.description}>
@@ -177,7 +161,7 @@ function CarDetail() {
           <div className={styles.iconLink}>
             <span className={styles.cartText}>Shopping Cart</span>
             <FiShoppingCart
-              size={35}
+              size={28}
               className={`${styles.icon} ${styles.cartIcon}`}
             />
           </div>
@@ -195,10 +179,10 @@ function CarDetail() {
             </div>
 
             <IntlProvider locale="en">
-              <p className={styles.unit}>
-                <span className={styles.span1}>Unit Price: </span>
-                <span className={styles.span2}>
-                  <span className={styles.number1}>
+              <p className={styles.totalprice}>
+                <span className={styles.span3}>Unit Price: </span>
+                <span className={styles.span4}>
+                  <span className={styles.number}>
                     <FormattedNumber
                       value={car?.price || 0}
                       style="currency"
@@ -211,7 +195,7 @@ function CarDetail() {
               <p className={styles.totalprice}>
                 <span className={styles.span3}>Total Price: </span>
                 <span className={styles.span4}>
-                  <span className={styles.number2}>
+                  <span className={styles.number}>
                     <FormattedNumber
                       value={totalPrice}
                       style="currency"

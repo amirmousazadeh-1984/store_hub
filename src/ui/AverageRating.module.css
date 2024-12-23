@@ -1,81 +1,121 @@
+/* Rating Container */
 .ratingContainer_1 {
   display: flex;
-  /* align-items: center; */
-  font-size: 1.3rem;
-  /* font-weight: 550; */
-  color: var(--color-grey-600);
-  text-align: center !important;
-  /* align-items: center; */
-  /* justify-content: center; */
-  gap: 5px;
-  /* border-bottom: 1px solid var(--color-grey-400); */
-  padding-bottom: 12px;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--color-grey-700);
 }
+
+/* Label Text */
 .span1 {
   color: var(--color-grey-600);
-  font-weight: 100;
-}
-.span23 {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: var(--color-grey-900);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
-.span2 {
-  color: var(--color-grey-900) !important;
-}
+/* Rating Value */
 
-.singleStar {
-  margin-left: 5px;
-  width: 15px;
-  height: 15px;
-  background-color: var(--color-btn-rose_hover); /* رنگ طلایی برای ستاره */
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  ); /* شکل ستاره */
-}
-
+/* Star Container */
 .starContainer {
   display: flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
+/* Individual Star */
 .star {
-  width: 20px;
-  height: 20px;
-  /* margin-right: 4px; */
-  background-color: var(
-    --color-btn-rose_hover
-  ) !important; /* رنگ پیش‌فرض ستاره‌ها */
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
 }
 
+.star:hover {
+  transform: scale(1.2);
+}
+
+/* Star Colors */
 .filled {
-  background-color: var(
-    --color-btn-rose_hover
-  ) !important; /* رنگ ستاره‌های پر */
+  background-color: var(--color-grey-900);
 }
 
 .empty {
-  background-color: lightgray; /* رنگ ستاره‌های خالی */
+  background-color: var(--color-grey-300);
+}
+
+/* Single Star for Average */
+.singleStar {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-grey-700);
+  clip-path: polygon(
+    50% 0%,
+    63% 38%,
+    100% 38%,
+    69% 59%,
+    82% 100%,
+    50% 75%,
+    18% 100%,
+    31% 59%,
+    0% 38%,
+    37% 38%
+  );
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ratingContainer_1 {
+    font-size: 0.8125rem;
+  }
+
+  .singleStar {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ratingContainer_1 {
+    font-size: 0.75rem;
+  }
+
+  .singleStar {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .ratingContainer_1 {
+    border: 1px solid var(--color-grey-300);
+  }
+
+  .filled,
+  .singleStar {
+    border: 1px solid var(--color-grey-700);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    transition: none;
+  }
+
+  .star:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .ratingContainer_1 {
+    background: none;
+    padding: 0;
+  }
 }

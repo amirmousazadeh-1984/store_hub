@@ -5,8 +5,8 @@ function Footer() {
     <footer className={styles.footer}>
       <div>
         <div className={styles.total}>
-          <p>Contact us:</p>
           <div>
+            <p>Contact us:</p>
             <span>- Tell: 01-4676222229</span>
             <span>- Fax: 01-4676222222-8</span>
             <span>- Gamil: luxury_product_center@gmail.com</span>

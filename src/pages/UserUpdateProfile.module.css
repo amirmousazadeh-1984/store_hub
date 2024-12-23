@@ -1,121 +1,345 @@
-/* UserProfile.module.css */
-
 .profileContainer {
-  flex: 0 0 49%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  margin-right: 20px;
-  margin: 0;
-
-  background-image: linear-gradient(
-    to left,
-    var(--color-grey-100),
-    var(--color-grey-100)
-  );
-  /* border: 1px solid var(--color-grey-300); */
-  border-radius: 10px;
-  min-height: 420px;
-  margin-top: 0px;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .profileContainer h3 {
-  font-size: 17px; /* تغییر اندازه فونت */
-  font-family: "Times New Roman", Times, serif !important;
-  padding: 0px; /* افزایش padding */
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--color-grey-400);
-  width: 85%; /* تغییر به 100% */
-  text-align: center;
-  margin-top: 0px !important;
   color: var(--color-grey-700);
-  display: inline;
-  margin-top: 20px !important;
-  padding: 5px;
-  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .profileForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 80%;
-  margin-top: 0px;
-  align-items: flex-end; /* المان‌های داخل فرم به سمت راست حرکت کنند */
+  gap: 1rem;
 }
 
 .emailField,
 .usernameField,
 .passwordField {
   display: flex;
-  justify-content: flex-start; /* نمایش محتوا به صورت چپ‌چین */
-  align-items: center; /* مرکز کردن محتوای عمودی */
-  width: 100%; /* عرض کامل برای بخش‌های فیلد */
-  gap: 10px;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--color-grey-0);
 }
-label {
-  flex: 0 0 30% !important;
-  margin-bottom: 0px !important;
-  font-weight: 200 !important;
-  color: var(--color-grey-600) !important; /* تغییر رنگ متن */
-  font-family: "Times New Roman", Times, serif !important;
-  font-size: 14px !important;
-  text-align: left; /* چپ‌چین کردن متن */
+
+.profileForm label {
+  color: var(--color-grey-600);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
-input {
-  flex: 1 !important;
-  width: 200px;
-  padding: 5px !important;
-  margin-bottom: 1rem !important;
-  border: 1px solid var(--color-grey-300) !important; /* رنگ مرز */
-  border-radius: 7px !important; /* گوشه‌های گرد */
-  background-image: linear-gradient(
-    to left,
-    var(--color-grey-100),
-    var(--color-grey-300)
-  );
-  transition: all 0.5s ease !important;
-  font-size: 13px !important;
-  color: var(--color-grey-700) !important; /* تغییر رنگ متن */
+
+.profileForm input {
+  padding: 0.6rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background-color: var(--color-grey-0);
+  transition: all 0.2s;
+}
+
+.profileForm input::placeholder {
+  color: var(--color-grey-500);
+  opacity: 0.8;
+}
+
+.profileForm input:disabled {
+  background-color: var(--color-grey-100);
+  border-color: var(--color-grey-300);
+  color: var(--color-grey-700);
+  cursor: not-allowed;
+}
+
+.emailField input,
+.usernameField input[disabled] {
+  background-color: var(--color-grey-100);
+  border-color: var(--color-grey-300);
+  color: var(--color-grey-700);
+  cursor: not-allowed;
+  font-weight: 500;
 }
 
 .button1 {
-  align-self: flex-end; /* حرکت دکمه به سمت راست */
-  width: auto; /* عرض خودکار برای دکمه */
-  padding: 7px 15px;
-  background-image: linear-gradient(
-    to left,
-    var(--color-green-main),
-    var(--color-green-hover)
-  );
-  color: var(--color-bg--2);
-  font-size: 16px;
-  font-family: "Times New Roman", Times, serif;
+  margin-top: 1rem;
+  padding: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
+  background-color: var(--color-grey-900);
+  color: var(--color-grey-0);
   border: none;
-  border-radius: 7px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.5s ease;
-  margin-top: 10px;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
 }
 
 .button1:hover {
-  background-image: linear-gradient(
-    to left,
-    var(--color-green-hover),
-    var(--color-btn-text)
-  );
-  color: var(--color-bg--2) !important;
+  background-color: var(--color-grey-800);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button1:disabled {
+  background-color: var(--color-grey-300);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .button1 {
+    background-color: var(--color-grey-600);
+    color: var(--color-grey-50);
+  }
+
+  .button1:hover {
+    background-color: var(--color-grey-500);
+  }
+
+  .profileForm input {
+    background-color: var(--color-grey-900);
+    border-color: var(--color-grey-700);
+    color: var(--color-grey-100);
+  }
+
+  .profileForm input::placeholder {
+    color: var(--color-grey-400);
+    opacity: 0.9;
+  }
+
+  .profileForm input:disabled,
+  .emailField input,
+  .usernameField input[disabled] {
+    background-color: var(--color-grey-800);
+    border-color: var(--color-grey-600);
+    color: var(--color-grey-300);
+  }
+
+  .profileContainer h3 {
+    color: var(--color-grey-200);
+  }
+
+  .profileForm label {
+    color: var(--color-grey-300);
+  }
 }
 
 .errorMessage {
-  color: var(--color-btn-rose_hover);
-  font-size: 14px;
+  color: var(--color-red-700);
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
 }
 
 .successMessage {
-  color: var(--color-green-main);
-  font-size: 14px;
+  color: var(--color-green-700);
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+/* 2560px - 4K */
+@media (min-width: 2560px) {
+  .profileContainer h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .profileForm {
+    gap: 1.5rem;
+  }
+
+  .profileForm label {
+    font-size: 1.2rem;
+  }
+
+  .profileForm input {
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+    border-width: 2px;
+  }
+
+  .button1 {
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .errorMessage,
+  .successMessage {
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* 1884px - Large Desktop */
+@media (min-width: 1884px) and (max-width: 2559px) {
+  .profileContainer h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .profileForm {
+    gap: 1.2rem;
+  }
+
+  .profileForm label {
+    font-size: 1rem;
+  }
+
+  .profileForm input {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-width: 1.5px;
+  }
+
+  .button1 {
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .errorMessage,
+  .successMessage {
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+  }
+}
+
+/* 1024px - Small Desktop/Tablet Landscape */
+@media (max-width: 1024px) {
+  .profileContainer h3 {
+    font-size: 0.95rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .profileForm {
+    gap: 0.8rem;
+  }
+
+  .profileForm label {
+    font-size: 0.75rem;
+  }
+
+  .profileForm input {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .button1 {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    margin-top: 0.7rem;
+  }
+}
+
+/* 768px - Tablet Portrait */
+@media (max-width: 768px) {
+  .profileContainer h3 {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .profileForm {
+    gap: 0.7rem;
+  }
+
+  .profileForm label {
+    font-size: 0.7rem;
+  }
+
+  .profileForm input {
+    padding: 0.45rem;
+    font-size: 0.7rem;
+  }
+
+  .button1 {
+    padding: 0.45rem;
+    font-size: 0.7rem;
+    margin-top: 0.6rem;
+  }
+}
+
+/* 425px - Mobile Large */
+@media (max-width: 425px) {
+  .profileContainer h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .profileForm {
+    gap: 0.6rem;
+  }
+
+  .profileForm label {
+    font-size: 0.7rem;
+  }
+
+  .profileForm input {
+    padding: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .button1 {
+    padding: 0.4rem;
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* 375px - Mobile Medium */
+@media (max-width: 375px) {
+  .profileContainer h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .profileForm {
+    gap: 0.5rem;
+  }
+
+  .profileForm label {
+    font-size: 0.65rem;
+  }
+
+  .profileForm input {
+    padding: 0.35rem;
+    font-size: 0.65rem;
+  }
+
+  .button1 {
+    padding: 0.35rem;
+    font-size: 0.65rem;
+    margin-top: 0.4rem;
+  }
+}
+
+/* 320px - Mobile Small */
+@media (max-width: 320px) {
+  .profileContainer h3 {
+    font-size: 0.75rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .profileForm {
+    gap: 0.4rem;
+  }
+
+  .profileForm label {
+    font-size: 0.6rem;
+  }
+
+  .profileForm input {
+    padding: 0.3rem;
+    font-size: 0.6rem;
+  }
+
+  .button1 {
+    padding: 0.3rem;
+    font-size: 0.6rem;
+    margin-top: 0.3rem;
+  }
 }

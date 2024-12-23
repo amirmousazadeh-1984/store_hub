@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaClipboardList, FaTruck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { HiReceiptRefund } from "react-icons/hi";
 
 function PurchasedProducts() {
   const userId = useSelector((state) => state.user.id);
@@ -60,12 +61,17 @@ function PurchasedProducts() {
   if (purchasedProducts.length === 0) {
     return (
       <div className={styles.emptyCartMessagecontainer}>
-        <button
-          className={styles.emptyCartMessage}
-          onClick={() => navigate(`/dashboard`)}
-        >
-          PurchasedProducts List Is Empty / Back to Dashboard Page
-        </button>
+        <div className={styles.emptyCartMessage}>
+          <HiReceiptRefund className={styles.emptyCartIcon} />
+          <h2>No Purchased Products</h2>
+          <p>You haven't made any purchases yet. Start shopping to see your purchase history here!</p>
+          <button
+            onClick={() => navigate(`/dashboard`)}
+            className={styles.backToDashboard}
+          >
+            Back to Dashboard
+          </button>
+        </div>
       </div>
     );
   }
@@ -88,96 +94,67 @@ function PurchasedProducts() {
               {pendingItems.map(({ car, quantity, paymentId }) => (
                 <div key={car.id} className={styles.property}>
                   <div className={styles.part_1}>
-                    {" "}
-                    <h3>
-                      <span className={styles.part1}>
-                        P.Name:
-                        <span className={styles.part2}> {car.name}</span>
-                      </span>
-                    </h3>
-                    <div className={styles.image}>
+                    <div 
+                      className={styles.image} 
+                      onClick={() => handleSendProduct({ car, quantity, paymentId })}
+                      role="button"
+                      tabIndex={0}
+                    >
                       <img src={getImageUrl(car.image)} alt={car.name} />
                     </div>
-                    <div className={styles.part_2}>
+                    <div className={styles.productDetails}>
+                      <h3 className={styles.productName}>{car.name}</h3>
                       <div className={styles.pendingLabel}>
                         <FaClipboardList />
-                        {/* <AiOutlineClockCircle /> */}
                       </div>
-                      <span className={styles.part1}>
-                        {" "}
-                        {car.type === "books" ? (
-                          <>
-                            <span>
-                              <span className={styles.part1}>Publisher: </span>
-                              <span className={styles.part2}>
-                                {car.publisher}
-                              </span>
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            <span>
-                              <span className={styles.part1}>
-                                Company Name:{" "}
-                              </span>
-                              <span className={styles.part2}>{car.make}</span>
-                            </span>
-                          </>
-                        )}
-                      </span>
-                      <IntlProvider locale="en">
-                        <span>
-                          <span className={styles.part1}>Unit Price: </span>
-                          <span className={styles.part2}>
-                            <FormattedNumber
-                              value={car.price}
-                              style="currency"
-                              currency="USD"
-                              className={styles.number}
-                            />
-                          </span>
-                        </span>{" "}
-                        <span className={styles.part1}>
-                          Quantity:
-                          <span className={styles.part2}>{quantity}</span>
+                      
+                      <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>
+                          {car.type === "books" ? "Publisher:" : "Company Name:"}
                         </span>
-                        <span className={styles.totalprice}>
-                          <span className={styles.part1}>
-                            Total Paid Price:{" "}
-                          </span>
+                        <span className={styles.infoValue}>
+                          {car.type === "books" ? car.publisher : car.make}
+                        </span>
+                      </div>
 
+                      <IntlProvider locale="en">
+                        <div className={styles.infoRow}>
+                          <span className={styles.infoLabel}>Unit Price:</span>
+                          <span className={styles.priceValue}>
                           <FormattedNumber
+                            value={car.price}
+                            style="currency"
+                            currency="USD"
+                            className={styles.priceValue}
+                          /></span>
+                        </div>
+
+                        <div className={styles.infoRow}>
+                          <span className={styles.infoLabel}>Quantity:</span>
+                          <span className={styles.infoValue}>{quantity}</span>
+                        </div>
+
+                        <div className={`${styles.infoRow} ${styles.totalPriceRow}`}>
+                          <span className={styles.infoLabel}>Total Paid Price:</span>
+                        <span className={styles.priceValue}>  <FormattedNumber
                             value={car.price * quantity}
                             style="currency"
                             currency="USD"
-                            className={styles.number}
+                            
                           />
-                        </span>
+                          </span>
+                        </div>
                       </IntlProvider>
-                      <div className={styles.payid}>
+
+                      <div className={styles.paymentContainer}>
                         {paymentId ? (
                           <>
-                            <span className={styles.paymentId}>
-                              Payment ID:
-                            </span>
-                            <span className={styles.paymentId1}>
-                              {paymentId}
-                            </span>
+                            <span className={styles.paymentLabel}>Payment ID:</span>
+                            <span className={styles.paymentValue}>{paymentId}</span>
                           </>
                         ) : (
                           <span>No Payment ID available</span>
                         )}
-                      </div>
-
-                      <div className={styles.buttonWrapper}>
-                        <button
-                          onClick={() =>
-                            handleSendProduct({ car, quantity, paymentId })
-                          }
-                          className={styles.pendingButton}
-                        >
-                          Product delivery for shipment
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -205,74 +182,61 @@ function PurchasedProducts() {
                   className={`${styles.property} ${styles.sent}`}
                 >
                   <div className={styles.sentLabel}>
-                    {/* <FiTruck  /> */}
                     <FaTruck />
                   </div>
                   <div className={styles.part_1}>
-                    <h3>
-                      <span className={styles.part1}>
-                        P_Name:
-                        <span className={styles.part2}> {car.name}</span>
-                      </span>
-                    </h3>
                     <div className={styles.image}>
                       <img src={getImageUrl(car.image)} alt={car.name} />
                     </div>
-                    <div className={styles.part_2}>
-                      {car.type === "books" ? (
-                        <>
-                          <span>
-                            <span className={styles.part1}>Publisher: </span>
-                            <span className={styles.part2}>
-                              {car.publisher}
-                            </span>
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          <span>
-                            <span className={styles.part1}>Company Name: </span>
-                            <span className={styles.part2}>{car.make}</span>
-                          </span>
-                        </>
-                      )}
-                      <IntlProvider locale="en">
-                        <span>
-                          <span className={styles.part1}>Unit Price: </span>
-                          <span className={styles.part2}>
-                            <FormattedNumber
-                              value={car.price}
-                              style="currency"
-                              currency="USD"
-                              className={styles.number}
-                            />
-                          </span>
-                        </span>{" "}
-                        <span className={styles.part1}>
-                          Quantity:
-                          <span className={styles.part2}>{quantity}</span>
+                    <div className={styles.productDetails}>
+                      <h3 className={styles.productName}>{car.name}</h3>
+                      
+                      <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>
+                          {car.type === "books" ? "Publisher:" : "Company Name:"}
                         </span>
-                        <span className={styles.totalprice}>
-                          <span className={styles.part1}>
-                            Total Paid Price:{" "}
-                          </span>
+                        <span className={styles.infoValue}>
+                          {car.type === "books" ? car.publisher : car.make}
+                        </span>
+                      </div>
+
+                      <IntlProvider locale="en">
+                        <div className={styles.infoRow}>
+                          <span className={styles.infoLabel}>Unit Price:</span>
+                          <span  className={styles.priceValue}>
+                          <FormattedNumber
+                            value={car.price}
+                            style="currency"
+                            currency="USD"
+                           
+                          /></span>
+                        </div>
+
+                        <div className={styles.infoRow}>
+                          <span className={styles.infoLabel}>Quantity:</span>
+                          <span className={styles.infoValue}>{quantity}</span>
+                        </div>
+
+                        <div className={`${styles.infoRow} ${styles.totalPriceRow}`}>
+                          <span className={styles.infoLabel}>Total Paid Price:</span>
+                          <span  className={styles.priceValue}>
+
+
                           <FormattedNumber
                             value={car.price * quantity}
                             style="currency"
                             currency="USD"
-                            className={styles.number}
-                          />
-                        </span>
+                            className={styles.priceValue}
+                            />
+                            </span>
+                        </div>
                       </IntlProvider>
-                      <div className={styles.payid}>
+
+                      <div className={styles.paymentContainer}>
                         {paymentId ? (
                           <>
-                            <span className={styles.paymentId}>
-                              Payment ID:
-                            </span>
-                            <span className={styles.paymentId1}>
-                              {paymentId}
-                            </span>
+                            <span className={styles.paymentLabel}>Payment ID:</span>
+                            <span className={styles.paymentValue}>{paymentId}</span>
                           </>
                         ) : (
                           <span>No Payment ID available</span>

@@ -66,7 +66,7 @@ function PaymentPage() {
     return items.map((item) => (
       <div key={item.car.id} className={styles.allcarlist}>
         <p className={styles.productNmae}>
-          {`${item.car.type}Name`}: {item.car.name}
+          {`${item.car.type}_name`}: {item.car.name}
         </p>
         <IntlProvider locale="en">
           <p className={styles.unitprice}>
@@ -79,7 +79,7 @@ function PaymentPage() {
               />
             </span>
           </p>
-          <p>Quantity: {item.quantity}</p>
+          <p className={styles.quantity}>Quantity: {item.quantity}</p>
           <p className={styles.totalprice}>
             Total Paid Price:{" "}
             <span className={styles.number1}>

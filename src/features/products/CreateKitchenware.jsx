@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { useCreateCar } from "./useCreateCar";
 import { useQueryClient } from "@tanstack/react-query";
 import styles from "./CreateKitchenware.module.css";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
-function CreateKitchenware() {
+function CreateKitchenware({ onClose }) {
   const { createCar, isCreating } = useCreateCar();
   const queryClient = useQueryClient();
   const {
@@ -19,21 +21,25 @@ function CreateKitchenware() {
 
   const image = watch("image");
 
-  const onSubmit = (data) => {
-    const image = typeof data.image === "string" ? data.image : data.image[0];
-
-    createCar({ ...data, image: image }).then(() => {
-      queryClient.invalidateQueries("cars");
-    });
+  const onSubmit = async (data) => {
+    try {
+      const image = typeof data.image === "string" ? data.image : data.image[0];
+      await createCar({ ...data, image: image });
+      await queryClient.invalidateQueries("cars");
+      toast.success("Product created successfully!");
+      if (onClose) onClose();
+    } catch (error) {
+      toast.error("Failed to create product");
+      console.error("Error creating product:", error);
+    }
   };
 
-  // تابع برای فعال کردن input فایل از طریق دکمه
   const handleFileInputClick = () => {
     document.getElementById("image").click();
   };
 
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.createcar}>
         <div className={styles.formSection}>
           <div className={styles.group}>
@@ -74,11 +80,11 @@ function CreateKitchenware() {
             <label htmlFor="price">Price:</label>
             <input
               id="price"
-              type="number" // تغییر به "number"
+              type="number"
               {...register("price", {
                 required: "Price is required",
-                valueAsNumber: true, // به صورت عددی ثبت می‌شود
-                min: { value: 0, message: "Price must be a positive number" }, // قیمت باید عدد مثبت باشد
+                valueAsNumber: true,
+                min: { value: 0, message: "Price must be a positive number" },
               })}
             />
             {errors.price && (
@@ -88,7 +94,6 @@ function CreateKitchenware() {
 
           <div className={styles.group}>
             <label htmlFor="image">Select Image:</label>
-            {/* دکمه Choose Image */}
             <button
               type="button"
               onClick={handleFileInputClick}
@@ -129,5 +134,9 @@ function CreateKitchenware() {
     </div>
   );
 }
+
+CreateKitchenware.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default CreateKitchenware;

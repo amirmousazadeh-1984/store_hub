@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { MdPerson } from "react-icons/md";
 import { IoIosSunny, IoMdMoon } from "react-icons/io";
 import Sidebar from "./Sidebar";
+import Logo from "./Logo";
 
 function PageNav() {
   const dispatch = useDispatch();
@@ -110,7 +111,7 @@ function PageNav() {
       <nav className={styles.navtotlal}>
         <div className={styles.nav}>
           <Link to="/" className={styles.car_center}>
-            <h1>Shopping_Center</h1>
+            <Logo />
           </Link>
 
           <div className={styles.sidebar}>

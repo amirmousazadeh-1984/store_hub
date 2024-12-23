@@ -1,5 +1,85 @@
+Main Layout Container
 .applayout {
+  min-height: calc(
+    100vh - var(--nav-height, 80px) - var(--footer-height, 60px)
+  );
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Desktop Layout (1024px and up) */
+@media (min-width: 1024px) {
+  .applayout {
+    gap: 3rem;
+  }
+}
+
+/* Tablet Layout (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .applayout {
+    gap: 2.5rem;
+  }
+}
+
+/* Large Mobile Layout (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .applayout {
+    gap: 2rem;
+  }
+}
+
+/* Small Mobile Layout (up to 480px) */
+@media (max-width: 480px) {
+  .applayout {
+    gap: 1.5rem;
+  }
+}
+
+/* Handle landscape orientation */
+@media (max-height: 480px) and (orientation: landscape) {
+  .applayout {
+    min-height: calc(
+      100vh - var(--nav-height, 60px) - var(--footer-height, 50px)
+    );
+    gap: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .applayout {
+    min-height: auto;
+    padding: 0;
+    gap: 2rem;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .applayout {
+    border: 2px solid var(--color-grey-900);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .applayout {
+    gap: 2rem;
+  }
+}
+
+/* Dark mode adjustments */
+:global(.dark-mode) .applayout {
   background-color: var(--color-grey-0);
-  padding: 2.5rem 5rem;
-  font-family: "Times New Roman", Times, serif;
+}
+
+/* RTL Support */
+[dir="rtl"] .applayout {
+  direction: rtl;
 }

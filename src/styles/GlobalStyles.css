@@ -1,0 +1,7 @@
+:root {
+  /* Your existing variables */
+}
+
+body.dark-mode {
+  background-color: var(--color-grey-900);
+} 

@@ -1,0 +1,326 @@
+/* Main Container */
+.total {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productListContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Icons Container */
+.categoryIcons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Individual Icon Link */
+.iconLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-grey-500);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.4rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.iconLink:hover {
+  color: var(--color-grey-900);
+  transform: translateX(8px);
+}
+
+.iconLink.active {
+  color: #ef4444;
+}
+
+.iconLink.active::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  background: #ef4444;
+  transform: translateY(-50%);
+  animation: growHeight 0.3s forwards;
+}
+
+@keyframes growHeight {
+  to {
+    height: 80%;
+  }
+}
+
+/* Icon Styling */
+.icon {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.iconLink:hover .icon {
+  opacity: 1;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.iconLink.active .icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Text beside icons */
+.iconLink span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  position: relative;
+}
+
+.iconLink:hover span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 2560px) {
+  .categoryIcons {
+    gap: 2.2rem;
+    padding: 0 2.5rem;
+  }
+  
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .iconLink {
+    padding: 0.7rem;
+    gap: 1.6rem;
+  }
+  
+  .iconLink span {
+    font-size: 1.2rem;
+  }
+
+  .iconLink.active::before {
+    width: 4px;
+    left: -1.5rem;
+  }
+}
+
+@media (max-width: 1884px) {
+  .categoryIcons {
+    gap: 1.8rem;
+    padding: 0 1.8rem;
+  }
+  
+  .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  
+  .iconLink {
+    padding: 0.6rem;
+    gap: 1.4rem;
+  }
+  
+  .iconLink span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  .categoryIcons {
+    gap: 1.4rem;
+    padding: 0 1.4rem;
+  }
+  
+  .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  
+  .iconLink {
+    padding: 0.5rem;
+    gap: 1.2rem;
+  }
+  
+  .iconLink span {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .categoryIcons {
+    gap: 1.2rem;
+    padding: 0 1.2rem;
+  }
+  
+  .icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .iconLink {
+    padding: 0.4rem;
+    gap: 1rem;
+  }
+  
+  .iconLink span {
+    font-size: 0.9rem;
+  }
+
+  .iconLink:hover {
+    transform: translateX(6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .total {
+    height: auto;
+  }
+
+  .productListContainer {
+    height: auto;
+  }
+
+  .categoryIcons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem;
+  }
+  
+  .icon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+  
+  .iconLink {
+    padding: 0.4rem;
+    gap: 0.9rem;
+  }
+  
+  .iconLink span {
+    font-size: 0.85rem;
+  }
+
+  .iconLink:hover {
+    transform: translateX(4px);
+  }
+
+  .iconLink.active::before {
+    left: -0.8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .categoryIcons {
+    gap: 0.9rem;
+    padding: 0.6rem;
+  }
+  
+  .icon {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+  
+  .iconLink {
+    padding: 0.35rem;
+    gap: 0.8rem;
+  }
+  
+  .iconLink span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .categoryIcons {
+    gap: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  .icon {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  
+  .iconLink {
+    padding: 0.3rem;
+    gap: 0.7rem;
+  }
+  
+  .iconLink span {
+    font-size: 0.75rem;
+  }
+
+  .iconLink:hover {
+    transform: translateX(3px);
+  }
+}
+
+@media (max-width: 320px) {
+  .categoryIcons {
+    gap: 0.7rem;
+    padding: 0.4rem;
+  }
+  
+  .icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+  
+  .iconLink {
+    padding: 0.25rem;
+    gap: 0.6rem;
+  }
+  
+  .iconLink span {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .categoryIcons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .iconLink {
+    padding: 0.3rem;
+  }
+}

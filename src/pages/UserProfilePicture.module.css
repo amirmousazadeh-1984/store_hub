@@ -1,141 +1,332 @@
 .container {
-  flex: 0 0 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  margin-right: 20px;
-  margin: 0;
-  background-image: linear-gradient(
-    to left,
-    var(--color-grey-100),
-    var(--color-grey-100)
-  );
-  padding-top: 20px;
-  min-height: 420px;
-  border-radius: 10px;
-  max-height: 420px;
-  margin-top: 0px;
+  gap: 1rem;
+  
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-.profileImageContainer {
-  width: 410px;
-  height: 300px; /* اندازه ثابت برای کادر */
-  max-height: 290px;
-  border: 1px dashed var(--color-grey-400);
-  border-radius: 10px;
 
-  background-color: var(--color-grey-100);
-  position: relative;
-  /* padding: 10px; */
+.profileImageContainer {
+  width: 280px;
+  height: 200px;
+  border-radius: 8px;
   overflow: hidden;
+  border: 2px solid var(--color-grey-100);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+  position: relative;
   display: flex;
-  margin-top: 10px;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 15px !important;
+  justify-content: center;
+  background-color: var(--color-grey-50);
 }
 
 .profileImage {
-  content: "";
   width: 100%;
   height: 100%;
-  object-fit: cover; /* تصویر را در کادر جا می‌کند */
-  border-radius: 10px;
-  font-size: 14px;
-  color: var(--color-grey-500);
+  object-fit: cover;
+  padding: 0.5rem;
+  transition: transform 0.3s;
+  border-radius: 6px;
+}
+
+.profileImage:hover {
+  transform: scale(1.02);
 }
 
 .noImageText {
-  position: absolute;
-  box-shadow: var(--color-grey-500);
-  font-size: 16px;
+  color: var(--color-grey-500);
+  font-size: 0.9rem;
   text-align: center;
-  font-weight: 500;
-}
-
-.btncontainer {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-}
-
-.total {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.uploadButton {
-  flex: 0 0 65%;
-  padding: 5px 10px;
-  background-color: var(--color-grey-100);
-
-  color: var(--color-btn-hover) !important;
-  border: 1px solid var(--color-btn-hover) !important;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
-  transition: all 0.5s ease;
-}
-
-.uploadButton:hover {
-  background-color: var(--color-btn-darkblue);
-  color: var(--color-bg--2) !important;
-  border: none !important;
-}
-
-.logoutButton {
-  flex: 0 0 30%;
-  padding: 5px 10px;
-  background-color: var(--color-grey-100) !important;
-  color: var(--color-btn-rose_hover);
-  border: 1px solid var(--color-btn-rose_hover);
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.logoutButton:hover {
-  background-color: var(--color-btn-rose_hover) !important;
-  color: var(--color-bg--2) !important;
-  border: none !important;
 }
 
 .uploadInput {
-  display: none; /* مخفی کردن input اصلی */
+  display: none;
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.labelcontainer {
+  text-align: center;
 }
 
 .uploadLabel {
-  width: 100%;
-  padding: 7px 125px;
-  border-radius: 7px;
-  background-image: linear-gradient(
-    to left,
-    var(--color-green-main),
-    var(--color-green-hover)
-  );
-  transition: all 0.5s ease;
-  font-size: 16px !important;
-  color: var(--color-bg--2) !important;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-grey-100);
+  color: var(--color-grey-600);
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 500 !important;
+  font-size: 0.85rem;
+  transition: all 0.2s;
 }
 
 .uploadLabel:hover {
-  background-image: linear-gradient(
-    to left,
-    var(--color-green-hover),
-    var(--color-btn-text)
-  );
-  color: var(--color-bg--2) !important;
+  background-color: var(--color-grey-200);
 }
 
-.icon {
-  margin-right: 8px;
+.btncontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.uploadButton,
+.logoutButton {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.uploadButton {
+  background-color: var(--color-grey-800);
+  color: var(--color-grey-0);
+}
+
+.uploadButton:hover {
+  background-color: var(--color-grey-700);
+  transform: translateY(-1px);
+}
+
+.logoutButton {
+  background-color: var(--color-grey-200);
+  color: var(--color-grey-700);
+}
+
+.logoutButton:hover {
+  background-color: var(--color-grey-300);
+  transform: translateY(-1px);
+}
+
+.errorMessage {
+  color: var(--color-red-700);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 2560px) {
+  .profileImageContainer {
+    width: 480px;
+    height: 360px;
+  }
+
+  .noImageText {
+    font-size: 1.2rem;
+  }
+
+  .uploadLabel {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+  }
+
+  .total {
+    gap: 1.2rem;
+  }
+
+  .btncontainer {
+    gap: 1rem;
+  }
+
+  .errorMessage {
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+}
+
+@media (min-width: 1884px) and (max-width: 2559px) {
+  .profileImageContainer {
+    width: 420px;
+    height: 300px;
+  }
+
+  .noImageText {
+    font-size: 1rem;
+  }
+
+  .uploadLabel {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 7px;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 7px;
+  }
+
+  .total {
+    gap: 1rem;
+  }
+
+  .btncontainer {
+    gap: 0.8rem;
+  }
+
+  .errorMessage {
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profileImageContainer {
+    width: 260px;
+    height: 190px;
+  }
+
+  .uploadLabel {
+    padding: 0.45rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .total {
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileImageContainer {
+    width: 240px;
+    height: 180px;
+  }
+
+  .uploadLabel {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.7rem;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 0.45rem;
+    font-size: 0.7rem;
+  }
+
+  .total {
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .profileImageContainer {
+    width: 220px;
+    height: 170px;
+  }
+
+  .uploadLabel {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .total {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .profileImageContainer {
+    width: 200px;
+    height: 160px;
+  }
+
+  .uploadLabel {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.65rem;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 0.35rem;
+    font-size: 0.65rem;
+  }
+
+  .total {
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .profileImageContainer {
+    width: 180px;
+    height: 150px;
+  }
+
+  .uploadLabel {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.6rem;
+  }
+
+  .uploadButton,
+  .logoutButton {
+    padding: 0.3rem;
+    font-size: 0.6rem;
+  }
+
+  .total {
+    gap: 0.3rem;
+  }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .uploadLabel {
+    background-color: var(--color-grey-800);
+    color: var(--color-grey-100);
+  }
+
+  .uploadLabel:hover {
+    background-color: var(--color-grey-700);
+  }
+
+  .uploadButton {
+    background-color: var(--color-grey-600);
+    color: var(--color-grey-50);
+  }
+
+  .uploadButton:hover {
+    background-color: var(--color-grey-500);
+  }
+
+  .logoutButton {
+    background-color: var(--color-grey-800);
+    color: var(--color-grey-100);
+  }
+
+  .logoutButton:hover {
+    background-color: var(--color-grey-700);
+  }
 }

@@ -1,378 +1,1071 @@
-/* Utility Classes */
-.flex-center {
-  display: flex;
-  align-items: center;
-}
-
-.flex-space-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.transition {
-  transition: all 0.3s ease;
-}
-
-/* Navigation Styles */
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: var(--color-grey-900);
-  position: relative;
-  z-index: 1000;
-  margin: 0 30px;
-  padding: 10px 0;
-}
-
 .navtotlal {
   background-color: var(--color-grey-0);
-  border-bottom: 1px solid var(--color-grey-200);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
-.total {
+.nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  font-family: "Times New Roman", Times, serif;
-}
-
-/* Sidebar and Layout */
-.sidebar {
-  flex: 0 0 60%;
-}
-
-.totalrightside {
-  flex: 0 0 10%;
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .car_center {
-  flex: 0 0 10%;
   text-decoration: none;
-  font-size: 21px;
-  font-weight: bolder;
-  font-family: "Dancing Script", cursive;
-  color: var(--color-red-bright);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s;
+  padding: 0.6rem 1rem;
 }
 
-/* Dark Mode Toggle */
-.darkModeToggle {
-  font-size: 3.5rem;
-  background: none;
-  border: 1px solid var(--color-grey-300);
-  color: var(--color-grey-600);
+/* Logo Container */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logoIcon {
+  color: var(--color-btn-main);
+  transition: all 0.3s;
+}
+
+.logoIcon svg {
+  display: block;
+}
+
+.logoText {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-grey-800);
+  letter-spacing: -0.5px;
+}
+
+.logoAccent {
+  color: var(--color-btn-main);
+}
+
+/* Hover Effects */
+.car_center:hover .logoIcon {
+  transform: translateY(-2px);
+}
+
+.car_center:hover .logoText {
+  color: var(--color-btn-main);
+}
+
+/* Dark Mode */
+:global(.dark-mode) .logoText {
+  color: var(--color-grey-200);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .logoText {
+    font-size: 1.2rem;
+  }
+
+  .logoIcon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .logoIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.sidebar {
+  flex: 1;
+  margin: 0 1rem;
+  min-width: 200px;
+}
+
+.totalrightside {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.6rem 1rem;
+}
+
+.rightside {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
-  padding: 6px;
-  margin: 0;
-  line-height: 0;
-  border-radius: 7px;
+  padding: 0 0.7rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 15px;
+  transition: all 0.3s;
+  height: 48px;
+}
+
+.rightside:hover {
+  color: var(--color-grey-900);
+  box-shadow: -3px 3px 5px var(--color-grey-200);
+}
+
+.darkModeToggle {
+  background: none;
+  cursor: pointer;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--color-grey-600);
+  border: 1px solid var(--color-grey-200);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  height: 48px;
+  width: 48px;
+  border-radius: 15px;
   transition: all 0.3s ease;
 }
 
 .darkModeToggle:hover {
-  background-color: var(--color-grey-0);
-  color: var(--color-grey-800);
-  box-shadow: -5px 5px 10px var(--color-grey-300);
+  color: var(--color-grey-900);
+  box-shadow: -3px 3px 5px var(--color-grey-200);
 }
 
-/* Right Side Styles */
-.rightside {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  border: 0.6px solid var(--color-grey-300);
-  padding: 10px 12px;
-  border-radius: 80px;
-  max-height: 50px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.rightside:hover,
-.rightside:focus,
-.rightside.active {
-  box-shadow: -5px 5px 10px var(--color-grey-300);
-}
-
-.rightside:focus,
-.rightside.active {
-  box-shadow: -5px 5px 10px var(--color-grey-400);
-}
-
-/* Hamburger Menu */
 .hamburgerMenu {
   display: flex;
   flex-direction: column;
-  width: 15px;
-  height: 10px;
-  justify-content: space-between;
-  z-index: 1001;
-  transition: all 0.3s ease;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+  height: 32px;
+  width: 32px;
+  justify-content: center;
+  background: none;
+}
+
+.hamburgerMenu:hover {
+  color: var(--color-grey-900);
 }
 
 .bar {
-  margin-left: 2px;
+  width: 19px;
   height: 2px;
-  width: 100%;
-  background-color: var(--color-grey-600);
-  border-radius: 3px;
-  transition: transform 0.3s ease-in-out;
+  background-color: var(--color-grey-800);
+  transition: all 0.3s;
+  border-radius: 2px;
 }
 
-.hamburgerMenu.open .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
 }
 
-.hamburgerMenu.open .bar:nth-child(2) {
+.bar.open:nth-child(2) {
   opacity: 0;
 }
 
-.hamburgerMenu.open .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
 }
 
-/* Menu List */
-.menuList {
-  position: absolute;
-  right: 29px;
-  top: 87px;
-  background-color: var(--color-grey-50);
-  border-radius: 8px;
-  box-shadow: -1px 1px 3px var(--color-grey-300),
-    1px -1px 3px var(--color-grey-300);
-  display: none;
-  list-style: none;
-  width: 250px;
-  z-index: 999;
-  padding: 6px 0;
-}
-
-.menuList.active {
-  display: block;
-}
-
-.menuList li {
-  padding: 15px 5px;
-  cursor: pointer;
-  transition: background-color 0.6s ease;
-}
-
-.menuList li:hover {
-  background-color: var(--color-grey-200);
-  border-radius: 5px;
-}
-
-.menuList li a {
-  text-decoration: none;
-  color: var(--color-grey-700);
-  font-size: 14px;
-  padding: 10px;
-}
-
-/* Profile and Logout */
 .profileContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  height: 100%;
 }
 
 .profileImage {
-  width: 30px;
-  height: 30px;
-  color: var(--color-grey-700);
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  transition: all 0.3s ease;
-  margin-top: 3.5px;
+  color: var(--color-grey-700);
+  transition: all 0.3s;
+  background: none;
 }
 
-.logout {
-  margin-top: 60px;
-  width: 100%;
-  color: var(--color-grey-800);
+.profileImage:hover {
+  color: var(--color-grey-900);
+}
+
+.menuList {
+  position: absolute;
+  top: calc(50% + 2rem);
+  right: 3rem;
+  background-color: var(--color-grey-0);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 0.8rem 0;
+  min-width: 200px;
+  max-width: 90vw;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+  transition: all 0.3s;
+  z-index: 1000;
+  box-shadow: 0px 0px 5px var(--color-grey-200);
+}
+
+.menuList.active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.menuList li {
+  list-style: none;
+}
+
+.menuList a,
+.menuList span {
+  display: block;
+  padding: 0.8rem 1.2rem;
+  color: var(--color-grey-700);
+  text-decoration: none;
+  transition: all 0.3s;
   cursor: pointer;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 17px;
-  text-align: left;
-  padding: 10px;
-  padding-bottom: 60px;
-  transition: all 0.9s ease;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.logout:hover {
-  color: var(--color-yellow-700);
-  transform: translateX(1px) scale(1.01);
-}
-
-.loginstyle,
-.signup {
-  width: 100%;
-  color: var(--color-grey-800);
-  cursor: pointer;
-  font-size: 15px;
-  text-align: left;
-  transition: all 0.3s ease;
-  padding: 10px;
+.menuList a:hover,
+.menuList span:hover {
+  background-color: var(--color-grey-100);
+  color: var(--color-btn-main);
 }
 
 .loginsignup {
-  border-bottom: 0.6px solid var(--color-grey-300);
-  width: 100%;
+  border-bottom: 1px solid var(--color-grey-200);
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
-.loginstyle:hover,
-.signup:hover {
-  color: var(--color-green-700);
-  transform: translateX(2px) scale(1.01);
+.signup,
+.loginstyle {
+  font-weight: 500;
 }
 
-.profileIcon {
-  font-size: 0;
-  color: var(--color-grey-800);
-  margin-right: 10px;
+.signup {
+  color: var(--color-btn-main) !important;
 }
 
-/* Submenu */
+.logout {
+  color: var(--color-btn-rose) !important;
+}
+
+.logout:hover {
+  background-color: var(--color-btn-light_rose) !important;
+}
+
+.activenav {
+  color: var(--color-btn-main) !important;
+  background-color: var(--color-grey-100);
+}
+
 .subMenu {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  list-style-type: none;
-  padding: 10px 0;
-  margin: 0;
-  background-color: var(--color-grey-50);
-  border-radius: 8px;
-  box-shadow: -1px 1px 3px var(--color-grey-300),
-    1px -1px 3px var(--color-grey-300);
   position: absolute;
-  top: 56%;
+  background-color: var(--color-grey-0);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 0.8rem 0;
+  min-width: 200px;
+  max-width: 90vw;
   right: 102%;
-  width: 170px;
-  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 5px var(--color-grey-200);
 }
 
-.subMenu li {
-  cursor: pointer;
-  transition: background-color 0.6s ease;
-  margin: 0;
-  padding: 10px;
+/* Desktop Layout */
+@media (min-width: 1024px) {
+  .subMenu {
+    left: -220px;
+    top: 0;
+    transform: translateX(10px);
+  }
+
+  .productsMenu:hover + .subMenu,
+  .subMenu:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
 }
 
-.subMenu li a {
-  text-decoration: none;
-  color: var(--color-grey-700);
-  font-size: 14px;
-  padding: 5px 10px;
-}
-
-.subMenu li a:hover {
-  border-radius: 5px;
-}
-
-/* Products Menu */
-.productsMenu {
-  cursor: pointer;
-  transition: background-color 0.6s ease;
-  position: relative;
-  padding: 15px 5px;
-  width: 250px;
-  z-index: 999;
-  font-size: 14px;
-}
-
-.productsMenu.active {
-  display: block;
-}
-
-.productsMenu li:hover {
-  background-color: var(--color-grey-200);
-  border-radius: 5px;
-}
-
-.productsMenu li a {
-  text-decoration: none;
-  color: var(--color-btn-text);
-  font-size: 14px;
-  padding: 10px;
-}
-
-/* Responsive Design */
-
-/* For screens up to 768px */
-@media (max-width: 768px) {
+/* Tablet Layout */
+@media (max-width: 1023px) {
   .nav {
-    /* flex-direction: column; */
-    margin: 0 20px;
+    padding: 1rem;
   }
-  .car_center {
-    font-size: 18px;
+
+  .sidebar {
+    order: 3;
+    width: 100%;
+    margin: 1rem 0 0 0;
   }
-  .totalrightside {
-    flex-direction: row;
-    gap: 10px;
+
+  .subMenu {
+    left: 0;
+    top: 100%;
+    transform: translateY(-10px);
+    width: 100%;
   }
-  .menuList {
-    width: 200px;
-  }
-  .darkModeToggle {
-    font-size: 3rem;
+
+  .productsMenu:hover + .subMenu,
+  .subMenu:hover {
+    transform: translateY(0);
   }
 }
 
-/* For screens up to 425px */
+/* Mobile Layout */
+@media (max-width: 640px) {
+  .nav {
+    padding: 0.8rem;
+  }
+
+  .totalrightside {
+    gap: 1rem;
+  }
+
+  .menuList,
+  .subMenu {
+    min-width: 180px;
+    right: 0;
+    box-shadow: 0px 0px 5px var(--color-grey-200);
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 0.7rem 1rem;
+  }
+
+  .darkModeToggle {
+    padding: 0.4rem;
+  }
+
+  .hamburgerMenu {
+    padding: 0.4rem;
+  }
+
+  .bar {
+    width: 18px;
+  }
+
+  .rightside,
+  .darkModeToggle {
+    height: 38px;
+  }
+
+  .darkModeToggle {
+    width: 38px;
+    font-size: 1.1rem;
+  }
+
+  .profileImage,
+  .hamburgerMenu {
+    width: 28px;
+    height: 28px;
+  }
+
+  .bar {
+    width: 14px;
+  }
+
+  .logoSymbol {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logoSymbol::after {
+    font-size: 1.2rem;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile Layout */
+@media (max-width: 380px) {
+  .car_center h1 {
+    font-size: 1rem;
+  }
+
+  .menuList,
+  .subMenu {
+    min-width: 160px;
+    box-shadow: 0px 0px 5px var(--color-grey-200) !important;
+  }
+
+  .profileImage {
+    width: 28px;
+    height: 28px;
+    padding: 0.4rem;
+  }
+
+  .rightside,
+  .darkModeToggle {
+    height: 34px;
+  }
+
+  .darkModeToggle {
+    width: 34px;
+  }
+
+  .profileImage,
+  .hamburgerMenu {
+    width: 24px;
+    height: 24px;
+  }
+
+  .bar {
+    width: 12px;
+  }
+
+  .logoSymbol {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logoSymbol::after {
+    font-size: 1rem;
+  }
+
+  .logoText {
+    font-size: 0.9rem;
+  }
+}
+
+/* Handle landscape orientation */
+@media (max-height: 480px) and (orientation: landscape) {
+  .menuList {
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0px 0px 5px var(--color-grey-200) !important;
+  }
+
+  .subMenu {
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0px 0px 5px var(--color-grey-200) !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navtotlal {
+    position: static;
+    box-shadow: none;
+  }
+
+  .darkModeToggle,
+  .hamburgerMenu,
+  .menuList,
+  .subMenu {
+    display: none;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .totalrightside {
+    gap: 1rem;
+  }
+
+  .rightside {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .darkModeToggle {
+    padding: 0.4rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .totalrightside {
+    gap: 0.8rem;
+  }
+
+  .rightside {
+    padding: 0.3rem 0.6rem;
+  }
+}
+
 @media (max-width: 425px) {
   .nav {
-    /* flex-direction: column; */
-    margin: 0 10px;
+    padding: 0.8rem;
   }
-  .car_center {
-    font-size: 16px;
-  }
+
   .totalrightside {
-    flex-direction: row;
-    gap: 5px;
+    gap: 0.8rem;
   }
-  .menuList {
-    width: 180px;
+  .sidebar {
+    margin-top: 0rem;
   }
+
+  .rightside {
+    height: 38px;
+    padding: 0.4rem 0.8rem;
+  }
+
   .darkModeToggle {
-    font-size: 2.5rem;
+    height: 38px;
+    width: 38px;
+    font-size: 1.1rem;
+  }
+
+  .profileImage,
+  .hamburgerMenu {
+    width: 28px;
+    height: 28px;
+  }
+
+  .bar {
+    width: 14px;
+  }
+
+  .logoSymbol {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .menuList,
+  .subMenu {
+    min-width: 180px;
+    box-shadow: 0px 0px 5px var(--color-grey-200) !important;
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
-/* For screens up to 320px */
-@media (max-width: 320px) {
+/* Stack layout for 380px and smaller screens */
+@media (max-width: 380px) {
   .nav {
-    /* flex-direction: column; */
-    margin: 0 5px;
+    padding: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.8rem;
   }
+
   .car_center {
-    font-size: 14px;
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
   }
+
   .totalrightside {
-    flex-direction: row;
-    gap: 5px;
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    padding: 0;
   }
-  .menuList {
-    width: 150px;
+
+  .sidebar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    width: 100%;
   }
+
+  /* Keep sizes consistent */
+  .rightside {
+    height: 38px;
+    padding: 0.4rem 0.8rem;
+  }
+
   .darkModeToggle {
+    height: 38px;
+    width: 38px;
+  }
+
+  .profileImage,
+  .hamburgerMenu {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logoSymbol {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+}
+
+/* Apply same stacked layout to 320px */
+@media (max-width: 320px) {
+  /* Inherit all styles from 380px breakpoint */
+  /* Only add specific adjustments if needed */
+  .totalrightside {
+    gap: 0.6rem;
+  }
+}
+
+/* Common styles for 380px and 320px */
+@media (max-width: 380px) {
+  .nav {
+    padding: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.8rem;
+  }
+
+  .car_center {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+  }
+
+  .totalrightside {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    padding: 0;
+  }
+
+  .sidebar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Keep sizes consistent */
+  .rightside {
+    height: 38px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .darkModeToggle {
+    height: 38px;
+    width: 38px;
+  }
+
+  .profileImage,
+  .hamburgerMenu {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logoSymbol {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+}
+
+/* Only add specific adjustments for 320px if needed */
+@media (max-width: 320px) {
+  .totalrightside {
+    gap: 0.6rem;
+  }
+}
+
+/* Common styles for 768px and below */
+@media (max-width: 768px) {
+  .menuList {
+    position: absolute;
+    top: 5.5rem;
+    right: 15rem;
+    width: 200px !important;
+    min-width: unset;
+    background-color: var(--color-grey-0);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0.8rem 0;
+    z-index: 1000;
+    max-height: calc(90vh - 80px);
+    overflow-y: auto;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .subMenu {
+    position: fixed;
+    top: 5.5rem;
+    left: 33.5rem;
+    width: 200px !important;
+    min-width: unset;
+    background-color: var(--color-grey-0);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0.8rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .productsMenu:hover + .subMenu,
+  .subMenu:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet to larger mobile (425px to 767px) */
+@media (max-width: 425px) {
+  .menuList {
+    top: 5rem;
+    width: 180px !important;
+    right: 0;
+    max-height: calc(85vh - 70px);
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .subMenu {
+    width: 170px !important;
+    top: 5rem;
+    left: 4.5rem;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small mobile (375px) */
+@media (max-width: 375px) {
+  .menuList {
+    width: 180px !important;
+    right: 0;
+    max-height: calc(80vh - 60px);
+    top: 5rem;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .subMenu {
+    width: 160px !important;
+    top: 5rem;
+    left: 1.9rem;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Extra small mobile (320px) */
+@media (max-width: 320px) {
+  .menuList {
+    width: 160px !important;
+    right: 0;
+    max-height: calc(75vh - 50px);
+    top: 4.5rem;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .subMenu {
+    width: 140px !important;
+    top: 4.5rem;
+    left: 1rem;
+    box-shadow: 1px solid var(--color-grey-300) !important;
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Ensure menu is scrollable in landscape mode */
+@media (max-height: 480px) and (orientation: landscape) {
+  .menuList {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+/* Dark mode adjustments for mobile menus */
+[data-theme="dark"] .menuList,
+[data-theme="dark"] .subMenu {
+  background-color: var(--color-grey-900);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+/* Extra Large Desktop Layout (2560px) */
+@media (min-width: 1024px) {
+  .menuList {
+    min-width: 200px !important;
+    right: 3rem;
+  }
+}
+/* Extra Large Desktop Layout (2560px) */
+@media (min-width: 1440px) {
+  .menuList {
+    min-width: 200px !important;
+    right: 4rem;
+  }
+}
+/* Large Desktop Layout (1884px) */
+@media (min-width: 1884px) {
+  .nav {
+    max-width: 1800px;
+    padding: 1.5rem 3.5rem;
+    gap: 2rem;
+  }
+
+  .car_center {
+    padding: 1rem 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .logoIcon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logoText {
+    font-size: 2.2rem;
+  }
+
+  .totalrightside {
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .rightside {
+    height: 58px;
+    padding: 0 1.2rem;
+    gap: 0.8rem;
+    border-radius: 20px;
+  }
+
+  .darkModeToggle {
+    height: 58px;
+    width: 58px;
     font-size: 2rem;
+    border-radius: 20px;
+  }
+
+  .hamburgerMenu {
+    height: 40px;
+    width: 40px;
+  }
+
+  .bar {
+    width: 24px;
+    height: 2.8px;
+  }
+
+  .profileImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menuList {
+    right: 7.5rem;
+    top: 7rem;
+    min-width: 250px !important;
+    padding: 1.2rem 0;
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 1.2rem 1.6rem;
+    font-size: 1.2rem;
+  }
+
+  /* Sidebar adjustments */
+  .sidebar {
+    min-width: 250px;
+    margin: 0 1.5rem;
+  }
+
+  .searchContainer {
+    height: 85px;
+    padding: 0 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .searchInput {
+    height: 50px;
+    font-size: 1rem;
+    padding: 0 4rem 0 2.5rem;
+  }
+
+  .searchIcon {
+    width: 34px;
+    height: 34px;
+    right: 1rem;
+  }
+
+  .filterToggleButton_1 {
+    height: 50px;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    gap: 0.8rem;
+  }
+}
+
+/* Extra Large Desktop Layout (2560px) */
+@media (min-width: 2560px) {
+  .nav {
+    max-width: 2400px;
+    padding: 2rem 5rem;
+    gap: 2.5rem;
+  }
+
+  .car_center {
+    padding: 1.2rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .logoIcon svg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .logoText {
+    font-size: 2.8rem;
+  }
+
+  .totalrightside {
+    gap: 2rem;
+    padding: 1.2rem 2rem;
+  }
+
+  .rightside {
+    height: 68px;
+    padding: 0 1.5rem;
+    gap: 1rem;
+    border-radius: 24px;
+  }
+
+  .darkModeToggle {
+    height: 68px;
+    width: 68px;
+    font-size: 2.4rem;
+    border-radius: 24px;
+  }
+
+  .hamburgerMenu {
+    height: 48px;
+    width: 48px;
+  }
+
+  .bar {
+    width: 30px;
+    height: 3.2px;
+  }
+
+  .profileImage {
+    width: 48px;
+    height: 48px;
+  }
+
+  .menuList {
+    right: 12rem;
+    top: 8rem;
+    min-width: 300px !important;
+    padding: 1.5rem 0;
+  }
+
+  .menuList a,
+  .menuList span {
+    padding: 1.4rem 2rem;
+    font-size: 1.4rem;
+  }
+
+  /* Sidebar adjustments */
+  .sidebar {
+    min-width: 300px;
+    margin: 0 2rem;
+  }
+
+  .searchContainer {
+    height: 100px;
+    padding: 0 3rem;
+    gap: 2rem;
+  }
+
+  .searchInput {
+    height: 60px;
+    font-size: 1.2rem;
+    padding: 0 5rem 0 3rem;
+    border-radius: 50px;
+  }
+
+  .searchIcon {
+    width: 42px;
+    height: 42px;
+    right: 1.2rem;
+  }
+
+  .filterToggleButton_1 {
+    height: 60px;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    gap: 1rem;
+    border-radius: 35px;
+  }
+}
+
+/* Remove any min-width constraints */
+.menuList,
+.subMenu {
+  min-width: unset;
+}
+
+@media (max-width: 320px) {
+  .menuList,
+  .subMenu {
+    box-shadow: 0px 0px 5px var(--color-grey-200);
   }
 }
