@@ -14,6 +14,9 @@ function PurchasedProducts() {
   const userId = useSelector((state) => state.user.id);
   const items = useSelector((state) => state.cart.items);
   const navigate = useNavigate();
+  const [showAddressModal, setShowAddressModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [address, setAddress] = useState("");
 
   const purchasedProducts = items.filter(
     (item) => item.paid && item.userId === userId
@@ -26,16 +29,41 @@ function PurchasedProducts() {
     return savedSentProducts ? JSON.parse(savedSentProducts) : [];
   });
 
-  const handleSendProduct = async (product) => {
+  const [productAddresses, setProductAddresses] = useState(() => {
+    const savedAddresses = localStorage.getItem("productAddresses");
+    return savedAddresses ? JSON.parse(savedAddresses) : {};
+  });
+
+  const handleImageClick = (product) => {
+    setSelectedProduct(product);
+    setShowAddressModal(true);
+  };
+
+  const handleAddressSubmit = async () => {
+    if (!address.trim()) {
+      toast.error("Please enter a valid address");
+      return;
+    }
+
     try {
-      console.log("Sending product:", product);
-      const response = await storeProducts([product]);
+      const response = await storeProducts([selectedProduct]);
       console.log("Product stored successfully:", response);
 
-      const updatedSentProducts = [...sentProducts, product.car.id];
+      const updatedSentProducts = [...sentProducts, selectedProduct.car.id];
       setSentProducts(updatedSentProducts);
+      
+      const updatedAddresses = {
+        ...productAddresses,
+        [selectedProduct.car.id]: address
+      };
+      setProductAddresses(updatedAddresses);
+      
       localStorage.setItem("sentProducts", JSON.stringify(updatedSentProducts));
+      localStorage.setItem("productAddresses", JSON.stringify(updatedAddresses));
 
+      setShowAddressModal(false);
+      setAddress("");
+      setSelectedProduct(null);
       toast.success("Product sent successfully!");
     } catch (error) {
       console.error("Error storing product:", error.message);
@@ -45,8 +73,12 @@ function PurchasedProducts() {
 
   useEffect(() => {
     const savedSentProducts = localStorage.getItem("sentProducts");
+    const savedAddresses = localStorage.getItem("productAddresses");
     if (savedSentProducts) {
       setSentProducts(JSON.parse(savedSentProducts));
+    }
+    if (savedAddresses) {
+      setProductAddresses(JSON.parse(savedAddresses));
     }
   }, []);
 
@@ -78,7 +110,36 @@ function PurchasedProducts() {
 
   return (
     <>
-      {/* <h1 className={styles.header}>Purchased Products</h1> */}
+      {showAddressModal && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>Enter Delivery Address</h2>
+            <textarea
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter your delivery address..."
+              rows={4}
+              className={styles.addressInput}
+            />
+            <div className={styles.modalButtons}>
+              <button onClick={handleAddressSubmit} className={styles.submitBtn}>
+                Submit
+              </button>
+              <button
+                onClick={() => {
+                  setShowAddressModal(false);
+                  setAddress("");
+                  setSelectedProduct(null);
+                }}
+                className={styles.cancelBtn}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className={styles.orders}>
         {/* Pending Products Section */}
         <div className={styles.section}>
@@ -96,7 +157,7 @@ function PurchasedProducts() {
                   <div className={styles.part_1}>
                     <div 
                       className={styles.image} 
-                      onClick={() => handleSendProduct({ car, quantity, paymentId })}
+                      onClick={() => handleImageClick({ car, quantity, paymentId })}
                       role="button"
                       tabIndex={0}
                     >
@@ -241,6 +302,13 @@ function PurchasedProducts() {
                         ) : (
                           <span>No Payment ID available</span>
                         )}
+                      </div>
+
+                      <div className={styles.addressContainer}>
+                        <span className={styles.addressLabel}>Delivery Address:</span>
+                        <span className={styles.addressValue}>
+                          {productAddresses[car.id] || "Address not available"}
+                        </span>
                       </div>
                     </div>
                   </div>

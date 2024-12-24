@@ -19,12 +19,16 @@
 .categoryIcons {
   display: flex;
   gap: 3rem;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 0.5rem 0;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding-right: calc(40px + 3rem);
+  padding-left: 40px;
 }
 
 .categoryIcons::-webkit-scrollbar {
@@ -114,6 +118,8 @@
 
   .categoryIcons {
     gap: 2.5rem;
+    padding-right: calc(32px + 2.5rem);
+    padding-left: 32px;
   }
 }
 
@@ -128,6 +134,8 @@
 
   .categoryIcons {
     gap: 2rem;
+    padding-right: calc(24px + 2rem);
+    padding-left: 24px;
   }
 
   .icon {
@@ -147,6 +155,8 @@
 
   .categoryIcons {
     gap: 1.5rem;
+    padding-right: calc(16px + 1.5rem);
+    padding-left: 16px;
   }
 
   .icon {
@@ -166,6 +176,8 @@
 
   .categoryIcons {
     gap: 1.25rem;
+    padding-right: calc(12px + 1.25rem);
+    padding-left: 12px;
   }
 }
 
@@ -176,6 +188,8 @@
 
   .categoryIcons {
     gap: 1rem;
+    padding-right: calc(8px + 1rem);
+    padding-left: 8px;
   }
 
   .icon {

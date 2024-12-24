@@ -553,83 +553,41 @@
 
 /* 1024px */
 @media (min-width: 1024px) and (max-width: 1439px) {
-  .emptyCartMessage {
-    padding: 1.5rem;
-    max-width: 340px;
+  .emptyCartIcon {
+    font-size: 3.2rem;
+  }
+
+  .emptyCartMessage h2 {
+    font-size: 1rem;
+  }
+
+  .emptyCartMessage p {
+    font-size: 0.8rem;
+  }
+
+  .backToDashboard {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* 1440px+ */
+@media (min-width: 1440px) {
+  .emptyCartIcon {
+    font-size: 3.5rem;
+  }
+
+  .emptyCartMessage h2 {
+    font-size: 1.1rem;
+  }
+
+  .emptyCartMessage p {
     font-size: 0.85rem;
-    gap: 1.2rem;
-  }
-}
-
-/* 1440px */
-@media (min-width: 1440px) and (max-width: 1883px) {
-  .emptyCartMessage {
-    padding: 1.6rem;
-    max-width: 360px;
-    font-size: 0.9rem;
-    gap: 1.3rem;
-  }
-}
-
-/* 1884px */
-@media (min-width: 1884px) and (max-width: 2559px) {
-  .emptyCartMessage {
-    padding: 3rem;
-    max-width: 600px;
-    font-size: 1.3rem;
-    gap: 2rem;
-  }
-
-  .emptyCartIcon {
-    font-size: 6rem;
-    margin-bottom: 1rem;
-  }
-
-  .emptyCartMessage h2 {
-    font-size: 2rem;
-  }
-
-  .emptyCartMessage p {
-    font-size: 1.3rem;
-    padding: 0 2rem;
-    line-height: 1.6;
   }
 
   .backToDashboard {
-    padding: 1rem 2.5rem;
-    font-size: 1.3rem;
-    border-radius: 9999px;
-  }
-}
-
-/* 2560px */
-@media (min-width: 2560px) {
-  .emptyCartMessage {
-    padding: 4rem;
-    max-width: 800px;
-    font-size: 1.6rem;
-    gap: 2.5rem;
-  }
-
-  .emptyCartIcon {
-    font-size: 8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .emptyCartMessage h2 {
-    font-size: 2.5rem;
-  }
-
-  .emptyCartMessage p {
-    font-size: 1.6rem;
-    padding: 0 3rem;
-    line-height: 1.7;
-  }
-
-  .backToDashboard {
-    padding: 1.2rem 3rem;
-    font-size: 1.6rem;
-    border-radius: 9999px;
+    padding: 0.6rem 1.3rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -770,7 +728,30 @@
 }
 
 /* 1024px */
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1024px) {
+  .modalContent {
+    padding: 2.5rem;
+  }
+
+  .modalContent h2 {
+    font-size: 1.1rem;
+  }
+
+  .addressInput {
+    font-size: 0.9rem;
+    min-height: 130px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    min-width: 130px;
+  }
+}
+
+/* 1440px+ */
+@media (min-width: 1440px) {
   .emptyCartIcon {
     font-size: 3.5rem;
   }
@@ -784,28 +765,442 @@
   }
 
   .backToDashboard {
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.3rem;
     font-size: 0.85rem;
   }
 }
 
-/* 1440px+ */
-@media (min-width: 1440px) {
-  .emptyCartIcon {
-    font-size: 4rem;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalContent {
+  background-color: var(--color-grey-0);
+  padding: 2.5rem;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 550px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: modalContentSlideIn 0.4s ease-out;
+}
+
+@keyframes modalContentSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalContent h2 {
+  margin-bottom: 1.5rem;
+  color: var(--color-grey-900);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.modalContent h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-btn-main);
+  border-radius: 2px;
+}
+
+.addressInput {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--color-grey-200);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  background-color: var(--color-grey-50);
+  color: var(--color-grey-900);
+  line-height: 1.5;
+}
+
+.addressInput:focus {
+  outline: none;
+  border-color: var(--color-btn-main);
+  box-shadow: 0 0 0 1px rgba(var(--color-btn-main-rgb), 0.1);
+  background-color:var(--color-grey-0);
+}
+
+.addressInput::placeholder {
+  color: var(--color-grey-400);
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submitBtn,
+.cancelBtn {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submitBtn {
+  background-color: var(--color-btn-main);
+  color: white;
+  box-shadow: 0 4px 6px rgba(var(--color-btn-main-rgb), 0.2);
+}
+
+.submitBtn:hover {
+  background-color: var(--color-btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(var(--color-btn-main-rgb), 0.3);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.cancelBtn {
+  background-color: var(--color-grey-100);
+  color: var(--color-grey-700);
+  border: 1px solid var(--color-grey-200);
+}
+
+.cancelBtn:hover {
+  background-color: var(--color-grey-200);
+  transform: translateY(-2px);
+}
+
+.cancelBtn:active {
+  transform: translateY(0);
+}
+
+/* Responsive styles for modal */
+@media (max-width: 640px) {
+  .modalContent {
+    padding: 1.5rem;
+    width: 90%;
   }
 
-  .emptyCartMessage h2 {
-    font-size: 1.2rem;
+  .modalContent h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .emptyCartMessage p {
-    font-size: 0.9rem;
+  .addressInput {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    min-height: 100px;
   }
 
-  .backToDashboard {
+  .submitBtn,
+  .cancelBtn {
     padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 0.5rem;
+  }
+
+  .modalContent {
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+
+  .modalContent h2 {
+    font-size: 0.95rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .modalContent h2::after {
+    width: 40px;
+  }
+
+  .addressInput {
+    padding: 0.7rem;
+    font-size: 0.8rem;
+    min-height: 90px;
+    margin-bottom: 1rem;
+  }
+
+  .modalButtons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modalContent {
+    padding: 3rem;
+  }
+
+  .modalContent h2 {
+    font-size: 1.3rem;
+  }
+
+  .addressInput {
+    font-size: 1rem;
+    min-height: 150px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    min-width: 150px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .modal {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .modalContent {
+    background-color: var(--color-grey-900);
+    border: 1px solid var(--color-grey-800);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .modalContent h2 {
+    color: var(--color-grey-50);
+  }
+
+  .modalContent h2::after {
+    background: var(--color-btn-main);
+    opacity: 0.8;
+  }
+
+  .addressInput {
+    background-color: var(--color-grey-800);
+    border-color: var(--color-grey-700);
+    color: var(--color-grey-50);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .addressInput:hover {
+    border-color: var(--color-grey-600);
+  }
+
+  .addressInput:focus {
+    background-color: var(--color-grey-800);
+    border-color: var(--color-btn-main);
+    box-shadow: 0 0 0 3px rgba(var(--color-btn-main-rgb), 0.2);
+  }
+
+  .addressInput::placeholder {
+    color: var(--color-grey-500);
+  }
+
+  .submitBtn {
+    background-color: var(--color-btn-main);
+    color: var(--color-btn-text);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .submitBtn:hover {
+    background-color: var(--color-btn-hover);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .cancelBtn {
+    background-color: var(--color-grey-800);
+    color: var(--color-grey-100);
+    border: 1px solid var(--color-grey-700);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .cancelBtn:hover {
+    background-color: var(--color-grey-700);
+    border-color: var(--color-grey-600);
+  }
+
+  /* Dark mode for address container in sent items */
+  .addressContainer {
+    background-color: var(--color-grey-800);
+    border-color: var(--color-grey-700);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .addressLabel {
+    color: var(--color-grey-200);
+  }
+
+  .addressValue {
+    color: var(--color-grey-400);
+  }
+}
+
+.addressContainer {
+  margin-top: 0.8rem;
+  padding: 0.7rem;
+  background-color: var(--color-grey-50);
+  border-radius: 4px;
+  border: 1px solid var(--color-grey-200);
+  transition: all 0.3s ease;
+}
+
+.addressLabel {
+  display: block;
+  font-weight: 600;
+  color: var(--color-grey-700);
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.addressValue {
+  display: block;
+  color: var(--color-grey-600);
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.75rem;
+}
+
+/* Responsive styles for address display */
+@media (max-width: 480px) {
+  .addressContainer {
+    margin-top: 0.6rem;
+    padding: 0.5rem;
+  }
+
+  .addressLabel {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .addressValue {
+    font-size: 0.65rem;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .addressContainer {
+    margin-top: 0.7rem;
+    padding: 0.6rem;
+  }
+
+  .addressLabel {
+    font-size: 0.75rem;
+  }
+
+  .addressValue {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .addressContainer {
+    padding: 0.7rem;
+  }
+
+  .addressLabel {
+    font-size: 0.8rem;
+  }
+
+  .addressValue {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .addressContainer {
+    padding: 0.7rem;
+  }
+
+  .addressLabel {
+    font-size: 0.85rem;
+  }
+
+  .addressValue {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1884px) {
+  .addressContainer {
+    padding: 0.8rem;
+  }
+
+  .addressLabel {
     font-size: 0.9rem;
+  }
+
+  .addressValue {
+    font-size: 0.85rem;
+  }
+}
+
+/* Keep larger sizes for 1884px and above */
+@media (min-width: 1884px) {
+  .addressContainer {
+    padding: 1rem;
+  }
+
+  .addressLabel {
+    font-size: 1rem;
+  }
+
+  .addressValue {
+    font-size: 0.95rem;
   }
 }
 

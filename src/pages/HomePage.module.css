@@ -8,6 +8,7 @@
   flex-direction: column;
   background-color: var(--color-grey-0);
   min-height: 85vh;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -95,17 +96,19 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
+/* Common Container for Features and Categories */
+.featuresAndCategories {
+  background: var(--color-grey-50);
+  position: relative;
+  width: 100%;
+}
+
 /* Features Section */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   padding: 6rem 4rem;
-  background: linear-gradient(
-    to bottom,
-    var(--color-grey-50),
-    var(--color-grey-0)
-  );
   position: relative;
 }
 
@@ -167,8 +170,10 @@
 
 /* Categories Section */
 .categories {
-  padding: 6rem 4rem;
-  background-color: var(--color-grey-0);
+  padding: 6rem 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .categories h2 {
@@ -195,10 +200,11 @@
 
 .categoryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .categoryCard {
@@ -257,955 +263,338 @@
   transform: translateY(-10px);
 }
 
-/* Chat Box Styles */
+/* Chat Box Base Styles */
 .chatBoxWrapper {
   position: fixed;
-  bottom: 1rem;
-  right: 1.5rem;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 1000;
 }
 
 .chatBoxButton {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   background-color: var(--color-btn-main);
-  color: white;
+  color: var(--color-grey-0);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
 .chatBoxButton:hover {
-  transform: scale(1.1) rotate(5deg);
-  background-color: var(--color-btn-hover);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
 }
 
 .chatBox {
   position: absolute;
-  bottom: 3.5rem;
+  bottom: 5rem;
   right: 0;
   width: 320px;
+  height: 450px;
   background-color: var(--color-grey-0);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  animation: slideUp 0.3s ease-out;
-}
-
-[data-theme="dark"] .chatBox {
-  background-color: var(--color-grey-800);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--color-grey-700);
 }
 
 .chatBoxMessageList {
-  height: 290px !important;
+  flex: 1;
+  padding: 1.25rem;
   overflow-y: auto;
-  padding: 1.5rem;
+  background-color: var(--color-grey-50);
 }
 
 .chatBoxMessage {
-  margin-bottom: 1rem;
-  padding: 0.6rem;
-  background-color: var(--color-grey-50);
-  border-radius: 12px;
-  font-size: 0.8rem;
-  line-height: 1;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  color: var(--color-grey-600);
-}
-
-[data-theme="dark"] .chatBoxMessage {
-  background-color: var(--color-grey-700);
-  color: var(--color-grey-100);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-grey-0);
+  color: var(--color-grey-700);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .chatInputWrapper {
-  display: flex;
-  padding: 1.5rem;
-  gap: 0.8rem;
+  padding: 1rem;
   border-top: 1px solid var(--color-grey-100);
+  display: flex;
+  gap: 0.8rem;
   background-color: var(--color-grey-0);
-}
-
-[data-theme="dark"] .chatInputWrapper {
-  background-color: var(--color-grey-800);
-  border-top: 1px solid var(--color-grey-700);
 }
 
 .chatBoxInput {
   flex: 1;
-  max-height: 2.5rem !important;
-  padding: 0.2rem 1rem;
-  border: 2px solid var(--color-grey-200);
-  border-radius: 12px;
-  font-size: 0.95rem;
-  transition: all 0.3s;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s;
   background-color: var(--color-grey-0);
-  color: var(--color-grey-900);
-}
-
-[data-theme="dark"] .chatBoxInput {
-  background-color: var(--color-grey-700);
-  border-color: var(--color-grey-600);
-  color: var(--color-grey-100);
+  color: var(--color-grey-700);
 }
 
 .chatBoxInput:focus {
-  outline: none;
   border-color: var(--color-btn-main);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-[data-theme="dark"] .chatBoxInput:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+.chatBoxInput::placeholder {
+  color: var(--color-grey-400);
 }
 
 .chatBoxSendButton {
-  width: 2.5rem !important;
-  height: 2.5rem !important;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background-color: var(--color-btn-main);
+  color: var(--color-grey-0);
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-btn-main);
-  color: white;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
+  transition: background-color 0.3s;
 }
 
 .chatBoxSendButton:hover {
   background-color: var(--color-btn-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .chatBoxStarRating {
-  padding: 0.5rem;
+  padding: 1rem;
   border-top: 1px solid var(--color-grey-100);
   background-color: var(--color-grey-0);
 }
 
-[data-theme="dark"] .chatBoxStarRating {
-  background-color: var(--color-grey-800);
-  border-top: 1px solid var(--color-grey-700);
-}
-
 .star {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .star span {
-  cursor: pointer;
   font-size: 1.5rem;
-  color: var(--color-grey-300);
-  margin: 0 0.2rem;
-  transition: all 0.2s;
-}
-
-[data-theme="dark"] .star span {
-  color: var(--color-grey-600);
-}
-
-.star span:hover,
-.star span.selected {
   color: #ffd700;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.star span:hover {
   transform: scale(1.2);
 }
 
 .chatBoxSubmitButtonRating {
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.8rem;
   background-color: var(--color-btn-main);
-  color: white;
+  color: var(--color-grey-0);
   border: none;
   border-radius: 8px;
+  font-size: 0.9rem;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 0.7rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem !important;
+  transition: background-color 0.3s;
 }
 
 .chatBoxSubmitButtonRating:hover {
   background-color: var(--color-btn-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .features,
-  .categories {
-    padding: 4rem 2rem;
-  }
+/* Dark Mode Styles */
+[data-theme='dark'] .chatBox {
+  background-color: var(--color-grey-900);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-  .hero {
-    height: 60vh;
-    background-attachment: scroll;
-  }
+[data-theme='dark'] .chatBoxMessageList {
+  background-color: var(--color-grey-800);
+}
 
-  .heroContent {
+[data-theme='dark'] .chatBoxMessage {
+  background-color: var(--color-grey-700);
+  color: var(--color-grey-0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .chatInputWrapper {
+  background-color: var(--color-grey-900);
+  border-top-color: var(--color-grey-700);
+}
+
+[data-theme='dark'] .chatBoxInput {
+  background-color: var(--color-grey-800);
+  border-color: var(--color-grey-700);
+  color: var(--color-grey-0);
+}
+
+[data-theme='dark'] .chatBoxInput::placeholder {
+  color: var(--color-grey-500);
+}
+
+[data-theme='dark'] .chatBoxStarRating {
+  background-color: var(--color-grey-900);
+  border-top-color: var(--color-grey-700);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 2560px) {
+  .chatBoxButton {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.2rem;
+  }
+  .chatBox {
+    width: 480px;
+    height: 650px;
+    bottom: 6.5rem;
+  }
+  .chatBoxMessageList {
     padding: 1.5rem;
   }
-
-  .features {
-    padding: 3rem 1.5rem;
-  }
-
-  .categories {
-    padding: 3rem 1.5rem;
-  }
-
-  .categoryCard {
-    height: 250px;
-  }
-
-  .chatBoxWrapper {
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
-
-  .chatBox {
-    width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    height: 50vh;
-  }
-
-  .heroContent h1 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-  }
-
-  .ctaButton {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-
-  .features,
-  .categories {
-    padding: 2rem 1rem;
-  }
-
-  .featureCard {
-    padding: 2rem;
-  }
-
-  .categoryCard {
-    height: 200px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1.4rem;
-    bottom: 1.5rem;
-    left: 1.5rem;
-  }
-
-  .chatBoxButton {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.5rem;
-  }
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  .hero::after {
-    background: linear-gradient(to top, var(--color-grey-900), transparent);
-  }
-
-  .features {
-    background: linear-gradient(
-      to bottom,
-      var(--color-grey-900),
-      var(--color-grey-800)
-    );
-  }
-
-  .featureCard {
-    background-color: var(--color-grey-800);
-  }
-
-  .featureCard h3 {
-    color: var(--color-grey-100);
-  }
-
-  .featureCard p {
-    color: var(--color-grey-300);
-  }
-
-  .categories h2 {
-    color: var(--color-grey-100);
-  }
-
-  .chatBox {
-    background-color: var(--color-grey-800);
-  }
-
   .chatBoxMessage {
-    background-color: var(--color-grey-700);
-    color: var(--color-grey-100);
+    font-size: 1.2rem;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.2rem;
   }
-
-  .chatInputWrapper,
-  .chatBoxStarRating {
-    background-color: var(--color-grey-800);
-    border-color: var(--color-grey-700);
-  }
-
   .chatBoxInput {
-    background-color: var(--color-grey-700);
-    border-color: var(--color-grey-600);
-    color: var(--color-grey-100);
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
   }
-
-  .chatBoxInput:focus {
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-  }
-}
-
-/* 2560px - 4K displays */
-@media (min-width: 2560px) {
-  .heroContent {
-    max-width: 1200px;
-  }
-
-  .heroContent h1 {
-    font-size: 5rem;
-  }
-
-  .heroContent p {
-    font-size: 2rem;
-    max-width: 800px;
-  }
-
-  .ctaButton {
-    padding: 1.5rem 4rem;
+  .chatBoxSendButton {
+    width: 3.2rem;
+    height: 3.2rem;
     font-size: 1.4rem;
   }
-
-  .features {
-    padding: 8rem 6rem;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 2000px;
-    margin: 0 auto;
+  .star span {
+    font-size: 2.2rem;
+    margin: 0 0.3rem;
   }
-
-  .featureCard {
-    padding: 3.5rem;
+  .chatBoxSubmitButtonRating {
+    font-size: 1.2rem;
+    padding: 1rem;
   }
+}
 
-  .featureIcon {
-    font-size: 4rem;
+@media (min-width: 188px) and (max-width: 2559px) {
+  .chatBoxButton {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.8rem;
   }
-
-  .featureCard h3 {
-    font-size: 2rem;
+  .chatBox {
+    width: 380px;
+    height: 520px;
+    bottom: 5.5rem;
   }
-
-  .featureCard p {
+  .chatBoxMessageList {
+    padding: 1.2rem;
+  }
+  .chatBoxMessage {
+    font-size: 1rem;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+  .chatBoxInput {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    height: 2.8rem;
+  }
+  .chatBoxSendButton {
+    width: 2.8rem;
+    height: 2.8rem;
     font-size: 1.2rem;
   }
-
-  .categories {
-    padding: 8rem 6rem;
+  .star span {
+    font-size: 1.8rem;
+    margin: 0 0.25rem;
   }
-
-  .categories h2 {
-    font-size: 3.5rem;
+  .chatBoxSubmitButtonRating {
+    font-size: 1rem;
+    padding: 0.9rem;
+    margin-top: 0.8rem;
   }
-
-  .categoryGrid {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 2000px;
-    gap: 3rem;
-  }
-
-  .categoryCard {
-    height: 400px;
-  }
-
-  .categoryCard h3 {
-    font-size: 2.2rem;
+  .chatBoxStarRating {
+    padding: 1.2rem;
   }
 }
 
-/* 1884px */
-@media (max-width: 1884px) {
-  .features {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1600px;
-    padding: 6rem 4rem;
-  }
-
-  .categoryGrid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1600px;
-  }
-
-  .categoryCard {
-    height: 350px;
-  }
-}
-
-/* 1440px */
 @media (max-width: 1440px) {
-  .heroContent {
-    max-width: 650px;
-  }
-
-  .heroContent h1 {
-    font-size: 3rem;
-  }
-
-  .heroContent p {
-    font-size: 1.1rem;
-  }
-
-  .features {
-    padding: 4rem 2.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
-  }
-
-  .featureCard {
-    padding: 2rem;
-  }
-
-  .featureIcon {
-    font-size: 2.5rem;
-  }
-
-  .featureCard h3 {
-    font-size: 1.2rem;
-  }
-
-  .featureCard p {
-    font-size: 0.9rem;
-  }
-
-  .categoryGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
-  }
-
-  .categoryCard {
-    height: 280px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1.5rem;
-  }
-}
-
-/* 1024px */
-@media (max-width: 1024px) {
-  .features {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 3.5rem 2rem;
-  }
-
-  .featureCard {
-    padding: 1.8rem;
-  }
-
-  .featureIcon {
-    font-size: 2.2rem;
-  }
-
-  .categoryGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .heroContent h1 {
-    font-size: 2.5rem;
-  }
-
-  .categoryCard {
-    height: 250px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1.4rem;
-  }
-
   .chatBoxButton {
     width: 3.2rem;
     height: 3.2rem;
     font-size: 1.4rem;
   }
-
-  .chatBox {
-    width: 320px;
-  }
-
-  .chatBoxMessageList {
-    height: 300px;
-  }
-
-  .chatBoxMessage {
-    font-size: 0.9rem;
-  }
-}
-
-/* 768px */
-@media (max-width: 768px) {
-  .hero {
-    height: 55vh;
-  }
-
-  .heroContent {
-    max-width: 500px;
-    padding: 1.2rem;
-  }
-
-  .heroContent h1 {
-    font-size: 2.2rem;
-  }
-
-  .heroContent p {
-    font-size: 1rem;
-  }
-
-  .features {
-    padding: 2.5rem 1.5rem;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .featureCard {
-    padding: 1.5rem;
-  }
-
-  .featureIcon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .featureCard h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .featureCard p {
-    font-size: 0.85rem;
-  }
-
-  .categoryGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .categoryCard {
-    height: 220px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1.3rem;
-    bottom: 1.2rem;
-    left: 1.2rem;
-  }
-
-  .chatBoxButton {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.3rem;
-  }
-
   .chatBox {
     width: 300px;
-  }
-
-  .chatBoxMessageList {
-    height: 280px;
-  }
-
-  .chatBoxMessage {
-    font-size: 0.85rem;
-    padding: 0.8rem;
+    height: 420px;
   }
 }
 
-/* 425px */
-@media (max-width: 425px) {
-  .hero {
-    height: 45vh;
-  }
-
-  .heroContent h1 {
-    font-size: 1.8rem;
-  }
-
-  .heroContent p {
-    font-size: 0.9rem;
-  }
-
-  .ctaButton {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.9rem;
-  }
-
-  .features {
-    padding: 2rem 1.2rem;
-  }
-
-  .featureCard {
-    padding: 1.3rem;
-  }
-
-  .featureIcon {
-    font-size: 1.8rem;
-  }
-
-  .featureCard h3 {
-    font-size: 1rem;
-  }
-
-  .featureCard p {
-    font-size: 0.8rem;
-  }
-
-  .categoryCard {
-    height: 180px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1.2rem;
-    bottom: 1rem;
-    left: 1rem;
-  }
-
-  .chatBoxButton {
-    width: 2.8rem;
-    height: 2.8rem;
-    font-size: 1.2rem;
-  }
-
-  .chatBox {
-    width: 280px;
-  }
-
-  .chatBoxMessageList {
-    height: 250px;
-  }
-
-  .chatBoxMessage {
-    font-size: 0.8rem;
-    padding: 0.7rem;
-  }
-}
-
-/* 375px */
-@media (max-width: 375px) {
-  .heroContent h1 {
-    font-size: 1.6rem;
-  }
-
-  .heroContent p {
-    font-size: 0.85rem;
-  }
-
-  .ctaButton {
-    padding: 0.6rem 1.6rem;
-    font-size: 0.85rem;
-  }
-
-  .features {
-    padding: 1.8rem 1rem;
-  }
-
-  .featureCard {
-    padding: 1.2rem;
-  }
-
-  .featureIcon {
-    font-size: 1.6rem;
-  }
-
-  .categoryCard {
-    height: 160px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1.1rem;
-  }
-
-  .chatBoxButton {
-    width: 2.6rem;
-    height: 2.6rem;
-    font-size: 1.1rem;
-  }
-
-  .chatBox {
-    width: 260px;
-  }
-
-  .chatBoxMessageList {
-    height: 230px;
-  }
-}
-
-/* 320px */
-@media (max-width: 320px) {
-  .heroContent h1 {
-    font-size: 1.4rem;
-  }
-
-  .heroContent p {
-    font-size: 0.8rem;
-  }
-
-  .ctaButton {
-    padding: 0.5rem 1.4rem;
-    font-size: 0.8rem;
-  }
-
-  .features {
-    padding: 1.5rem 0.8rem;
-  }
-
-  .featureCard {
-    padding: 1rem;
-  }
-
-  .featureIcon {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .featureCard h3 {
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .featureCard p {
-    font-size: 0.75rem;
-  }
-
-  .categoryCard {
-    height: 140px;
-  }
-
-  .categoryCard h3 {
-    font-size: 1rem;
-    bottom: 0.8rem;
-    left: 0.8rem;
-  }
-
-  .chatBoxButton {
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 1rem;
-  }
-
-  .chatBox {
-    width: 240px;
-  }
-
-  .chatBoxMessageList {
-    height: 200px;
-    padding: 0.8rem;
-  }
-
-  .chatBoxMessage {
-    font-size: 0.75rem;
-    padding: 0.6rem;
-  }
-
-  .chatBoxInput {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
-  }
-
-  .chatBoxSendButton {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .star span {
-    font-size: 1rem;
-    margin: 0 0.1rem;
-  }
-
-  .chatBoxSubmitButtonRating {
-    padding: 0.6rem;
-    font-size: 0.8rem;
-  }
-}
-
-/* Responsive Design for Chat Box */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .chatBoxWrapper {
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
-
-  .chatBox {
-    width: calc(100vw - 3rem);
-    max-width: 350px;
-    bottom: 4rem;
-  }
-
-  .chatBoxMessageList {
-    height: 300px;
-  }
-
   .chatBoxButton {
     width: 3rem;
     height: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
-  .chatBoxSubmitButtonRating {
-    font-size: 0.9rem !important;
-    padding: 0.7rem !important;
+  .chatBox {
+    width: 280px;
+    height: 400px;
+    bottom: 4.5rem;
+  }
+  .chatBoxMessage {
+    font-size: 0.85rem;
+    padding: 0.7rem;
   }
   .chatBoxInput {
-    max-height: 2.2rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
   }
-
-  .chatBoxSendButton {
-    height: 2.2rem;
-    width: 2.2rem;
+  .star span {
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .chatBoxButton {
-    height: 3rem !important;
-    width: 3rem !important;
-  }
   .chatBoxWrapper {
-    bottom: 0.5rem !important;
-    right: 0.5rem !important;
+    bottom: 1rem;
+    right: 1rem;
   }
-
   .chatBox {
-    width: calc(100vw - 1.5rem) !important;
-    bottom: 4rem !important;
+    width: calc(100vw - 2rem);
+    right: -1rem;
+    height: 380px;
+    bottom: 4rem;
   }
-
-  .chatBoxMessageList {
-    height: 310px !important;
-  }
-
   .chatBoxMessage {
-    padding: 0.7rem !important;
-    font-size: 0.85rem !important;
+    font-size: 0.8rem;
   }
-
   .chatBoxInput {
-    padding: 0.1rem 0.5rem !important;
-    font-size: 0.7rem !important;
+    font-size: 0.8rem;
   }
-
-  .chatBoxSendButton {
-    width: 2rem !important;
-    height: 2rem !important;
-  }
-  .chatBoxMessageList {
-    height: 320px !important;
-  }
-
   .star span {
     font-size: 1.2rem;
-    margin: 0 0.1rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-  .chatBoxSubmitButtonRating {
-    font-size: 0.7rem !important;
-    padding: 0.65rem !important;
   }
 }
 
-@media (max-width: 2560px) {
-  .chatBoxButton {
-    width: 5.5rem;
-    height: 5.5rem;
-    font-size: 2.3rem;
-  }
-  .chatBox {
-    bottom: 7rem !important;
-    height: 45rem !important;
-    width: 30rem;
-  }
-  .chatBoxMessageList {
-    height: 480px;
-  }
-  .chatBoxSubmitButtonRating {
-    font-size: 1rem !important;
-    padding: 1rem !important;
-  }
-  .chatBoxInput {
-    max-height: 70px;
-  }
-  .chatBoxSendButton {
-    height: 3rem;
-    width: 3rem;
-    font-size: 1rem;
-  }
-  .chatBoxMessageList {
-    height: 500px !important;
-  }
-}
-/* Adjust responsive breakpoints */
-@media (max-width: 1884px) {
-  .chatBoxButton {
-    width: 4.5rem;
-    height: 4.5rem;
-    font-size: 1.5rem;
-  }
-  .chatBox {
-    bottom: 5rem !important;
-    height: 40rem !important;
-    width: 25rem;
-  }
-  .chatBoxMessageList {
-    height: 450px !important;
+@media (max-width: 320px) {
+  .categories {
+    padding: 3rem 0.8rem;
   }
 
-  .chatBoxSubmitButtonRating {
-    font-size: 0.8rem !important;
-    padding: 0.7rem !important;
-  }
-}
-
-/* Adjust responsive breakpoints */
-@media (max-width: 1440px) {
-  .chatBoxButton {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.5rem;
-  }
-  .chatBox {
-    bottom: 4rem !important;
-    max-height: 30rem !important;
-    max-width: 320px !important;
-  }
-  .chatBoxSendButton {
-    height: 2rem !important;
-    width: 2rem !important;
-  }
-  .chatBoxMessageList {
-    height: 290px !important;
-  }
-  .chatBoxSubmitButtonRating {
-    font-size: 0.8rem !important;
-    padding: 0.7rem !important;
+  .categoryGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
