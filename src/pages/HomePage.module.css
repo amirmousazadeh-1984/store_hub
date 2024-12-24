@@ -104,12 +104,20 @@
 }
 
 /* Features Section */
+.featuresWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
 .features {
+  width: 100%;
+  max-width: 1400px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
-  padding: 6rem 4rem;
-  position: relative;
+  padding: 6rem 1rem;
 }
 
 .featureCard {
@@ -119,8 +127,6 @@
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .featureCard::before {
@@ -148,7 +154,6 @@
   font-size: 3rem;
   color: var(--color-btn-main);
   margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
 }
 
 .featureCard:hover .featureIcon {
@@ -170,10 +175,10 @@
 
 /* Categories Section */
 .categories {
-  padding: 6rem 2rem;
-  position: relative;
   width: 100%;
-  max-width: 100vw;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
 }
 
 .categories h2 {
@@ -182,8 +187,6 @@
   margin-bottom: 3rem;
   color: var(--color-grey-900);
   font-weight: 800;
-  position: relative;
-  padding-bottom: 1rem;
 }
 
 .categories h2::after {
@@ -202,9 +205,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  width: 100%;
 }
 
 .categoryCard {
@@ -214,7 +215,6 @@
   background-position: center;
   position: relative;
   overflow: hidden;
-  /* cursor: pointer; */
   transition: all 0.4s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -249,18 +249,12 @@
 
 .categoryCard h3 {
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 20px;
+  left: 20px;
   color: white;
-  font-size: 1.8rem;
-  font-weight: 700;
-  z-index: 1;
-  transition: all 0.3s ease;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.categoryCard:hover h3 {
-  transform: translateY(-10px);
+  font-size: 1.5rem;
+  font-weight: 600;
+  z-index: 2;
 }
 
 /* Chat Box Base Styles */
@@ -596,5 +590,107 @@
   .categoryGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .features {
+    padding: 4rem 2rem;
+  }
+  
+  .categories {
+    padding: 4rem 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .features {
+    padding: 3rem 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .featureCard {
+    padding: 1.5rem;
+  }
+  
+  .categories {
+    padding: 3rem 1rem;
+  }
+  
+  .categoryGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .categories h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .categoryCard {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .features {
+    padding: 2rem 1rem;
+  }
+  
+  .categories {
+    padding: 2rem 1rem;
+  }
+  
+  .categoryCard {
+    height: 200px;
+  }
+  
+  .categoryCard h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .featuresWrapper {
+    padding: 0;
+  }
+  
+  .features {
+    width: 90%;
+    max-width: 340px;
+    padding: 2rem 0;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .categories {
+    width: 90%;
+    max-width: 340px;
+    padding: 2rem 0;
+  }
+
+  .categoryGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .featuresWrapper {
+    padding: 0;
+  }
+  
+  .features {
+    width: 85%;
+    max-width: 280px;
+    padding: 1.5rem 0;
+  }
+
+  .categories {
+    width: 85%;
+    max-width: 280px;
+    padding: 1.5rem 0;
   }
 }

@@ -74,15 +74,17 @@ function HomePage() {
         </div>
       </div>
 
-      <section className={styles.features}>
-        {features.map((feature, index) => (
-          <div key={index} className={styles.featureCard}>
-            <div className={styles.featureIcon}>{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
-        ))}
-      </section>
+      <div className={styles.featuresWrapper}>
+        <section className={styles.features}>
+          {features.map((feature, index) => (
+            <div key={index} className={styles.featureCard}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </section>
+      </div>
 
       <section className={styles.categories}>
         <h2>Popular Categories</h2>
